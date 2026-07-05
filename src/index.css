@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-[#f6f8fc] text-slate-800 antialiased;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  overflow-x: hidden;
+}
+
+html.dark body {
+  @apply bg-[#070a12] text-slate-200;
+}
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(120, 130, 160, 0.35);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(120, 130, 160, 0.55);
+  background-clip: content-box;
+}
+
+@layer components {
+  /* Glassmorphism card */
+  .glass {
+    @apply relative rounded-2xl border border-white/10 bg-white/60 backdrop-blur-xl shadow-[0_8px_40px_-12px_rgba(15,23,42,0.15)];
+  }
+  .dark .glass {
+    @apply border-white/[0.08] bg-white/[0.03] shadow-[0_8px_40px_-12px_rgba(0,0,0,0.6)];
+  }
+
+  .glass-hover {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:border-brand-400/40 hover:shadow-[0_18px_60px_-18px_rgba(51,99,255,0.45)];
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-black/5 bg-black/[0.04] px-2.5 py-1 text-xs font-medium text-slate-600;
+  }
+  .dark .chip {
+    @apply border-white/10 bg-white/[0.04] text-slate-300;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-brand-600 via-brand-500 to-accent-violet px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-brand-500/25 transition-all duration-300 hover:shadow-brand-500/40 hover:brightness-110 active:scale-[0.98];
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-black/10 bg-white/60 px-4 py-2 text-sm font-medium text-slate-700 backdrop-blur transition-all hover:bg-white active:scale-[0.98];
+  }
+  .dark .btn-ghost {
+    @apply border-white/10 bg-white/[0.04] text-slate-200 hover:bg-white/10;
+  }
+
+  .section-title {
+    @apply text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl;
+  }
+  .dark .section-title {
+    @apply text-white;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-brand-500 via-accent-violet to-accent-cyan bg-clip-text text-transparent;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .mask-fade-x {
+    -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+  }
+}
+
+/* Skeleton shimmer */
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background: rgba(120, 130, 160, 0.12);
+}
+.skeleton::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.18),
+    transparent
+  );
+  animation: shimmer 1.6s infinite;
+}
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* ---------- React Flow theme overrides ---------- */
+.react-flow__attribution {
+  display: none;
+}
+.react-flow__edge-path {
+  stroke-width: 2;
+}
+.rf-node {
+  border-radius: 14px;
+  padding: 12px 16px;
+  font-size: 12.5px;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.5);
+  min-width: 150px;
+  text-align: center;
+}

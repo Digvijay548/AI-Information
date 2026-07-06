@@ -700,7 +700,6 @@ export const domainKnowledge: DomainEntry[] = [
       "web application",
       "ui",
       "landing page",
-      "dashboard",
       "web dashboard"
     ],
     "category": "Frontend & Web UI",
@@ -1028,8 +1027,7 @@ export const domainKnowledge: DomainEntry[] = [
       "api",
       "graphql api",
       "microservice",
-      "web service",
-      "server"
+      "web service"
     ],
     "category": "Backend & Infrastructure",
     "icon": "⚙️",
@@ -1979,8 +1977,7 @@ export const domainKnowledge: DomainEntry[] = [
       "cryptocurrency",
       "nft",
       "smart contract",
-      "dapp",
-      "token"
+      "dapp"
     ],
     "category": "Blockchain & Decentralized Systems",
     "icon": "⛓️",
@@ -2949,13 +2946,13 @@ export const domainKnowledge: DomainEntry[] = [
       "threat intelligence",
       "crowdstrike",
       "wiz",
-      "security",
       "cybersecurity",
+      "cyber security",
       "penetration testing",
       "pentest",
       "firewall",
       "vulnerability scanner",
-      "soc"
+      "security platform"
     ],
     "category": "Security & Infrastructure",
     "icon": "🛡️",
@@ -3610,11 +3607,10 @@ export const domainKnowledge: DomainEntry[] = [
       "buy now pay later",
       "ecommerce",
       "e-commerce",
-      "shop",
-      "shopping",
-      "retail",
-      "online shopping",
-      "grocery app"
+      "online shop",
+      "shopping app",
+      "retail app",
+      "online shopping"
     ],
     "category": "Commerce & Retail",
     "icon": "🛒",
@@ -3916,13 +3912,13 @@ export const domainKnowledge: DomainEntry[] = [
       "cdn video delivery",
       "netflix clone",
       "mux",
-      "streaming",
       "video platform",
       "music streaming",
       "ott",
       "media platform",
-      "podcast",
-      "streaming service"
+      "streaming service",
+      "youtube clone",
+      "spotify clone"
     ],
     "category": "Media & Streaming Infrastructure",
     "icon": "🎬",
@@ -4252,15 +4248,14 @@ export const domainKnowledge: DomainEntry[] = [
       "bank",
       "banking",
       "banking app",
-      "finance",
-      "financial",
-      "payment",
-      "loan",
-      "trading",
+      "finance app",
+      "financial app",
+      "payment app",
+      "loan app",
+      "trading app",
       "stock trading",
       "crypto exchange",
-      "insurance",
-      "ledger"
+      "insurance app"
     ],
     "category": "Financial Technology & Payments",
     "icon": "💳",
@@ -4544,6 +4539,3306 @@ export const domainKnowledge: DomainEntry[] = [
       "Nubank",
       "Wise",
       "Adyen"
+    ]
+  },
+  {
+    "key": "social-network",
+    "label": "Social Network / Media",
+    "keywords": [
+      "instagram clone",
+      "tiktok clone",
+      "twitter clone",
+      "social network",
+      "social media app",
+      "news feed",
+      "activity feed",
+      "fan-out",
+      "feed ranking",
+      "follow graph",
+      "stories and reels",
+      "reddit clone",
+      "social media platform",
+      "timeline feed",
+      "social media",
+      "instagram",
+      "tiktok",
+      "stories",
+      "reels",
+      "social app",
+      "social platform"
+    ],
+    "category": "Social Network / Media Platform",
+    "icon": "📱",
+    "complexity": "Advanced",
+    "overview": {
+      "analogy": "Imagine a magazine that gets freshly re-printed just for you every single time you open it. When someone you follow posts a photo or a short video, a copy is quietly slipped into the mailboxes of all their followers. When you pull up your own edition, an invisible editor grabs everything waiting in your mailbox, adds the latest from the star creators you follow, arranges the most interesting pieces at the front based on what it knows you like, and hands the whole thing to you in under a second, then watches which pages you linger on so tomorrow's edition is even better. That constant loop of posting, delivering, ranking and learning, multiplied by billions of people, is what a social network is.",
+      "whoUsesIt": "Consumer social apps (Instagram, TikTok, X/Twitter, Reddit, Pinterest, Snap) and their hundreds of millions of everyday users and creators, plus advertisers buying access to engaged audiences, and any product that embeds a social feed, follow graph or direct messaging, from dating apps and marketplaces to community and creator platforms.",
+      "businessValue": "Attention is the product. The whole system exists to maximize time-in-app and engagement, which is then monetized through targeted advertising, promoted posts, creator tools and subscriptions. A better-ranked feed, faster media, smarter recommendations and stickier notifications translate directly into more sessions, more ad impressions and more revenue, while efficient fan-out and caching keep the enormous read traffic affordable.",
+      "howItWorks": [
+        {
+          "title": "Create & post",
+          "text": "Someone uploads a photo, video, story or text. It is checked, its media is processed into fast-loading versions, and the post is saved as the author's record."
+        },
+        {
+          "title": "Fan-out & distribute",
+          "text": "The system figures out who should see it and delivers it, pushing the post into millions of followers' personal timelines, or, for huge accounts, saving it to fetch on demand."
+        },
+        {
+          "title": "Assemble the feed",
+          "text": "When you open the app, it gathers everything waiting in your timeline plus fresh posts from big accounts you follow into one candidate list."
+        },
+        {
+          "title": "Rank & personalize",
+          "text": "A machine-learning model reorders those candidates by how likely you are to like, comment, watch or share each one, so the best stuff is at the top."
+        },
+        {
+          "title": "Engage & learn",
+          "text": "Your likes, comments, watch-time and skips flow back as signals that retrain the recommendation models and trigger notifications to the people you interacted with."
+        }
+      ],
+      "features": [
+        "Personalized, ML-ranked feed with recommendation-driven content discovery",
+        "Hybrid push/pull fan-out timeline delivery at hundreds of millions of users scale",
+        "Photo, video, stories and reels media pipeline with transcoding and thumbnails",
+        "Social graph: follows, blocks, mutuals, close friends and friend suggestions",
+        "Realtime direct messages, push notifications, likes, comments and reactions",
+        "Automated content moderation and trust & safety across posts, comments and DMs"
+      ]
+    },
+    "architecture": {
+      "pattern": "Hybrid fan-out timeline with event-driven media pipeline and ML feed ranking",
+      "whyPattern": "A social feed is overwhelmingly read-heavy: for every post created, that content is viewed thousands or millions of times, so the design optimizes reads. New posts are pre-delivered (fanned out on write) into each follower's materialized timeline so opening the app is a cheap cache read instead of an expensive query across everyone you follow. But pushing a celebrity's post to 100M inboxes would be a write storm, so high-follower accounts are handled the opposite way, fetched on read and merged in at query time, giving a hybrid. Media processing, notifications, counters and recommendation signals are all slow or bursty side-effects, so they are decoupled behind an event bus and run asynchronously. This lets posting, fan-out, media transcoding and ranking each scale and fail independently, so a viral moment never blocks the whole system.",
+      "components": [
+        {
+          "name": "Mobile & Web Clients",
+          "icon": "📱",
+          "plain": "The apps on your phone and the website where you scroll the feed, watch reels and stories, tap like and comment, and send direct messages.",
+          "responsibility": "Renders an infinite-scroll ranked feed with view recycling and media prefetching, plays adaptive video (reels/shorts) via MSE/ExoPlayer/AVPlayer, handles camera capture and resumable upload for posts and stories, applies optimistic UI for likes/comments, holds a persistent socket for realtime DMs and notifications, and batches impression/interaction telemetry.",
+          "tech": "React Native, Swift/SwiftUI, Kotlin/Jetpack Compose, Next.js, Relay/Apollo GraphQL, ExoPlayer/AVPlayer",
+          "kind": "client"
+        },
+        {
+          "name": "Edge / CDN & GraphQL Gateway",
+          "icon": "🌐",
+          "plain": "The worldwide network of nearby servers plus the single front door that checks you are logged in, serves cached images and video fast, and routes every tap to the right service.",
+          "responsibility": "Terminates TLS at edge PoPs, caches and delivers images and video segments via signed URLs, runs a GraphQL/BFF gateway that authenticates sessions (OAuth/JWT), enforces rate limiting and abuse throttling, and resolves a single client query by fanning out to backend services over gRPC/Thrift.",
+          "tech": "Cloudflare, Amazon CloudFront, Akamai, Envoy, Meta GraphQL/Relay, Apollo Router",
+          "kind": "edge"
+        },
+        {
+          "name": "Media Ingest & Processing Pipeline",
+          "icon": "🎞️",
+          "plain": "A factory that takes each uploaded photo or video and turns it into fast-loading versions at multiple sizes with thumbnails, so it plays instantly for everyone.",
+          "responsibility": "Accepts resumable uploads to object storage, runs format/safety checks, transcodes video into an adaptive-bitrate ladder (H.264/HEVC/AV1) and generates image variants, thumbnails and captions on FFmpeg worker fleets, computes perceptual hashes for dedup and moderation, and publishes a media-ready event.",
+          "tech": "FFmpeg, AWS Elemental MediaConvert, Facebook Haystack/f4, Amazon S3, Kafka, Kubernetes",
+          "kind": "service"
+        },
+        {
+          "name": "Feed / Timeline Fan-out Service",
+          "icon": "📬",
+          "plain": "The heart of the system: when you post, this decides whose feed it belongs in and delivers it, pushing it into millions of followers' timelines, or, for star accounts, fetching it only when fans open the app.",
+          "responsibility": "Implements hybrid fan-out: fan-out-on-write pushes new post IDs into followers' materialized timeline inboxes (Redis sorted sets / Cassandra lists) for normal accounts, while high-follower accounts are fanned-out-on-read and merged at query time; deduplicates, applies visibility/block rules, and produces the candidate post set for ranking.",
+          "tech": "Apache Kafka, Redis, Apache Cassandra/HBase, Go/Java services",
+          "kind": "service"
+        },
+        {
+          "name": "Realtime Messaging & Notifications",
+          "icon": "💬",
+          "plain": "The part that delivers your DMs the instant they are sent and pings people's phones about likes, comments, follows and mentions.",
+          "responsibility": "Maintains persistent WebSocket/MQTT connections at massive fan-in, routes 1:1 and group DMs with delivery/read receipts and optional end-to-end encryption, and drives a notification pipeline that dedupes, batches and pushes via APNs/FCM alongside an in-app notification inbox.",
+          "tech": "MQTT, WebSocket, Erlang/Elixir, Go, APNs/FCM, Redis, Kafka",
+          "kind": "service"
+        },
+        {
+          "name": "Social Graph Store",
+          "icon": "🕸️",
+          "plain": "The giant address book of who follows whom, who is blocked and who is friends, the map of every connection on the network.",
+          "responsibility": "Stores and serves follow/block/mute edges as a distributed graph with read-through caching for extreme-fan-out lookups (followers-of, following-of), powers mutual and friend suggestions, and answers 'can A see B' authorization checks in single-digit milliseconds.",
+          "tech": "Meta TAO, sharded MySQL/Vitess, Redis, Neo4j/JanusGraph",
+          "kind": "data"
+        },
+        {
+          "name": "Timeline & Object Cache",
+          "icon": "⚡",
+          "plain": "A super-fast memory that keeps each person's ready-made feed plus the most popular posts, profiles and counts, so scrolling feels instant.",
+          "responsibility": "Holds materialized per-user timeline inboxes (lists/sorted sets), hot post and profile objects, and like/comment/view counters; absorbs the read-heavy feed load, serves sub-millisecond hits, and shields the databases from thundering herds on viral content.",
+          "tech": "Redis, Memcached (Meta mcrouter), Cassandra",
+          "kind": "data"
+        },
+        {
+          "name": "Feed Ranking & Recsys",
+          "icon": "🤖",
+          "plain": "The personal editor that decides the order of your feed and what to recommend next, learning from what you and similar people watch, like and skip.",
+          "responsibility": "Runs a two-stage recommender: candidate retrieval via two-tower/embedding models with Faiss ANN over the follow graph and interest signals, then multi-task deep ranking that predicts like/comment/watch-time/share using a feature store of real-time and batch features, all under continuous online A/B experimentation.",
+          "tech": "PyTorch, TensorFlow, Meta DLRM, Faiss, Feast feature store, Apache Spark",
+          "kind": "ai"
+        },
+        {
+          "name": "Trust & Safety / Moderation",
+          "icon": "🛡️",
+          "plain": "The automated guard that scans posts, comments and messages for nudity, violence, spam and hate, removing or flagging bad content before it spreads.",
+          "responsibility": "Runs computer-vision image/video classifiers and NLP text models over uploads and interactions in near-real-time, matches PhotoDNA/perceptual hashes against known-bad content, scores spam and abuse, routes borderline cases to human reviewers, and enforces takedowns and rate limits.",
+          "tech": "PyTorch/TensorFlow CV+NLP, PhotoDNA, Perspective API, human-review tooling",
+          "kind": "ai"
+        }
+      ],
+      "pros": [
+        "Pre-computed timelines make opening the feed a cheap cache read, so it loads instantly even for huge follow lists",
+        "Fan-out, media processing, ranking and notifications scale and fail independently behind an event bus",
+        "The hybrid push/pull model handles both ordinary users and 100M-follower celebrities without write storms",
+        "Aggressive caching and materialized feeds keep an overwhelmingly read-heavy workload affordable at scale"
+      ],
+      "cons": [
+        "Fan-out-on-write amplifies every post into millions of writes, consuming large amounts of storage and I/O",
+        "Keeping timeline caches, counters and the graph consistent across services is hard and only eventually consistent",
+        "The ranking stack (feature store, retrieval, deep models, experimentation) is complex and expensive to build and operate",
+        "Viral content and celebrity posts create hotspots and thundering-herd load that need careful capping and approximation"
+      ]
+    },
+    "dataFlow": {
+      "analogy": "Picture a magazine re-printed uniquely for every reader. When a writer submits an article (your post), copies are slipped into the mailboxes of everyone who subscribes to them. When you open your personal edition, an editor sweeps up everything in your mailbox, adds the newest pieces from the star writers you follow, arranges the most interesting ones at the front just for you, and hands it over, while quietly noting which pages you lingered on to shape tomorrow's edition.",
+      "steps": [
+        {
+          "title": "Create & upload the post",
+          "plain": "You take a photo or video, add a caption, and hit share. The app sends it up and immediately shows it on your profile.",
+          "detail": "The client uploads media resumably to object storage and sends the post metadata through the GraphQL gateway; the post service validates it, writes the author record to the primary store, and returns quickly with an optimistic response.",
+          "time": "~100-400 ms to accept"
+        },
+        {
+          "title": "Process the media",
+          "plain": "Behind the scenes the photo or video is converted into several fast-loading sizes with thumbnails.",
+          "detail": "FFmpeg workers transcode video into an ABR ladder and generate image renditions, thumbnails and perceptual hashes; when done a media-ready event is published so the post can be delivered with fast, CDN-backed URLs.",
+          "time": "seconds (parallelized)"
+        },
+        {
+          "title": "Persist & fan out",
+          "plain": "The system figures out everyone who follows you and drops the post into their personal feeds, or saves it for later if you are a celebrity.",
+          "detail": "A fan-out job consumes the post event, reads the follower list from the social graph, and pushes the post ID into each follower's timeline inbox (Redis/Cassandra); accounts above a follower threshold are skipped and served fan-out-on-read instead.",
+          "time": "async, seconds to minutes"
+        },
+        {
+          "title": "Follower opens the app",
+          "plain": "A follower pulls to refresh; the app checks who they are and asks for their feed.",
+          "detail": "The request hits the edge/CDN and GraphQL gateway, which validates the session token, applies rate limits, and routes a feed query to the timeline service over gRPC.",
+          "time": "~10-50 ms"
+        },
+        {
+          "title": "Assemble the timeline",
+          "plain": "The system grabs everything waiting in that person's feed plus the latest from the big accounts they follow.",
+          "detail": "The timeline service reads the materialized inbox from cache and merges it with pull-based candidates from followed celebrity accounts, dedupes, and applies block/visibility rules to build the candidate set.",
+          "time": "~5-30 ms"
+        },
+        {
+          "title": "Rank & personalize",
+          "plain": "A model reorders the candidates so the posts you are most likely to enjoy appear first.",
+          "detail": "Candidate retrieval (two-tower + Faiss ANN) and multi-task deep ranking score each post on predicted like/comment/watch-time/share using real-time and batch features from the feature store, then sort and diversify.",
+          "time": "~50-150 ms"
+        },
+        {
+          "title": "Hydrate, deliver & learn",
+          "plain": "The finished feed comes back with images and video ready to play, notifications ping the right people, and your activity is recorded to improve future feeds.",
+          "detail": "Post objects are hydrated from cache with CDN media URLs and counts; the response streams back; interaction/impression events flow to Kafka to update counters, trigger APNs/FCM notifications, and retrain recommendation models.",
+          "time": "~20-80 ms + async"
+        }
+      ],
+      "failureHandling": [
+        "If fan-out falls behind, the feed falls back to read-time (pull) assembly so posts still appear, just computed on demand rather than pre-delivered.",
+        "Celebrity and viral posts are capped and served fan-out-on-read to avoid write storms, while like/view counters use approximate counting and async aggregation to prevent hotspots.",
+        "If the ranking service is slow or unavailable, the feed degrades gracefully to a reverse-chronological timeline served straight from cache.",
+        "Realtime DMs and notifications retry with offline queues and push fallback; media that fails to transcode is retried idempotently and the post is held until a media-ready event fires.",
+        "Every interaction event is buffered in Kafka with at-least-once delivery and dead-letter queues, so a recsys or analytics outage never blocks posting or scrolling."
+      ]
+    },
+    "stack": {
+      "frontend": [
+        {
+          "name": "React Native",
+          "why": "Ships one codebase to iOS and Android for feed, camera and DMs; used by Instagram and Discord."
+        },
+        {
+          "name": "Swift/SwiftUI & Kotlin/Compose",
+          "why": "Native modules for smooth 60fps scrolling, camera capture and hardware-accelerated video."
+        },
+        {
+          "name": "Next.js / React",
+          "why": "Server-rendered, SEO-friendly web app for profiles, posts and the web feed."
+        },
+        {
+          "name": "Relay / Apollo GraphQL",
+          "why": "Lets a single query fetch exactly the nested feed data a screen needs, with client caching."
+        },
+        {
+          "name": "ExoPlayer / AVPlayer",
+          "why": "Battery-efficient adaptive-bitrate playback for reels and short-form video."
+        }
+      ],
+      "backend": [
+        {
+          "name": "Go / Java",
+          "why": "High-concurrency services for the timeline, fan-out and graph paths where latency matters."
+        },
+        {
+          "name": "GraphQL Federation + gRPC/Thrift",
+          "why": "GraphQL for clients; fast binary RPC between internal microservices."
+        },
+        {
+          "name": "Apache Kafka",
+          "why": "Event backbone that decouples fan-out, media, notifications, counters and recsys signals."
+        },
+        {
+          "name": "Node.js",
+          "why": "Productive for BFF/gateway layers and realtime notification services."
+        },
+        {
+          "name": "Elasticsearch",
+          "why": "Full-text search over users, hashtags and posts, plus explore/discovery indexing."
+        }
+      ],
+      "database": [
+        {
+          "name": "Apache Cassandra",
+          "why": "Write-heavy, horizontally scalable store for timelines, DMs and activity; Instagram and Discord use it."
+        },
+        {
+          "name": "Sharded MySQL / PostgreSQL (Vitess)",
+          "why": "Source of truth for users, posts and relationships, sharded for scale (Instagram runs sharded Postgres)."
+        },
+        {
+          "name": "Redis",
+          "why": "Materialized timeline inboxes (sorted sets), hot objects, counters and session cache."
+        },
+        {
+          "name": "Meta TAO / graph store",
+          "why": "Purpose-built social graph layer for extreme-fan-out follow/block edge lookups."
+        },
+        {
+          "name": "Amazon S3 / Haystack",
+          "why": "Durable, cheap blob storage for the billions of photos and video segments."
+        }
+      ],
+      "infra": [
+        {
+          "name": "Kubernetes",
+          "why": "Orchestrates stateless services and elastic FFmpeg transcode worker fleets."
+        },
+        {
+          "name": "CDN (Cloudflare / CloudFront / Akamai)",
+          "why": "Caches images and video segments at the edge so media loads fast worldwide and origin stays calm."
+        },
+        {
+          "name": "FFmpeg on worker fleets",
+          "why": "The workhorse for transcoding uploads into multi-quality photo and video renditions."
+        },
+        {
+          "name": "Memcached (mcrouter)",
+          "why": "Meta-scale distributed object cache that absorbs the enormous read fan-out."
+        },
+        {
+          "name": "Prometheus + Grafana + OpenTelemetry",
+          "why": "Metrics, traces and alerting across a large fleet of services and pipelines."
+        }
+      ],
+      "ai": [
+        {
+          "name": "Multi-task deep ranking (DLRM)",
+          "why": "Predicts multiple engagement outcomes (like, comment, watch-time, share) to order the feed."
+        },
+        {
+          "name": "Two-tower retrieval + Faiss",
+          "why": "Generates and nearest-neighbor-searches candidate posts from the graph and interest embeddings."
+        },
+        {
+          "name": "PyTorch / TensorFlow",
+          "why": "Trains and serves the ranking, retrieval and moderation models at scale."
+        },
+        {
+          "name": "Feature Store (Feast)",
+          "why": "Serves consistent real-time and batch features to training and low-latency inference."
+        },
+        {
+          "name": "CV/NLP moderation + PhotoDNA",
+          "why": "Detects nudity, violence, spam and hate, and matches known-bad media hashes."
+        }
+      ]
+    },
+    "tables": [
+      "users - profile & account: id, handle, display name, bio, avatar, follower/following counts, privacy (public/private), verified flag",
+      "posts - content records: id, author id, caption, media refs, type (photo/video/reel/story), visibility, geo, created_at",
+      "media_assets - per-post files: id, post ref, type, transcoded renditions/URLs, thumbnail, width/height/duration, perceptual hash",
+      "follows - social graph edges: follower id, followee id, state (active/pending/blocked/muted), created_at (sharded by follower)",
+      "feed_entries - fan-out timeline inbox: user id, post id, rank/score, source (fanout/celebrity), inserted_at (per-user materialized list)",
+      "likes - reactions: user id, target id (post/comment), type, created_at (drives counters and ranking signals)",
+      "comments - threaded replies: id, post id, author id, parent id, text, like_count, created_at",
+      "messages - direct messages: thread id, sender id, body/media ref, delivery & read state, encrypted flag, sent_at"
+    ],
+    "companies": [
+      "Meta (Instagram)",
+      "ByteDance / TikTok",
+      "X (Twitter)",
+      "Reddit",
+      "Pinterest",
+      "Snap"
+    ]
+  },
+  {
+    "key": "messaging-chat",
+    "label": "Messaging / Chat",
+    "keywords": [
+      "whatsapp clone",
+      "slack clone",
+      "discord clone",
+      "telegram clone",
+      "real-time chat app",
+      "instant messaging",
+      "group chat",
+      "end-to-end encryption",
+      "websocket chat",
+      "presence and typing indicators",
+      "read receipts",
+      "signal protocol",
+      "push notifications chat",
+      "messaging backend",
+      "chat app",
+      "chat application",
+      "messaging app",
+      "messaging",
+      "real-time chat",
+      "direct message"
+    ],
+    "category": "Communication & Collaboration",
+    "icon": "💬",
+    "complexity": "Advanced",
+    "overview": {
+      "analogy": "A chat app is like a global postal service that runs at the speed of light: you drop a sealed envelope in a slot and a split second later it's in your friend's hands anywhere on Earth — and if they're not home, it waits safely in their mailbox while their doorbell rings. The 'sealed' part matters: with end-to-end encryption, not even the postal service can peek inside.",
+      "whoUsesIt": "Billions of consumers use WhatsApp, Telegram, and Signal for personal 1:1 and group chat; workplace teams use Slack and Teams to collaborate; gaming and creator communities live on Discord for voice and text; and countless businesses embed chat for customer support, marketplaces, and in-app messaging.",
+      "businessValue": "Messaging is the stickiest product category on the internet — daily active use, powerful network effects, and the anchor for platforms that later layer on calls, payments, communities, and commerce. Low latency and reliability directly drive retention, and privacy through end-to-end encryption is increasingly both a competitive differentiator and a regulatory requirement.",
+      "howItWorks": [
+        {
+          "title": "Always-on connections",
+          "text": "Instead of the app repeatedly asking 'any new messages?', it holds a single persistent WebSocket or MQTT connection so messages are pushed the instant they arrive."
+        },
+        {
+          "title": "Store and forward",
+          "text": "Every message is written to a durable store and to each recipient's mailbox, so it survives offline devices, crashes, and syncing across multiple devices."
+        },
+        {
+          "title": "Fan-out to many",
+          "text": "A dedicated service copies one message to everyone it's meant for — a single friend or a group of thousands — and keeps track of who has received it."
+        },
+        {
+          "title": "Sealed end-to-end",
+          "text": "Messages are encrypted on your device using the Signal protocol; servers relay ciphertext they cannot read, and the private keys live only on user devices."
+        },
+        {
+          "title": "Presence, receipts & push",
+          "text": "Lightweight signals show who's online and typing, check-marks confirm delivery and reads, and push notifications wake sleeping phones so nothing is missed."
+        }
+      ],
+      "features": [
+        "1:1 and group chat with threads, mentions, and reactions",
+        "Real-time presence, last-seen, and typing indicators",
+        "Delivery and read receipts (single, double, and blue checks)",
+        "End-to-end encryption with forward secrecy (Signal protocol)",
+        "Rich media: photos, video, voice notes, files, and calls",
+        "Push notifications, offline queueing, and multi-device sync"
+      ]
+    },
+    "architecture": {
+      "pattern": "Event-driven WebSocket fan-out with durable store-and-forward",
+      "whyPattern": "Chat demands instant, bidirectional delivery to devices that constantly connect and disconnect, plus a permanent history and reliability even when recipients are offline. A persistent-connection edge gives sub-second push; a durable event bus and per-user mailboxes guarantee delivery and ordering; and end-to-end encryption keeps servers as blind relays. Decoupling ingestion from fan-out, push, and media lets each part scale to billions of messages a day independently.",
+      "components": [
+        {
+          "name": "Chat Client & Encryption SDK",
+          "icon": "📱",
+          "plain": "The app on your phone, computer, or browser where you type, see messages, and hear the ding. It also locks each message in a sealed envelope before it ever leaves your device.",
+          "responsibility": "Native (Swift/Kotlin), web, and Electron clients render the chat UI, hold a persistent WebSocket/MQTT connection, encrypt/decrypt with libsignal (Double Ratchet), cache history in a local encrypted SQLite database, and manage optimistic sends, retries, and message ordering via sequence numbers.",
+          "tech": "Swift/SwiftUI, Kotlin/Compose, React/TS, Electron, libsignal, SQLite",
+          "kind": "client"
+        },
+        {
+          "name": "Connection Gateway (WebSocket/MQTT Edge)",
+          "icon": "🔌",
+          "plain": "The always-open phone line between your app and the service. It keeps a live connection so messages arrive the instant they're sent, without your app constantly asking 'anything new?'",
+          "responsibility": "Terminates millions of long-lived WebSocket/MQTT/TCP connections per fleet, authenticates sessions, maintains a connection registry (user to node) in Redis, runs heartbeats/keepalives, handles reconnect-and-resume, and bridges client frames to the internal event bus. Built for massive concurrency on Erlang/Elixir or Go.",
+          "tech": "Elixir/Phoenix, Erlang, Go, Envoy, MQTT, WebSocket, Redis",
+          "kind": "edge"
+        },
+        {
+          "name": "Presence & Typing Service",
+          "icon": "🟢",
+          "plain": "The part that shows the green 'online' dot, 'last seen', and the '… typing' bubble, updating them the moment someone opens or closes the app.",
+          "responsibility": "Tracks online/away/last-seen state and ephemeral typing signals in Redis with short TTLs, fanning them via pub/sub only to people in shared conversations. Debounces and rate-limits typing events and reconciles presence on connect/disconnect signals from the gateway.",
+          "tech": "Redis pub/sub, Go, gRPC, TTL keys",
+          "kind": "service"
+        },
+        {
+          "name": "Message Fan-out & Delivery Service",
+          "icon": "📤",
+          "plain": "The sorting room that takes one message and makes sure it reaches every person it's meant for — one friend, or a group of thousands.",
+          "responsibility": "Resolves recipients and their devices, applies ordering and idempotency by message ID, writes to each recipient's inbox partition (fan-out-on-write for groups), routes to online users via their gateway node, enqueues push for offline devices, and propagates delivery/read receipts.",
+          "tech": "Go/Rust, Kafka consumers, gRPC, ScyllaDB",
+          "kind": "service"
+        },
+        {
+          "name": "Event Bus & Stream Backbone",
+          "icon": "🚌",
+          "plain": "The conveyor belt inside the system that reliably carries every message and event between the different rooms, so nothing gets dropped even under huge load.",
+          "responsibility": "A durable, partitioned log (Kafka/Pulsar) decouples ingestion from fan-out, push, moderation, and analytics consumers. Provides per-partition ordering (e.g., by conversation_id), replayable offsets for crash recovery, and backpressure absorption during traffic spikes.",
+          "tech": "Apache Kafka, Apache Pulsar, partition by conversation_id",
+          "kind": "service"
+        },
+        {
+          "name": "E2EE Key Directory (Signal Protocol)",
+          "icon": "🔐",
+          "plain": "The trusted address book that hands out each person's public 'lock' so others can seal messages only that person can open — the service itself never sees the contents.",
+          "responsibility": "Stores per-device identity keys, signed prekeys, and one-time prekeys; serves prekey bundles for X3DH session setup; supports multi-device key sync, key-change/safety-number verification, and sealed-sender metadata protection. The server holds ciphertext only, never plaintext or private keys.",
+          "tech": "libsignal, X3DH, Double Ratchet, Rust, PostgreSQL",
+          "kind": "service"
+        },
+        {
+          "name": "Message Store (Wide-Column History)",
+          "icon": "🗄️",
+          "plain": "The giant filing cabinet that keeps your chat history so you can scroll back months later and pick up right where you left off on a new device.",
+          "responsibility": "Stores trillions of encrypted messages in a wide-column store (ScyllaDB/Cassandra) partitioned by conversation and bucketed by time for efficient range scans, with per-user inbox tables for sync. Tuned for high write throughput, tombstones for deletes, and TTLs for disappearing messages.",
+          "tech": "ScyllaDB, Apache Cassandra, time-bucketing, LSM storage",
+          "kind": "data"
+        },
+        {
+          "name": "Media Storage, Transcoding & CDN",
+          "icon": "🖼️",
+          "plain": "Where photos, videos, and voice notes are stored and quickly delivered — shrunk to the right size with a preview thumbnail for your connection.",
+          "responsibility": "Client-encrypted blobs are uploaded to object storage (S3/GCS); an async pipeline generates thumbnails, transcodes video/voice, and hash-scans for abusive content; signed, expiring URLs are served from CDN edges. Supports resumable uploads and streaming of large files.",
+          "tech": "AWS S3/GCS, Cloudflare CDN, FFmpeg, signed URLs",
+          "kind": "data"
+        },
+        {
+          "name": "Push Notification Gateway (APNs/FCM)",
+          "icon": "🔔",
+          "plain": "The service that lights up your lock screen with 'New message' even when the app is closed, so you never miss anything.",
+          "responsibility": "Bridges to Apple APNs, Google FCM, and web push, managing device tokens, priority/collapse keys, and silent data pushes that wake the app to sync. Handles badge counts, E2EE-friendly payloads decrypted on-device, token rotation, and delivery-feedback processing.",
+          "tech": "APNs, FCM, Web Push (VAPID), token management",
+          "kind": "external"
+        }
+      ],
+      "pros": [
+        "Scales to millions of concurrent persistent connections with sub-second, instant delivery",
+        "Durable store-and-forward means no message is lost even when recipients are offline or switch devices",
+        "Decoupled fan-out over an event bus lets presence, push, media, and moderation scale independently",
+        "End-to-end encryption keeps servers as blind relays, minimizing privacy and breach exposure"
+      ],
+      "cons": [
+        "Stateful long-lived connections are hard to load-balance and deploy (sticky routing, graceful draining)",
+        "E2EE complicates server-side features like full-text search, moderation, and multi-device history sync",
+        "Group fan-out amplifies load — one send becomes N writes and deliveries, straining hot conversations",
+        "Exactly-once semantics, strict ordering, and dedup across reconnects are genuinely hard to get right"
+      ]
+    },
+    "dataFlow": {
+      "analogy": "Sending a chat message is like dropping a sealed, addressed letter into a pneumatic tube that instantly whisks it to a sorting room. The room either hand-delivers it to the recipient standing right there, or drops it in their locked mailbox and rings their doorbell — and later sends back a slip confirming they got it and read it.",
+      "steps": [
+        {
+          "title": "Compose & Encrypt on Device",
+          "plain": "You hit send. Before anything leaves your phone, the app seals the message in a digital envelope only the recipient can open.",
+          "detail": "The client serializes the message and encrypts it with the current Double Ratchet session key (deriving a fresh key per message for forward secrecy), assigns a unique message ID plus sequence number, and stores it locally as 'pending'.",
+          "time": "~2-5 ms"
+        },
+        {
+          "title": "Push Over Persistent Connection",
+          "plain": "The sealed message travels down the always-open line to the nearest data center.",
+          "detail": "The ciphertext frame is sent over the existing WebSocket/MQTT connection to the closest Connection Gateway; TLS protects transport while the gateway validates the session token and applies rate limits.",
+          "time": "~20-50 ms"
+        },
+        {
+          "title": "Ingest to Event Bus",
+          "plain": "The message is placed on an internal conveyor belt that guarantees it won't get lost.",
+          "detail": "The gateway publishes the event to Kafka partitioned by conversation_id for durable, ordered, replayable delivery, decoupling the sender's connection from downstream processing, then ACKs the client as 'sent'.",
+          "time": "~5-10 ms"
+        },
+        {
+          "title": "Fan-out & Persist",
+          "plain": "A sorting service figures out everyone who should get it and files a copy in history.",
+          "detail": "The fan-out service resolves recipient devices, writes the message to the wide-column store and each recipient's inbox partition (fan-out-on-write for groups), dedupes by message ID, and checks who is online via the connection registry.",
+          "time": "~15-30 ms"
+        },
+        {
+          "title": "Deliver to Online Recipients",
+          "plain": "If your friend has the app open, the message pops up on their screen right away.",
+          "detail": "For online devices, the delivery service routes the ciphertext to the gateway node holding that user's connection (via the Redis registry/pub-sub) and pushes it down the socket; the client decrypts and renders it.",
+          "time": "~20-40 ms"
+        },
+        {
+          "title": "Wake Offline Devices via Push",
+          "plain": "If their phone is asleep, the system rings their doorbell with a notification.",
+          "detail": "For offline devices, the push gateway sends a high-priority (often silent, encrypted) notification via APNs/FCM; the app wakes, reconnects, and syncs missed messages from its inbox by last-acknowledged sequence number.",
+          "time": "~100 ms - a few s"
+        },
+        {
+          "title": "Receipts Flow Back",
+          "plain": "Once the message is delivered and read, those little check-marks travel back to you.",
+          "detail": "The recipient's client emits delivery and read receipts as events that fan back through the bus to the sender's devices, updating the double/blue-check state, all idempotently keyed by message ID.",
+          "time": "~30-80 ms"
+        }
+      ],
+      "failureHandling": [
+        "Recipient offline: the message is durably stored in their inbox and a push is queued; on reconnect the client syncs everything it missed by last-acknowledged sequence number, so nothing is lost.",
+        "Connection drops mid-send: the client auto-reconnects with exponential backoff and resends 'pending' messages; unique message IDs let the server dedupe so recipients never see duplicates (at-least-once plus idempotent dedup).",
+        "Fan-out or gateway node crashes: Kafka consumer groups rebalance and replay from the last committed offset, and dropped connections re-establish on another node via the connection registry.",
+        "Push provider (APNs/FCM) throttles or fails: notifications retry with backoff and collapse keys, while silent data-push fallbacks and sync-on-open guarantee eventual delivery."
+      ]
+    },
+    "stack": {
+      "frontend": [
+        {
+          "name": "Swift / SwiftUI (iOS)",
+          "why": "Native client for background sockets, secure Keychain key storage, and rich push handling"
+        },
+        {
+          "name": "Kotlin / Jetpack Compose (Android)",
+          "why": "Native Android client with foreground services and FCM for reliable delivery"
+        },
+        {
+          "name": "React + TypeScript",
+          "why": "Reactive web chat UI with virtualized message lists and WebSocket state (Slack/Discord web)"
+        },
+        {
+          "name": "Electron",
+          "why": "Cross-platform desktop apps reusing web code (Slack, Discord, WhatsApp Desktop)"
+        },
+        {
+          "name": "libsignal",
+          "why": "On-device Double Ratchet encrypt/decrypt shared across iOS, Android, and web"
+        },
+        {
+          "name": "SQLite (Room / Core Data)",
+          "why": "Local encrypted cache of history for instant scrollback and offline access"
+        }
+      ],
+      "backend": [
+        {
+          "name": "Elixir / Phoenix (Erlang OTP)",
+          "why": "Millions of concurrent stateful connections per node — Discord's real-time backbone"
+        },
+        {
+          "name": "Erlang (ejabberd / XMPP)",
+          "why": "Battle-tested connection handling; the basis of WhatsApp's original architecture"
+        },
+        {
+          "name": "Go",
+          "why": "High-concurrency connection gateways, fan-out, and presence microservices"
+        },
+        {
+          "name": "Rust",
+          "why": "Performance- and safety-critical crypto and services (Signal's server)"
+        },
+        {
+          "name": "Apache Kafka",
+          "why": "Durable, partitioned event backbone for message fan-out and replay"
+        },
+        {
+          "name": "gRPC",
+          "why": "Low-latency, strongly typed RPC between internal services"
+        }
+      ],
+      "database": [
+        {
+          "name": "ScyllaDB",
+          "why": "Low-latency wide-column store for trillions of messages — Discord migrated here from Cassandra"
+        },
+        {
+          "name": "Apache Cassandra",
+          "why": "High-write wide-column message history partitioned by conversation and time"
+        },
+        {
+          "name": "Redis",
+          "why": "Presence, typing state, connection registry, and unread counters with TTLs"
+        },
+        {
+          "name": "PostgreSQL",
+          "why": "Accounts, channels, memberships, and key-bundle metadata needing transactions"
+        },
+        {
+          "name": "Mnesia",
+          "why": "In-memory Erlang store for session and routing state (WhatsApp)"
+        }
+      ],
+      "infra": [
+        {
+          "name": "Kubernetes",
+          "why": "Orchestrates stateless services with careful connection draining for stateful gateways"
+        },
+        {
+          "name": "Envoy / HAProxy",
+          "why": "L4/L7 load balancing and TLS termination for long-lived WebSocket connections"
+        },
+        {
+          "name": "APNs & FCM",
+          "why": "Apple and Google push delivery to wake offline devices"
+        },
+        {
+          "name": "AWS S3 / GCS",
+          "why": "Durable object storage for client-encrypted media blobs"
+        },
+        {
+          "name": "Cloudflare CDN",
+          "why": "Edge delivery of media using signed, expiring URLs"
+        },
+        {
+          "name": "Prometheus + Grafana",
+          "why": "Metrics on connection counts, delivery latency, and fan-out lag"
+        }
+      ],
+      "ai": [
+        {
+          "name": "PhotoDNA / perceptual hash matching",
+          "why": "Detect known CSAM and abusive media via robust hashes"
+        },
+        {
+          "name": "ML spam & abuse classifiers",
+          "why": "Flag spam accounts, phishing, and scam links at scale"
+        },
+        {
+          "name": "Perspective API",
+          "why": "Toxicity scoring to assist community and channel moderation"
+        },
+        {
+          "name": "Smart Reply models",
+          "why": "Suggested quick replies generated by on-device or edge models"
+        },
+        {
+          "name": "Whisper / ASR",
+          "why": "Transcribe voice notes for search and accessibility"
+        }
+      ]
+    },
+    "tables": [
+      "users",
+      "devices",
+      "conversations",
+      "conversation_members",
+      "messages",
+      "message_receipts",
+      "prekeys",
+      "media_attachments"
+    ],
+    "companies": [
+      "WhatsApp",
+      "Slack",
+      "Discord",
+      "Telegram",
+      "Signal",
+      "Matrix (Element)"
+    ]
+  },
+  {
+    "key": "enterprise-saas",
+    "label": "Enterprise SaaS (CRM/ERP)",
+    "keywords": [
+      "crm",
+      "erp",
+      "salesforce clone",
+      "hubspot clone",
+      "multi-tenant saas",
+      "b2b saas platform",
+      "admin dashboard",
+      "internal tools",
+      "workflow automation",
+      "rbac permissions",
+      "hris system",
+      "sales pipeline crm",
+      "per-seat billing",
+      "audit logs",
+      "crm software",
+      "erp system",
+      "saas",
+      "b2b saas",
+      "enterprise software",
+      "internal tool",
+      "hr software",
+      "hris",
+      "multi-tenant"
+    ],
+    "category": "Business & Enterprise Software",
+    "icon": "🏢",
+    "complexity": "Advanced",
+    "overview": {
+      "analogy": "Think of it as the operating system for a whole company. Just like your phone keeps your contacts, calendar, photos, and apps neatly separated but working together, a CRM or ERP keeps a business's customers, deals, employees, invoices, and inventory in one shared system — with strict rules about who is allowed to see and change what. And because it's 'multi-tenant', the same software safely runs thousands of different companies at once, each seeing only their own data, like an apartment building where every tenant has their own locked unit but shares the plumbing and elevators.",
+      "whoUsesIt": "Sales teams (CRM pipelines), finance and operations teams (ERP for orders, invoices, inventory), HR teams (HRIS for employees and payroll), IT administrators (who manage users, roles, and integrations), and executives who live in the dashboards. Buyers are typically businesses paying per employee 'seat', from 10-person startups to Fortune 500 enterprises.",
+      "businessValue": "This is one of the largest software markets on earth — Salesforce alone earns over $35B a year. These systems replace spreadsheets and disconnected tools with a single source of truth, automating manual work, enforcing compliance, and giving leaders real-time visibility. The multi-tenant model means one codebase serves every customer, so the vendor earns high-margin recurring revenue while customers get continuous updates without managing servers.",
+      "howItWorks": [
+        {
+          "title": "Tenant Isolation",
+          "text": "Every customer company is a 'tenant'. The system tags every row of data with a tenant ID and enforces isolation (via row-level security or separate schemas) so Company A can never see Company B's records — even though they run on the same servers and database."
+        },
+        {
+          "title": "Roles & Permissions (RBAC)",
+          "text": "Each user is assigned roles and permission sets that decide exactly what they can view, edit, or delete — down to individual fields (a rep sees a deal amount, an intern doesn't). Admins configure this without writing code."
+        },
+        {
+          "title": "Records & Pipelines",
+          "text": "The core is a flexible data model of business objects — accounts, contacts, deals, orders, employees. Deals move through pipeline stages, orders through fulfillment states. Admins can add custom objects and fields to fit their business."
+        },
+        {
+          "title": "Workflows & Automation",
+          "text": "When a record changes (a deal hits 'Won', an expense is submitted), automation rules fire — sending emails, creating tasks, routing approvals, or updating other records — replacing manual busywork with configurable if-this-then-that logic."
+        },
+        {
+          "title": "Reporting & Integrations",
+          "text": "All that structured data feeds live dashboards and reports, while APIs, webhooks, and connectors sync with email, accounting, marketing, and data-warehouse tools so the CRM/ERP becomes the hub of the company's software stack."
+        }
+      ],
+      "features": [
+        "Multi-tenancy with strict per-company data isolation on a shared codebase",
+        "Granular RBAC with role hierarchies, permission sets, sharing rules, and field-level security",
+        "Metadata-driven customization — custom objects, fields, and layouts without code",
+        "Workflow automation, approval routing, and scheduled jobs",
+        "Real-time dashboards, custom report builder, and sales forecasting",
+        "Open API, webhooks, prebuilt integrations, SSO/SCIM, and per-seat billing"
+      ]
+    },
+    "architecture": {
+      "pattern": "Metadata-Driven Multi-Tenant Application (modular monolith or service-oriented) with row-level tenant isolation, a centralized RBAC/policy layer, and an event-driven automation & integration backbone",
+      "whyPattern": "Enterprise SaaS lives and dies by two things: hard tenant isolation and deep per-customer customization. A metadata-driven model (pioneered by Salesforce) lets thousands of tenants add custom objects, fields, and workflows on a single shared codebase without forking the app — customizations are stored as data, not code. Row-level security or schema-per-tenant enforces isolation cheaply, while a shared multi-tenant kernel keeps the cost-to-serve low, which is exactly what makes the recurring-revenue economics work. An event-driven layer handles the heavy asynchronous work — workflows, integrations, audit trails, analytics ingestion — without blocking the user-facing request path.",
+      "components": [
+        {
+          "name": "Admin Console & Customer UI",
+          "icon": "🖥️",
+          "plain": "The web app where salespeople, admins, and employees log in to see records, dashboards, and pipelines and click buttons to get work done.",
+          "responsibility": "Single-page application rendering data grids, record detail pages, kanban pipelines, dashboards, and admin configuration screens. Handles client-side permission-aware UI (hiding fields/actions the user can't access), optimistic updates, and real-time refresh via WebSockets.",
+          "tech": "React + TypeScript, TanStack Query, AG Grid, Tailwind",
+          "kind": "client"
+        },
+        {
+          "name": "Tenant Identity Gateway",
+          "icon": "🔐",
+          "plain": "The front door that figures out which company you belong to, checks your login, and lets your company use its own corporate sign-in.",
+          "responsibility": "Resolves tenant from subdomain/custom domain or JWT claim, terminates SSO via SAML/OIDC, handles SCIM user provisioning, issues tenant-scoped access tokens, applies rate limiting and IP allow-lists per tenant. Injects tenant context into every downstream request.",
+          "tech": "WorkOS / Auth0 / Keycloak, Envoy, OIDC/SAML",
+          "kind": "edge"
+        },
+        {
+          "name": "RBAC & Policy Engine",
+          "icon": "🛡️",
+          "plain": "The rulebook that decides, for every click, whether this specific person is allowed to see or change this specific thing.",
+          "responsibility": "Evaluates role hierarchies, permission sets, sharing rules, and field-level security. Enforces record ownership, team-based sharing, and object/field/row-level authorization on every read and write. Often centralized as a policy service returning allow/deny plus a data-scoping filter.",
+          "tech": "Open Policy Agent (OPA) / Casbin, Cerbos",
+          "kind": "service"
+        },
+        {
+          "name": "Core Domain & Records Engine",
+          "icon": "📇",
+          "plain": "The heart of the system that stores and updates all the business records — customers, deals, orders, employees — and enforces the business rules.",
+          "responsibility": "Implements CRUD and business logic for standard and custom objects, validation rules, deal-stage transitions, calculated/rollup fields, and the metadata layer that lets admins define custom objects and fields. Enforces data integrity and emits domain events on every change.",
+          "tech": "Java/Spring Boot or NestJS, PostgreSQL, metadata schema",
+          "kind": "service"
+        },
+        {
+          "name": "Workflow & Automation Engine",
+          "icon": "⚙️",
+          "plain": "The tireless assistant that automatically sends emails, assigns tasks, and routes approvals whenever something changes.",
+          "responsibility": "Executes durable, event-triggered automation: multi-step approval chains, escalations, scheduled jobs, and if-this-then-that flows. Uses a durable workflow orchestrator for long-running, resumable, exactly-once processes that survive restarts and can wait days for a human approval.",
+          "tech": "Temporal / Camunda, Kafka, cron scheduler",
+          "kind": "service"
+        },
+        {
+          "name": "Multi-Tenant Database",
+          "icon": "🗄️",
+          "plain": "The secure vault holding every company's data side by side, with strict walls so no company ever sees another's information.",
+          "responsibility": "Stores tenant-tagged relational data with Postgres Row-Level Security (or schema-per-tenant / Citus sharding for large tenants) enforcing isolation. Handles indexing for large record volumes, connection pooling per tenant, and point-in-time backups. Redis caches hot metadata and permission lookups.",
+          "tech": "PostgreSQL + RLS, Citus, Redis, PgBouncer",
+          "kind": "data"
+        },
+        {
+          "name": "Analytics & Reporting Engine",
+          "icon": "📊",
+          "plain": "The dashboards and reports that turn all the raw records into charts, forecasts, and numbers leaders actually look at.",
+          "responsibility": "Runs the report/dashboard query layer and pipes operational data via CDC into a columnar warehouse for fast aggregations, cohort analysis, and sales forecasting without hammering the transactional DB. Powers custom report builders and embedded analytics.",
+          "tech": "Snowflake / ClickHouse, dbt, Debezium CDC, Cube",
+          "kind": "data"
+        },
+        {
+          "name": "Audit & Event Log",
+          "icon": "📋",
+          "plain": "The permanent, tamper-proof diary recording who did what and when — essential for security reviews and compliance.",
+          "responsibility": "Captures an immutable, append-only stream of every data change and admin action (actor, tenant, before/after, IP, timestamp) for SOC 2 / GDPR / SOX compliance. Consumes the domain event stream, stores to an append-only store, and supports per-tenant audit trail export and retention policies.",
+          "tech": "Kafka, immutable event store, S3 + object-lock",
+          "kind": "data"
+        },
+        {
+          "name": "Integration & Billing Hub",
+          "icon": "🔌",
+          "plain": "The connectors that sync with email, accounting, and other apps, plus the meter that counts seats and charges each company.",
+          "responsibility": "Manages outbound webhooks, inbound API/OAuth connectors (Gmail, Slack, QuickBooks, marketing tools), an iPaaS/connector framework, and per-seat/usage metering that reconciles active seats and feeds subscription billing, dunning, and invoicing.",
+          "tech": "REST/GraphQL API, webhooks, Stripe Billing / Orb, Merge.dev",
+          "kind": "external"
+        }
+      ],
+      "pros": [
+        "Single shared codebase serves thousands of tenants, giving high gross margins and letting every customer get updates instantly without upgrade projects.",
+        "Metadata-driven customization lets admins add custom objects, fields, and workflows without code, so one product fits wildly different businesses.",
+        "Centralized RBAC, audit logging, and tenant isolation make it far easier to pass enterprise security reviews (SOC 2, ISO 27001) than bespoke tools.",
+        "Event-driven automation and integration backbone keeps the fast user request path responsive while heavy work (workflows, syncs, analytics) runs asynchronously."
+      ],
+      "cons": [
+        "Multi-tenancy is a permanent operational tax: a single bad query, migration, or RLS mistake can leak or corrupt data across all customers ('noisy neighbor' and data-isolation risks).",
+        "The metadata/customization layer becomes deeply complex — validation rules, sharing rules, and per-tenant schemas make performance tuning and debugging much harder than a single-tenant app.",
+        "Large enterprise tenants demand isolation, custom SLAs, data residency, and dedicated instances, which erodes the pure multi-tenant model and adds cost.",
+        "Reporting on huge multi-tenant datasets strains the transactional database, forcing a separate analytics pipeline and adding data-freshness and consistency complexity."
+      ]
+    },
+    "dataFlow": {
+      "analogy": "Imagine a huge shared office building. When you walk in, security checks your badge to see which company you work for and what floors you're allowed on (identity + permissions). You go to the right department to file your paperwork (the record update), a security camera logs everything you did (audit trail), and filing that form automatically triggers the mailroom to send letters and schedule follow-ups (workflows and integrations). Finally the front-desk board updates its live stats. All of this happens in the blink of an eye for you, while the mail and follow-ups happen quietly in the background.",
+      "steps": [
+        {
+          "title": "Request & Tenant Resolution",
+          "plain": "A salesperson drags a deal to the 'Won' column in their browser. The system first works out which company they belong to.",
+          "detail": "The SPA sends an authenticated API call. The Tenant Identity Gateway resolves the tenant from the subdomain/custom domain or JWT claim, validates the SSO/OIDC access token, applies per-tenant rate limits, and injects tenant + user context into the request.",
+          "time": "~5-15ms"
+        },
+        {
+          "title": "Authorization & RBAC Check",
+          "plain": "The system checks whether this exact person is allowed to change this exact deal.",
+          "detail": "The RBAC & Policy Engine evaluates roles, permission sets, record ownership, and sharing rules, plus field-level security for the fields being written. It returns allow/deny and a row-scoping filter that guarantees the query only touches this tenant's data.",
+          "time": "~5-20ms"
+        },
+        {
+          "title": "Business Logic & Validation",
+          "plain": "The core engine applies the company's rules — for example, requiring a close date before a deal can be marked Won.",
+          "detail": "The Core Records Engine runs validation rules and stage-transition logic, computes rollup/calculated fields, applies metadata for any custom fields, and prepares the change within a transaction. Invalid transitions are rejected with structured errors.",
+          "time": "~20-50ms"
+        },
+        {
+          "title": "Persist with Isolation & Audit",
+          "plain": "The change is saved to the vault, and a permanent log entry records who changed what.",
+          "detail": "The write commits to PostgreSQL with Row-Level Security enforcing the tenant boundary; a domain event and an immutable audit record (actor, before/after, IP, timestamp) are emitted to Kafka via a transactional outbox. Redis caches are invalidated.",
+          "time": "~10-30ms"
+        },
+        {
+          "title": "Trigger Automation (async)",
+          "plain": "Saving the Won deal automatically kicks off follow-up work — congrats email, a renewal task, a Slack alert.",
+          "detail": "The Workflow & Automation Engine consumes the domain event and starts durable, resumable flows (email send, task creation, approval routing). Long-running or human-in-the-loop steps are orchestrated with exactly-once guarantees so nothing double-fires.",
+          "time": "~100ms-seconds"
+        },
+        {
+          "title": "Sync Integrations & Analytics (async)",
+          "plain": "Other connected apps get updated and the dashboards refresh their numbers.",
+          "detail": "The Integration Hub fires outbound webhooks and pushes to connected systems (accounting, marketing), while CDC streams the change into the analytics warehouse (Snowflake/ClickHouse) via dbt models feeding reports and forecasts. Per-seat metering is updated if relevant.",
+          "time": "seconds-minutes"
+        },
+        {
+          "title": "Real-Time UI Update",
+          "plain": "The rep instantly sees the deal in the Won column and the pipeline totals tick up.",
+          "detail": "The API returns the updated record; a WebSocket/SSE push notifies other users viewing the same records so their boards and dashboards update live without a manual refresh.",
+          "time": "~30-80ms"
+        }
+      ],
+      "failureHandling": [
+        "Tenant-isolation defense-in-depth: RLS policies plus application-level tenant filters and automated tests ensure a bug in one layer still can't leak cross-tenant data; queries missing a tenant filter are blocked.",
+        "Durable workflows and an event outbox: automation and integration events are persisted transactionally and replayed with idempotency keys, so a crashed worker or downstream outage never loses or double-sends emails, approvals, or webhook syncs.",
+        "Noisy-neighbor protection: per-tenant rate limits, connection-pool quotas, and query timeouts stop one tenant's heavy report or bulk import from degrading others, with large tenants isolatable onto dedicated shards/instances.",
+        "Audit and reconciliation: the immutable audit log plus billing/seat reconciliation jobs detect and correct drift, and point-in-time backups allow per-tenant restore after accidental bulk edits or bad migrations."
+      ]
+    },
+    "stack": {
+      "frontend": [
+        {
+          "name": "React + TypeScript",
+          "why": "Industry standard for complex, stateful admin UIs; TypeScript's strong typing tames large data models and permission-aware components."
+        },
+        {
+          "name": "TanStack Query",
+          "why": "Handles server-state caching, background refetching, and optimistic updates for record-heavy CRUD screens without boilerplate."
+        },
+        {
+          "name": "AG Grid",
+          "why": "Enterprise-grade data grid with virtual scrolling, grouping, and inline editing — the backbone of CRM/ERP list views handling millions of rows."
+        },
+        {
+          "name": "Tailwind CSS + Radix UI",
+          "why": "Fast, consistent design-system components for building configurable dashboards and forms; accessible primitives for enterprise a11y requirements."
+        },
+        {
+          "name": "Retool (for internal tools)",
+          "why": "Low-code builder widely used to spin up internal admin dashboards and back-office tools quickly on top of existing APIs and databases."
+        }
+      ],
+      "backend": [
+        {
+          "name": "Java + Spring Boot",
+          "why": "Dominant in enterprise SaaS/ERP for its mature transaction handling, security, and ecosystem; powers systems needing strong consistency and long-term maintainability."
+        },
+        {
+          "name": "NestJS (Node.js)",
+          "why": "Popular for newer B2B SaaS; opinionated modular structure with dependency injection maps cleanly to multi-module CRM/ERP domains."
+        },
+        {
+          "name": "Temporal",
+          "why": "Durable workflow orchestration for approvals, multi-step automations, and integration syncs that must be resumable and exactly-once over days."
+        },
+        {
+          "name": "Open Policy Agent (OPA) / Cerbos",
+          "why": "Externalizes fine-grained RBAC/ABAC authorization so permission logic is centralized, testable, and consistent across services."
+        },
+        {
+          "name": "WorkOS / Auth0",
+          "why": "Provides enterprise SSO (SAML/OIDC), SCIM directory sync, and audit logging out of the box — table stakes for selling to large enterprises."
+        }
+      ],
+      "database": [
+        {
+          "name": "PostgreSQL + Row-Level Security",
+          "why": "Reliable relational core; RLS enforces tenant isolation at the database layer, and JSONB supports metadata-driven custom fields."
+        },
+        {
+          "name": "Citus",
+          "why": "Distributes Postgres to shard large multi-tenant workloads by tenant ID, scaling horizontally while keeping SQL semantics."
+        },
+        {
+          "name": "Redis",
+          "why": "Caches permission lookups, metadata, and session data, and backs rate limiting and job queues to keep the request path fast."
+        },
+        {
+          "name": "Elasticsearch / OpenSearch",
+          "why": "Powers global search across accounts, contacts, and records with typo tolerance and faceting that relational queries can't match."
+        },
+        {
+          "name": "Snowflake / ClickHouse",
+          "why": "Columnar warehouse for reporting, dashboards, and forecasting so heavy analytics never touch the transactional database."
+        }
+      ],
+      "infra": [
+        {
+          "name": "Kubernetes (EKS/GKE)",
+          "why": "Orchestrates scalable, isolated services and lets large tenants be pinned to dedicated node pools for isolation and SLAs."
+        },
+        {
+          "name": "Apache Kafka",
+          "why": "Event backbone for domain events, audit streams, CDC, and workflow triggers — decouples the automation and analytics pipelines."
+        },
+        {
+          "name": "Debezium (CDC)",
+          "why": "Streams database changes into the warehouse and search index in near real time without dual-write bugs."
+        },
+        {
+          "name": "Terraform",
+          "why": "Infrastructure-as-code for reproducible, multi-region, per-environment provisioning demanded by enterprise compliance and data-residency needs."
+        },
+        {
+          "name": "Datadog",
+          "why": "Unified metrics, tracing, and per-tenant monitoring to catch noisy-neighbor issues and meet observability/SLA commitments."
+        },
+        {
+          "name": "Stripe Billing / Orb",
+          "why": "Handles per-seat and usage-based subscription billing, proration, invoicing, and dunning for B2B contracts."
+        }
+      ],
+      "ai": [
+        {
+          "name": "Anthropic Claude / OpenAI GPT",
+          "why": "Powers AI copilots that draft emails, summarize accounts, and answer natural-language questions over CRM/ERP data (the 'Einstein/Copilot' pattern)."
+        },
+        {
+          "name": "pgvector",
+          "why": "Stores embeddings inside Postgres for retrieval-augmented AI over a tenant's own records, notes, and documents with tenant-scoped isolation."
+        },
+        {
+          "name": "LangChain / LlamaIndex",
+          "why": "Orchestrates RAG pipelines and tool-calling so AI assistants can safely read tenant data and take actions within permission boundaries."
+        },
+        {
+          "name": "scikit-learn / XGBoost",
+          "why": "Classic ML for lead scoring, churn prediction, and sales forecasting on structured pipeline data where gradient-boosted trees outperform LLMs."
+        },
+        {
+          "name": "Snowflake Cortex",
+          "why": "In-warehouse ML/LLM functions to run predictive analytics and natural-language querying close to the reporting data without moving it."
+        }
+      ]
+    },
+    "tables": [
+      "organizations (tenants) — top-level tenant record: company name, subdomain/custom domain, plan tier, data-residency region, feature flags; every other row references its tenant_id for isolation.",
+      "users — accounts within a tenant: email, SSO identity, status, manager, timezone; joined to roles and teams and stamped as owner on records.",
+      "roles_permissions — role hierarchy, permission sets, and sharing rules defining object/field/row-level access; the source of truth the RBAC engine evaluates.",
+      "accounts — CRM company/customer records: industry, size, territory, owner, parent-child hierarchy; the anchor object most other records relate to.",
+      "contacts_leads — people linked to accounts (and unqualified leads): name, email, title, lead source, status, and lifecycle stage.",
+      "opportunities (deals/pipeline) — sales deals: amount, stage, close date, probability, product line items; the pipeline objects that drive forecasting and Won/Lost automation.",
+      "activities — tasks, calls, meetings, and emails logged against accounts/contacts/deals, with due dates, assignees, and completion status.",
+      "audit_logs — immutable append-only record of every data change and admin action: actor, tenant, object, before/after values, IP, and timestamp for compliance.",
+      "subscriptions_seats — per-tenant plan, active seat count, usage meters, billing status, and invoice history feeding per-seat billing and dunning."
+    ],
+    "companies": [
+      "Salesforce",
+      "SAP",
+      "Workday",
+      "ServiceNow",
+      "HubSpot",
+      "Microsoft Dynamics 365"
+    ]
+  },
+  {
+    "key": "healthcare",
+    "label": "Healthcare / Telemedicine",
+    "keywords": [
+      "hospital management system",
+      "telemedicine app",
+      "ehr system",
+      "emr software",
+      "patient portal",
+      "electronic health records",
+      "telehealth video visit",
+      "e-prescribing",
+      "fhir api",
+      "hl7 integration",
+      "doctor appointment booking",
+      "epic clone",
+      "clinical records system",
+      "e-health platform",
+      "healthcare",
+      "health care",
+      "hospital",
+      "hospital management",
+      "telemedicine",
+      "telehealth",
+      "ehr",
+      "emr",
+      "medical app",
+      "clinic",
+      "doctor appointment"
+    ],
+    "category": "Healthcare & Life Sciences",
+    "icon": "🏥",
+    "complexity": "Advanced",
+    "overview": {
+      "analogy": "Think of it as a secure shared filing cabinet for your health that follows you everywhere. Any doctor, nurse, pharmacist or lab you visit can open your file, add to it, and pick up exactly where the last person left off — and now they can even see you over video instead of you driving to the office. Every time someone opens your file, the system quietly records who looked and why, like a signed visitor's log at the front desk.",
+      "whoUsesIt": "Hospitals and clinics, telehealth companies, physicians, nurses, pharmacists, medical billers and practice administrators — plus the patients themselves, and the labs, pharmacies and insurance companies that connect in behind the scenes.",
+      "businessValue": "Expands access to care beyond the clinic walls, cuts no-shows with reminders and virtual visits, reduces duplicate tests by sharing records, speeds up reimbursement with clean electronic claims, and keeps the organization audit-ready for HIPAA — while ambient AI hands clinicians back hours previously lost to documentation.",
+      "howItWorks": [
+        {
+          "title": "Registration & identity",
+          "text": "A patient enrolls once: demographics, insurance and identity are captured and given a permanent medical record number (MRN), then matched against the master patient index so the same person is never duplicated."
+        },
+        {
+          "title": "Scheduling & intake",
+          "text": "The patient books an open appointment slot with a provider. Before the visit, the system verifies their insurance is active and checks what benefits are covered."
+        },
+        {
+          "title": "The encounter",
+          "text": "The clinician sees the patient in person or over a video visit, reviews their chart, and documents the diagnosis, notes and vital signs directly into the electronic health record."
+        },
+        {
+          "title": "Orders & fulfillment",
+          "text": "Lab tests, imaging and prescriptions are ordered electronically and routed to the right external network — the pharmacy gets the prescription, the lab gets the order, all without paper."
+        },
+        {
+          "title": "Billing & interoperability",
+          "text": "The visit is coded and turned into an insurance claim, and the updated record is made available through standard FHIR APIs so the next provider, or the patient's own app, can see it."
+        }
+      ],
+      "features": [
+        "HIPAA-compliant patient portal with secure messaging and record access",
+        "Telehealth video visits with a virtual waiting room and e-consent",
+        "FHIR/HL7 interoperability with labs, pharmacies, payers and other hospitals",
+        "e-Prescribing through Surescripts with drug-interaction and allergy checks",
+        "Appointment scheduling with real-time insurance eligibility verification",
+        "Ambient AI clinical documentation with ICD-10/CPT coding assistance"
+      ]
+    },
+    "architecture": {
+      "pattern": "HL7 FHIR-centric, service-oriented architecture fronted by a clinical integration/interface engine, with event streaming for clinical updates and strict security zones for PHI",
+      "whyPattern": "A healthcare platform lives or dies by interoperability: it must exchange data with hundreds of external systems — labs, pharmacies, payers, imaging, other hospitals — that each speak a different dialect (HL7v2, C-CDA, X12, FHIR). An integration engine decouples internal services from those legacy formats and languages, FHIR provides a modern standard API surface, event streaming fans clinical changes out to subscribers, and everything is wrapped in audited, role-based access to satisfy HIPAA. Off-the-shelf 'generic microservices' fail here because they ignore the standards, terminology mapping and compliance controls that define the domain.",
+      "components": [
+        {
+          "name": "Patient & Clinician Apps",
+          "icon": "📱",
+          "plain": "The apps patients and doctors actually tap on — to book visits, view records, message their care team and join video calls.",
+          "responsibility": "React and React Native clients authorized via SMART on FHIR (OAuth2/OIDC); render the patient timeline from FHIR resources; secure messaging and push notifications; enforce session timeout, biometric lock and TLS certificate pinning to protect PHI on device.",
+          "tech": "React, React Native, SMART on FHIR",
+          "kind": "client"
+        },
+        {
+          "name": "Telehealth Video Gateway",
+          "icon": "🎥",
+          "plain": "The piece that runs the live virtual visit — a digital waiting room and the encrypted video call between patient and clinician.",
+          "responsibility": "WebRTC media routed through an SFU; virtual waiting room, screen share and in-call e-consent capture; TURN/STUN traversal; SRTP media encryption; PSTN audio fallback; records visit metadata and scales rooms elastically under a signed BAA.",
+          "tech": "Twilio Programmable Video / Amazon Chime SDK, WebRTC",
+          "kind": "edge"
+        },
+        {
+          "name": "Interoperability / Integration Engine",
+          "icon": "🔗",
+          "plain": "The universal translator that lets the hospital's system talk to labs, pharmacies, insurers and other hospitals that all speak different formats.",
+          "responsibility": "Channels transform and route HL7v2 (ADT, ORM, ORU), C-CDA and X12 messages; exposes and consumes HL7 FHIR R4 REST APIs; message queuing with ACK/NACK, retries and an error queue; maps terminologies across LOINC, SNOMED CT, RxNorm and ICD-10.",
+          "tech": "Mirth Connect (NextGen Connect), HAPI FHIR, HL7v2/FHIR R4",
+          "kind": "service"
+        },
+        {
+          "name": "Clinical Records / EHR Core",
+          "icon": "🩺",
+          "plain": "The digital chart — every diagnosis, note, allergy, vital sign and medication for each patient, kept in one trustworthy place.",
+          "responsibility": "Manages encounters, clinical notes, problem list, allergies, computerized order entry (CPOE) and results as versioned FHIR resources; enforces role-based access, break-glass emergency access and immutable audit logging; publishes clinical events to downstream subscribers.",
+          "tech": "HAPI FHIR / InterSystems IRIS for Health, Java Spring Boot",
+          "kind": "service"
+        },
+        {
+          "name": "Scheduling & Registration",
+          "icon": "📅",
+          "plain": "The booking system — it finds open slots, registers the patient and confirms their insurance is valid before the visit.",
+          "responsibility": "Provider calendars, slot templates and booking rules; patient registration with master patient index (MPI) matching; real-time eligibility and benefits checks (X12 270/271) via clearinghouse; reminder, waitlist and no-show workflows.",
+          "tech": "Node.js / NestJS, X12 270/271, Redis",
+          "kind": "service"
+        },
+        {
+          "name": "Ambient AI Scribe & Clinical Decision Support",
+          "icon": "🤖",
+          "plain": "An AI helper that listens to the visit and drafts the doctor's note, and quietly flags risky drug combinations or overdue screenings.",
+          "responsibility": "Speech recognition plus a medical LLM summarize the conversation into a structured SOAP note and suggest ICD-10/CPT codes; runs drug-drug and drug-allergy interaction checks and guideline-based CDS alerts; the clinician always reviews and signs before anything is committed to the chart.",
+          "tech": "Nuance DAX Copilot / Abridge, AWS Comprehend Medical, MedLM",
+          "kind": "ai"
+        },
+        {
+          "name": "Clinical Data Store",
+          "icon": "🗄️",
+          "plain": "The secure vault where all the health information is stored — encrypted, backed up and access-logged.",
+          "responsibility": "Persists FHIR resources and clinical documents; encryption at rest (AES-256) via KMS with field-level PHI protection; point-in-time recovery and retention policies; separates the live transactional store from a de-identified analytics/warehouse copy.",
+          "tech": "PostgreSQL, InterSystems IRIS, Amazon HealthLake",
+          "kind": "data"
+        },
+        {
+          "name": "e-Prescribing & Pharmacy Network",
+          "icon": "💊",
+          "plain": "Sends prescriptions straight to the patient's pharmacy electronically — including controlled substances — with no paper.",
+          "responsibility": "Integrates the Surescripts network for new, refill and cancel messages (NewRx, RxChange) and controlled substances (EPCS) with two-factor identity proofing; formulary and benefit checks; RxNorm coding and medication history retrieval.",
+          "tech": "Surescripts, NCPDP SCRIPT, EPCS",
+          "kind": "external"
+        },
+        {
+          "name": "Claims & Revenue Cycle",
+          "icon": "🧾",
+          "plain": "Turns the visit into a bill, sends it to the insurance company and tracks what actually gets paid.",
+          "responsibility": "Generates X12 837 professional/institutional claims from coded encounters; submits through a clearinghouse and ingests 835 remittance and 277 status responses; handles denial management, electronic remittance posting and patient statements.",
+          "tech": "X12 837/835, Change Healthcare / Availity clearinghouse",
+          "kind": "external"
+        }
+      ],
+      "pros": [
+        "Built on open standards (FHIR, HL7v2, X12, SNOMED/LOINC/RxNorm) so it can exchange data with virtually any external system, lab, pharmacy or payer",
+        "The integration engine decouples internal services from messy legacy formats, so an upstream lab changing its HL7 feed doesn't ripple into the EHR core",
+        "Immutable audit trails, role-based access and break-glass controls make HIPAA and HITRUST compliance demonstrable rather than aspirational",
+        "Event-driven clinical updates let scheduling, pharmacy, billing and analytics react to a single encounter without tight coupling"
+      ],
+      "cons": [
+        "Heavy compliance overhead — BAAs, HITRUST certification, penetration tests and audit tooling add cost and slow every release",
+        "HL7v2 and X12 are decades-old, quirky standards; every external partner interprets them slightly differently, so interface work is never truly 'done'",
+        "Terminology mapping (ICD-10, SNOMED CT, RxNorm, CPT) is a large, ongoing maintenance burden with real patient-safety stakes",
+        "Vendor ecosystems (Surescripts, clearinghouses, EHR incumbents) are gatekept and expensive, raising the barrier for new entrants"
+      ]
+    },
+    "dataFlow": {
+      "analogy": "Picture a well-run restaurant, but for your health. You reserve a table (book the visit) and the host confirms your reservation is valid (insurance check). You're seated (the video waiting room), the chef prepares your order and writes it on a ticket (the doctor documents the encounter), specialized kitchens handle sides (the pharmacy fills your prescription, the lab runs your tests), the ticket is filed for the record, and finally the bill goes to whoever's paying (your insurer). Each handoff happens smoothly behind the scenes so your experience feels like one seamless visit.",
+      "steps": [
+        {
+          "title": "Book & verify eligibility",
+          "plain": "The patient picks an open appointment time, and the system instantly checks their insurance is active and covers the visit.",
+          "detail": "Scheduling service locks the slot in Redis to prevent double-booking, matches the patient in the MPI, and fires an X12 270 eligibility request to the payer via the clearinghouse, parsing the 271 response for coverage and copay.",
+          "time": "1-3 s"
+        },
+        {
+          "title": "Check in & join video",
+          "plain": "At visit time the patient enters a virtual waiting room and the encrypted video call connects them to the clinician.",
+          "detail": "Telehealth gateway provisions a WebRTC room, negotiates ICE candidates through TURN/STUN, establishes SRTP-encrypted media via the SFU, and captures e-consent before the clinician admits the patient from the waiting room.",
+          "time": "2-5 s"
+        },
+        {
+          "title": "Document the encounter",
+          "plain": "As they talk, an AI listens and drafts the visit note; the doctor reviews, edits and confirms it.",
+          "detail": "Ambient scribe streams audio to ASR + a medical LLM that produces a structured SOAP note and candidate ICD-10/CPT codes; CDS runs interaction and gap-in-care checks; nothing persists until the clinician signs.",
+          "time": "during visit (~10-15 min)"
+        },
+        {
+          "title": "Place orders & e-prescribe",
+          "plain": "The doctor sends prescriptions to the pharmacy and orders any labs, all electronically.",
+          "detail": "CPOE creates FHIR MedicationRequest/ServiceRequest resources; drug-drug and allergy checks run against RxNorm; the prescription is transmitted over Surescripts (NCPDP SCRIPT, EPCS for controlled substances) to the patient's chosen pharmacy.",
+          "time": "1-2 s"
+        },
+        {
+          "title": "Persist & broadcast",
+          "plain": "The completed record is saved securely, and the relevant details are shared with the systems that need them.",
+          "detail": "EHR core writes versioned FHIR resources to the encrypted clinical store and publishes an encounter event to Kafka; the integration engine transforms and fans out HL7v2 ORM/ORU and FHIR messages to lab, imaging and downstream subscribers with ACK tracking.",
+          "time": "<500 ms"
+        },
+        {
+          "title": "Generate & submit claim",
+          "plain": "The visit is turned into an insurance claim and sent off for payment.",
+          "detail": "Revenue cycle service assembles an X12 837 claim from the coded encounter with an idempotency key, submits it through the clearinghouse, and later reconciles the 277 status and 835 remittance to post payments or trigger denial workflows.",
+          "time": "seconds to build; adjudication async (days)"
+        },
+        {
+          "title": "Return results & records",
+          "plain": "Lab results and an after-visit summary appear back in the patient's portal automatically.",
+          "detail": "Inbound ORU lab results and updated FHIR resources are ingested by the integration engine, matched to the patient, and surfaced in the portal via FHIR APIs with a push notification; every access is written to the audit log.",
+          "time": "async (minutes to hours)"
+        }
+      ],
+      "failureHandling": [
+        "The integration engine queues every HL7/FHIR message and retries with ACK/NACK; anything that fails lands in an error queue for reprocessing, so no clinical message is silently lost.",
+        "Store-and-forward with idempotency keys: if a pharmacy or payer endpoint is down, orders and claims are held and resent later without ever creating a duplicate prescription or double-billed claim.",
+        "Telehealth degrades gracefully — a poor connection drops to audio-only or a PSTN phone fallback, and the patient can rejoin the same room without losing the visit.",
+        "Break-glass emergency access lets a clinician override normal permissions to reach a record in a crisis, but mandates a reason and triggers heightened audit review afterward."
+      ]
+    },
+    "stack": {
+      "frontend": [
+        {
+          "name": "React",
+          "why": "Component-driven UI for the patient portal and clinician web workstation, with a huge ecosystem and accessibility tooling"
+        },
+        {
+          "name": "React Native",
+          "why": "One codebase ships native iOS and Android apps for patients and providers, including camera/biometric access"
+        },
+        {
+          "name": "SMART on FHIR",
+          "why": "Standard OAuth2/OIDC app-launch framework so the same app can plug into Epic, Cerner and other EHRs"
+        },
+        {
+          "name": "Twilio Programmable Video / Amazon Chime SDK",
+          "why": "HIPAA-eligible (BAA-covered) WebRTC building blocks for reliable telehealth video without building media servers"
+        }
+      ],
+      "backend": [
+        {
+          "name": "Java Spring Boot",
+          "why": "Mature, secure service framework that dominates enterprise healthcare back ends and pairs naturally with HAPI FHIR"
+        },
+        {
+          "name": "HAPI FHIR",
+          "why": "Open-source FHIR R4 server and reference implementation for exposing and validating standards-based clinical APIs"
+        },
+        {
+          "name": "Mirth Connect (NextGen Connect)",
+          "why": "The de facto integration/interface engine for transforming and routing HL7v2, C-CDA and X12 between systems"
+        },
+        {
+          "name": "Node.js / NestJS",
+          "why": "Fast, typed BFF layer for scheduling, portal and eligibility APIs where iteration speed matters"
+        },
+        {
+          "name": "Keycloak",
+          "why": "OAuth2/OIDC and SMART on FHIR authorization with fine-grained RBAC and enterprise SSO/SAML federation"
+        }
+      ],
+      "database": [
+        {
+          "name": "PostgreSQL",
+          "why": "Reliable, ACID relational store for transactional app data, scheduling and billing state"
+        },
+        {
+          "name": "InterSystems IRIS for Health",
+          "why": "High-performance clinical data platform with native FHIR/HL7 support and heritage in EHRs like Epic and Cerner"
+        },
+        {
+          "name": "Amazon HealthLake",
+          "why": "Managed FHIR data store with built-in medical NLP for analytics and population-health queries"
+        },
+        {
+          "name": "Redis",
+          "why": "Caching, appointment slot locking and session storage for low-latency scheduling and auth"
+        }
+      ],
+      "infra": [
+        {
+          "name": "AWS with BAA (HIPAA-eligible services)",
+          "why": "Compliant cloud foundation under a Business Associate Agreement, backed toward HITRUST certification"
+        },
+        {
+          "name": "Google Cloud Healthcare API / Azure Health Data Services",
+          "why": "Managed FHIR, HL7v2 and DICOM stores that offload standards-compliant storage and de-identification"
+        },
+        {
+          "name": "Kubernetes (EKS)",
+          "why": "Orchestrates microservices with network isolation and namespace-level segmentation of PHI workloads"
+        },
+        {
+          "name": "Apache Kafka",
+          "why": "Durable clinical-event streaming so encounters fan out to pharmacy, billing and analytics reliably"
+        },
+        {
+          "name": "Terraform",
+          "why": "Reproducible, auditable infrastructure as code — essential evidence for security and compliance reviews"
+        }
+      ],
+      "ai": [
+        {
+          "name": "Nuance DAX Copilot / Abridge",
+          "why": "Ambient clinical documentation that turns the patient conversation into a draft note, saving clinician time"
+        },
+        {
+          "name": "AWS Comprehend Medical",
+          "why": "Extracts entities, ICD-10-CM, RxNorm and PHI from unstructured clinical text for coding and de-identification"
+        },
+        {
+          "name": "Google MedLM (Vertex AI)",
+          "why": "Medically tuned LLM for clinical summarization, Q&A and patient-message drafting"
+        },
+        {
+          "name": "Amazon HealthLake NLP",
+          "why": "Structures unstructured records into FHIR to power search and population analytics"
+        }
+      ]
+    },
+    "tables": [
+      "patients (MRN, demographics, insurance, MPI identifiers, consent flags)",
+      "practitioners (providers, NPI, specialty, credentials, schedules)",
+      "appointments (slot, provider, patient, status, telehealth room, no-show flags)",
+      "encounters (visit type, diagnoses, clinical notes, vitals, signed-by)",
+      "observations (labs, vitals, LOINC-coded results, reference ranges)",
+      "medication_requests (e-prescriptions, RxNorm, pharmacy, EPCS status)",
+      "claims (X12 837, CPT/ICD-10 codes, payer, 835 remittance, denial status)",
+      "audit_logs (who accessed what PHI, when, reason, break-glass events)"
+    ],
+    "companies": [
+      "Epic Systems",
+      "Oracle Health (Cerner)",
+      "Teladoc Health",
+      "Doximity",
+      "Veradigm (Allscripts)",
+      "athenahealth"
+    ]
+  },
+  {
+    "key": "edtech",
+    "label": "EdTech / E-Learning",
+    "keywords": [
+      "online courses",
+      "lms",
+      "learning management system",
+      "e-learning platform",
+      "coursera clone",
+      "udemy clone",
+      "duolingo clone",
+      "canvas lms",
+      "mooc platform",
+      "video lessons app",
+      "quiz app",
+      "course marketplace",
+      "student progress tracking",
+      "online classroom",
+      "edtech",
+      "e-learning",
+      "elearning",
+      "learning platform",
+      "online course",
+      "course platform",
+      "education app",
+      "tutoring"
+    ],
+    "category": "Education & Learning",
+    "icon": "🎓",
+    "complexity": "Advanced",
+    "overview": {
+      "analogy": "Think of a digital school building you can walk into from anywhere. Every room is a course: you sit down, watch a teacher's recorded lesson on screen, take a quick pop quiz on your way out, earn a gold star or certificate when you finish, and the school keeps a running report card of everything you've learned, how far you've gotten, and how many days in a row you've shown up. Some rooms even hold live classes where the teacher and other students appear on video in real time.",
+      "whoUsesIt": "Universities and schools moving courses online, corporate learning-and-development teams training staff, coding bootcamps and test-prep companies, and independent creators selling their own courses on a marketplace. End users range from K-12 students and self-learners to employees completing mandatory compliance training.",
+      "businessValue": "Delivers education to millions of learners at once without physical classrooms or per-seat limits. Monetizes through subscriptions, course sales, marketplace revenue splits, and B2B enterprise licenses, while completion data, certificates, and adaptive personalization drive engagement, retention, and measurable learning outcomes that institutions will pay for.",
+      "howItWorks": [
+        {
+          "title": "Creators publish courses",
+          "text": "Instructors upload videos, PDFs, and build quizzes; the platform transcodes the video into multiple qualities and packages a structured course of modules and lessons."
+        },
+        {
+          "title": "Learners enroll and stream",
+          "text": "Students browse the catalog, buy or subscribe, and the video plays instantly from a nearby server, automatically adjusting quality to their internet speed."
+        },
+        {
+          "title": "The system tracks everything",
+          "text": "Every second watched, quiz answered, and lesson finished is recorded as a learning event so progress bars, streaks, and dashboards stay accurate."
+        },
+        {
+          "title": "Assessments grade and gate",
+          "text": "Quizzes are scored instantly, assignments are graded by rules, peers, or AI, and passing thresholds unlock the next module or trigger a certificate."
+        },
+        {
+          "title": "AI personalizes the path",
+          "text": "A recommendation and adaptive-learning engine suggests what to study next, schedules spaced-repetition reviews, and offers an AI tutor for instant help."
+        }
+      ],
+      "features": [
+        "Adaptive-bitrate video streaming with resume, offline downloads, and captions",
+        "Course authoring with modules, lessons, and drip/scheduled release",
+        "Quizzes, timed exams, assignments with auto, rubric, and peer grading",
+        "Progress tracking, streaks, badges, points, and leaderboards (gamification)",
+        "Certificates with verifiable IDs plus cohort and instructor analytics",
+        "Live virtual classrooms and AI tutor with personalized recommendations"
+      ]
+    },
+    "architecture": {
+      "pattern": "Event-driven microservices with a dedicated media/streaming pipeline and a learning-analytics backbone",
+      "whyPattern": "EdTech has three workloads with very different shapes that must not block each other: heavy, bursty video transcoding; high-fan-out low-latency video streaming; and a constant firehose of learning events (watched, answered, completed). Splitting these into independent services connected by an event bus (Kafka) lets video processing scale on uploads, the CDN scale on viewers, and analytics/certificates react asynchronously to a durable event log. Open standards (xAPI, SCORM, LTI, QTI) sit at the seams so content and integrations stay portable across institutions.",
+      "components": [
+        {
+          "name": "Learner & Instructor Apps",
+          "icon": "🖥️",
+          "plain": "The website and phone apps where students watch lessons, take quizzes, and track their streaks, and where teachers upload and manage courses.",
+          "responsibility": "Server-rendered catalog pages plus SPA learner dashboard and native mobile apps. Embeds an adaptive video player, remembers resume position, supports offline lesson downloads, renders quiz/assignment UI, and reports real-time progress.",
+          "tech": "Next.js, React Native, Shaka Player/HLS.js, TanStack Query",
+          "kind": "client"
+        },
+        {
+          "name": "Video Streaming CDN & Edge",
+          "icon": "🎬",
+          "plain": "A worldwide network of servers that keeps copies of lesson videos close to each viewer so playback starts instantly and rarely buffers.",
+          "responsibility": "Serves adaptive-bitrate HLS/DASH manifests and segments, enforces signed URLs/cookies and DRM license checks, caches manifests and .ts/.m4s segments at the edge, and geo-routes viewers to the nearest node.",
+          "tech": "CloudFront/Cloudflare, AWS MediaPackage, Widevine/FairPlay DRM",
+          "kind": "edge"
+        },
+        {
+          "name": "Course Catalog & Enrollment Service",
+          "icon": "📚",
+          "plain": "The part that lists every course, handles sign-ups and purchases, and unlocks lessons for the students who are enrolled.",
+          "responsibility": "Owns courses, modules, lessons, pricing, coupons, and enrollment/entitlement checks that authorize video and content access. Emits enrollment and purchase events onto the bus for analytics and notifications.",
+          "tech": "NestJS/Django, PostgreSQL, Stripe Billing, Elasticsearch",
+          "kind": "service"
+        },
+        {
+          "name": "Video Ingest & Transcoding Pipeline",
+          "icon": "🎞️",
+          "plain": "When a teacher uploads a video, this converts it into several quality levels and adds captions so it plays smoothly on any device or connection.",
+          "responsibility": "Handles chunked/resumable uploads, virus-scans, transcodes to an ABR ladder (240p–4K), generates thumbnails and sprite sheets, auto-captions, and packages to HLS/DASH. Fully event-driven with retries and a dead-letter queue.",
+          "tech": "AWS MediaConvert/Mux, FFmpeg, S3, SQS/Kafka, Whisper",
+          "kind": "service"
+        },
+        {
+          "name": "Assessment & Grading Engine",
+          "icon": "✅",
+          "plain": "The quiz and exam system that scores answers, grades assignments, discourages cheating, and decides who passes.",
+          "responsibility": "Manages question banks, randomized item selection, timed and proctored exams, instant auto-grading of MCQs, sandboxed code execution, rubric/peer grading, plagiarism checks, and QTI import. Publishes pass/fail results.",
+          "tech": "FastAPI, PostgreSQL, Redis timers, Judge0 code sandbox, QTI",
+          "kind": "service"
+        },
+        {
+          "name": "Learning Record Store & Analytics",
+          "icon": "📊",
+          "plain": "The report-card system that records every video watched, quiz taken, and badge earned, then shows learners and teachers how far they've come.",
+          "responsibility": "Ingests xAPI/SCORM/cmi5 statements, computes completion %, mastery, streaks, and cohort dashboards, and triggers certificate issuance and gamification when thresholds are met.",
+          "tech": "Learning Locker (xAPI LRS), Kafka, ClickHouse/BigQuery, dbt",
+          "kind": "data"
+        },
+        {
+          "name": "Content DB & Object Storage",
+          "icon": "🗄️",
+          "plain": "The central library holding user accounts, course text and structure, and the raw video, PDF, and resource files.",
+          "responsibility": "Relational source of truth for users, courses, enrollments, and orders; object storage for media masters, downloadable resources, and captions; cache and search-index synchronization.",
+          "tech": "PostgreSQL, S3/GCS, Redis, Elasticsearch",
+          "kind": "data"
+        },
+        {
+          "name": "Adaptive Learning & Recommendation AI",
+          "icon": "🧠",
+          "plain": "The smart tutor that suggests what to learn next, adjusts difficulty, schedules reviews, and gives instant feedback like a personal coach.",
+          "responsibility": "Runs collaborative-filtering course recommendations, knowledge tracing (BKT/DKT) to model mastery, spaced-repetition scheduling (SM-2/FSRS), and LLM-based tutoring, essay feedback, and quiz generation via RAG over course content.",
+          "tech": "PyTorch, LLM (Claude/GPT-4), pgvector/Pinecone RAG, FSRS",
+          "kind": "ai"
+        },
+        {
+          "name": "Live Classroom & Integrations",
+          "icon": "🔌",
+          "plain": "Add-ons like live video classes, payment processing, and links into a school's own systems and calendars.",
+          "responsibility": "WebRTC live rooms with breakout groups, whiteboard, and recording; payment processing; LTI 1.3 integration with institutional LMSs; SSO (SAML/OAuth); and email/push notifications for reminders and nudges.",
+          "tech": "Agora/100ms/Zoom SDK, Stripe, LTI 1.3, Auth0/SAML, SendGrid",
+          "kind": "external"
+        }
+      ],
+      "pros": [
+        "Decoupling the transcoding pipeline from the learner-facing app means heavy video processing never slows down playback or browsing, and each scales on its own trigger (uploads vs. viewers).",
+        "CDN plus adaptive-bitrate streaming serves millions of concurrent viewers at low cost with minimal buffering, even on weak connections.",
+        "An event-driven learning record store (xAPI) gives one durable source of truth that simultaneously powers progress bars, certificates, gamification, and teacher analytics.",
+        "Standards like SCORM, xAPI, LTI, and QTI make courses and integrations portable, so content sells across institutions and plugs into existing school LMSs."
+      ],
+      "cons": [
+        "Video transcoding compute and CDN egress are expensive and scale directly with watch time, making cost control a constant concern.",
+        "Many specialized subsystems (transcode, LRS, grading, live, DRM, adaptive AI) create high operational and integration complexity.",
+        "Real-time live classrooms over WebRTC are notoriously hard to scale and debug across the huge variety of learner networks and devices.",
+        "Anti-cheat proctoring, DRM, and detailed learner tracking add privacy, legal (FERPA/GDPR), and user-experience friction."
+      ]
+    },
+    "dataFlow": {
+      "analogy": "It's like a student pressing play on a lesson: they walk into the classroom, watch the teacher, take a quick quiz on the way out, and have their attendance and grade written into a permanent record that the school and a personal tutor both read to decide what comes next.",
+      "steps": [
+        {
+          "title": "Play lesson & authorize",
+          "plain": "The learner clicks a lesson and the system checks they're allowed to watch it.",
+          "detail": "The app requests a signed video manifest URL; the enrollment service verifies the learner's entitlement for that course and returns a short-lived signed token/cookie for the CDN and DRM license server.",
+          "time": "50-150ms"
+        },
+        {
+          "title": "Stream adaptive video",
+          "plain": "The video starts playing from the nearest server, adjusting quality to the learner's internet speed.",
+          "detail": "The player fetches the HLS/DASH manifest from the edge, selects a bitrate rung, streams cached segments, and requests a DRM license; on bandwidth drops it downshifts to a lower rung to avoid stalls.",
+          "time": "<200ms to first frame"
+        },
+        {
+          "title": "Emit progress heartbeats",
+          "plain": "As the video plays, the app quietly reports how much has been watched so progress and resume-point stay current.",
+          "detail": "Every ~10-30s the player buffers and POSTs an xAPI 'experienced/progressed' statement with the watched position; the LRS records it and the resume point is persisted for cross-device continuation.",
+          "time": "every 10-30s"
+        },
+        {
+          "title": "Take quiz & grade",
+          "plain": "At a checkpoint the learner answers a quiz and gets a score back almost instantly.",
+          "detail": "Answers hit the assessment engine; MCQs auto-grade immediately, while code runs in a sandbox and essays queue for LLM/peer grading. The score and attempt are persisted and a result event is published.",
+          "time": "100-800ms"
+        },
+        {
+          "title": "Compute completion & certify",
+          "plain": "The system tallies overall progress and, if the learner has passed everything, issues a certificate and badge.",
+          "detail": "The LRS aggregates completion % and mastery across lessons and assessments; crossing the threshold triggers async certificate generation with a verification hash and updates streak/gamification counters.",
+          "time": "1-5s async"
+        },
+        {
+          "title": "Recommend next step",
+          "plain": "A smart tutor picks the best next lesson or a review to reinforce what might be forgotten.",
+          "detail": "Knowledge-tracing updates the learner's mastery estimate; the recommender and spaced-repetition scheduler select the next lesson or a due review card and refresh the personalized dashboard.",
+          "time": "100-300ms"
+        },
+        {
+          "title": "Fan out analytics & nudges",
+          "plain": "Teacher dashboards update and the learner may get a reminder to come back tomorrow.",
+          "detail": "Events stream to the warehouse where cohort/instructor dashboards refresh via dbt models, and re-engagement or streak-reminder notifications are scheduled and sent.",
+          "time": "seconds-minutes async"
+        }
+      ],
+      "failureHandling": [
+        "If a video segment fails to load or bandwidth collapses, the player retries the segment, downshifts to a lower bitrate, or fails over to another CDN edge so playback keeps going instead of freezing.",
+        "If progress heartbeats can't be sent (offline or flaky network), xAPI statements are queued on the device and replayed later so no watched time or completion is lost.",
+        "If transcoding fails, the raw upload is retried from a dead-letter queue and the lesson stays in a 'processing' state rather than surfacing a broken video to learners.",
+        "If the grading sandbox or LLM is unavailable, submissions are queued and graded on recovery while the learner sees a 'grading in progress' status, preserving their attempt."
+      ]
+    },
+    "stack": {
+      "frontend": [
+        {
+          "name": "Next.js (React)",
+          "why": "Server-rendered catalog and landing pages for SEO plus a fast, app-like learner dashboard."
+        },
+        {
+          "name": "React Native",
+          "why": "One codebase for iOS/Android with offline lesson downloads and background audio playback."
+        },
+        {
+          "name": "Shaka Player / HLS.js",
+          "why": "Adaptive-bitrate HLS/DASH playback with DRM, captions, and resume support in the browser."
+        },
+        {
+          "name": "TanStack Query",
+          "why": "Keeps enrollment, progress, and quiz state synced with the backend and cache-consistent."
+        }
+      ],
+      "backend": [
+        {
+          "name": "NestJS (Node.js) / Django",
+          "why": "Structured APIs for courses, enrollment, users, and payments with mature ecosystems."
+        },
+        {
+          "name": "FastAPI (Python)",
+          "why": "Fast, typed endpoints for grading and serving ML/recommendation models close to the data-science stack."
+        },
+        {
+          "name": "Apache Kafka",
+          "why": "Durable event backbone for xAPI progress, enrollment, and grading events feeding analytics and certificates."
+        },
+        {
+          "name": "Redis",
+          "why": "Quiz timers, leaderboards, streak counters, and session/entitlement caching with low latency."
+        }
+      ],
+      "database": [
+        {
+          "name": "PostgreSQL",
+          "why": "Transactional source of truth for users, courses, enrollments, and orders with strong integrity."
+        },
+        {
+          "name": "ClickHouse / BigQuery",
+          "why": "Columnar analytics over billions of learning events for dashboards and cohort reporting."
+        },
+        {
+          "name": "Learning Locker (xAPI LRS)",
+          "why": "Standards-compliant store for xAPI/cmi5 statements powering progress and certification."
+        },
+        {
+          "name": "Elasticsearch",
+          "why": "Fast, faceted catalog search and full-text search across course content and captions."
+        }
+      ],
+      "infra": [
+        {
+          "name": "AWS MediaConvert / Mux",
+          "why": "Managed transcoding of uploads into an adaptive-bitrate ladder with captions and packaging."
+        },
+        {
+          "name": "CloudFront / Cloudflare",
+          "why": "Global CDN with signed URLs and edge caching for low-latency, low-buffer video delivery."
+        },
+        {
+          "name": "S3 / GCS",
+          "why": "Durable, cheap object storage for media masters, HLS segments, and downloadable resources."
+        },
+        {
+          "name": "Kubernetes",
+          "why": "Orchestrates independently scaling services (streaming, grading, transcode workers, live)."
+        },
+        {
+          "name": "Widevine / FairPlay DRM",
+          "why": "Protects premium course video from unauthorized download and redistribution."
+        }
+      ],
+      "ai": [
+        {
+          "name": "LLM (Claude / GPT-4)",
+          "why": "AI tutor, instant essay/assignment feedback, and auto-generation of quiz questions from lesson content."
+        },
+        {
+          "name": "OpenAI Whisper",
+          "why": "Automatic captions and transcripts that also feed searchable, timestamped lesson content."
+        },
+        {
+          "name": "PyTorch",
+          "why": "Knowledge tracing (DKT) and recommendation models that estimate mastery and suggest next steps."
+        },
+        {
+          "name": "pgvector / Pinecone",
+          "why": "Vector store for RAG so the AI tutor answers strictly grounded in the enrolled course material."
+        },
+        {
+          "name": "FSRS / SM-2",
+          "why": "Spaced-repetition scheduling that decides which concepts to review and when to maximize retention."
+        }
+      ]
+    },
+    "tables": [
+      "users (learners, instructors, admins; role, auth, locale, timezone)",
+      "courses (title, category, price, instructor_id, level, published_state)",
+      "lessons (course_id, module, order, type, video_asset_id, duration)",
+      "enrollments (user_id, course_id, status, progress_pct, purchased_at)",
+      "video_assets (source_url, transcode_status, hls_url, captions, duration)",
+      "assessments_questions (question_bank, type, options, answer_key, rubric)",
+      "submissions_grades (user_id, assessment_id, answers, score, attempt, passed)",
+      "certificates (user_id, course_id, issued_at, verification_hash)"
+    ],
+    "companies": [
+      "Coursera",
+      "Udemy",
+      "Duolingo",
+      "Khan Academy",
+      "Instructure (Canvas LMS)",
+      "Moodle"
+    ]
+  },
+  {
+    "key": "logistics-delivery",
+    "label": "On-Demand Delivery / Mobility",
+    "keywords": [
+      "food delivery app",
+      "ride hailing app",
+      "uber clone",
+      "doordash clone",
+      "last mile delivery",
+      "driver dispatch system",
+      "live order tracking",
+      "courier app",
+      "surge pricing",
+      "real-time driver matching",
+      "ride sharing platform",
+      "grab clone",
+      "instacart clone",
+      "delivery logistics",
+      "food delivery",
+      "delivery app",
+      "ride sharing",
+      "ride hailing",
+      "ride-sharing",
+      "courier",
+      "logistics",
+      "last mile",
+      "dispatch",
+      "on-demand",
+      "grocery delivery",
+      "taxi app"
+    ],
+    "category": "On-Demand Marketplace & Logistics Platform",
+    "icon": "🛵",
+    "complexity": "Advanced",
+    "overview": {
+      "analogy": "Think of it as an air-traffic controller for cars and couriers. Thousands of drivers are moving around a city like little dots on a map, and thousands of customers are opening an app wanting a ride or a meal. The system's whole job is to instantly pair the right nearby driver with each request, tell them exactly where to go, show the customer a live moving pin, and settle the money at the end — all in seconds, every second, across a whole city.",
+      "whoUsesIt": "Two audiences at once: everyday customers ordering rides, food, groceries, or parcels from their phone, and the independent drivers or couriers who fulfil those requests. Behind them, operations teams, city managers, and data scientists tune matching, pricing, and supply in real time.",
+      "businessValue": "Turns idle supply (a driver's spare time, a restaurant's kitchen) into fulfilled demand within minutes, taking a commission on every transaction. Winning here is about liquidity — the more drivers and customers on the platform, the shorter the wait and the lower the price, which compounds into a defensible network. Efficiency in matching and routing directly moves gross margin, because every minute a driver spends idle or driving the wrong way is money lost.",
+      "howItWorks": [
+        {
+          "title": "Everyone shares their location",
+          "text": "Driver phones stream their GPS position every few seconds, and customers drop a pickup or delivery pin. The platform keeps a constantly-updating live map of where all the supply and demand is right now."
+        },
+        {
+          "title": "The system finds nearby supply",
+          "text": "When a request comes in, a geospatial index instantly answers 'which drivers are within a few minutes of this point?' without scanning the whole city — it only looks at the relevant map cells."
+        },
+        {
+          "title": "A matching engine picks the best driver",
+          "text": "Out of the nearby candidates, an algorithm chooses who to offer the trip to, balancing shortest pickup time, driver earnings fairness, and overall city efficiency, then sends that driver an accept/decline offer."
+        },
+        {
+          "title": "Price and route are computed live",
+          "text": "A pricing engine quotes the fare — raising it (surge) when demand outstrips supply — while a routing engine calculates the best path and a machine-learning model predicts a realistic ETA using live traffic."
+        },
+        {
+          "title": "The trip is tracked and settled",
+          "text": "Once accepted, the customer watches the driver's pin move in real time along the route. When the trip completes, payment is charged, the platform's commission is deducted, and the driver's earnings are queued for payout."
+        }
+      ],
+      "features": [
+        "Real-time driver-rider matching and dispatch",
+        "Live GPS tracking with a moving map pin",
+        "Dynamic surge pricing tied to supply and demand",
+        "Turn-by-turn routing with ML-based ETA prediction",
+        "Geospatial search over millions of moving locations",
+        "In-app payments, tipping, and automated driver payouts"
+      ]
+    },
+    "architecture": {
+      "pattern": "Event-driven microservices with a real-time streaming spine and a geospatial data layer",
+      "whyPattern": "This domain is defined by a firehose of location events (millions of GPS pings per second) and hard latency budgets (a match must happen in well under a second). A monolith can't absorb that write volume or scale matching independently of tracking. Teams split into focused services — location ingestion, matching, pricing, routing, trip lifecycle — that communicate asynchronously over a Kafka-style event backbone, with a specialized in-memory geospatial index sitting hot in the path so 'find nearby drivers' never touches a slow disk. State machines model the trip lifecycle so a ride can survive app crashes, reconnects, and partial failures.",
+      "components": [
+        {
+          "name": "Rider & Driver Mobile Apps",
+          "icon": "📱",
+          "plain": "The two smartphone apps everyone actually taps on — one for the customer ordering, one for the driver fulfilling. The customer sees a live map and price; the driver sees offers and navigation.",
+          "responsibility": "Native and cross-platform mobile clients rendering map views via Google Maps / Mapbox SDKs. The rider app handles pickup-pin selection, fare quotes, and live tracking; the driver app streams GPS at 3-5s intervals, shows turn-by-turn navigation, and manages the accept/decline offer flow. Both hold persistent WebSocket/gRPC connections for real-time updates plus REST for standard CRUD, with offline queueing for flaky networks.",
+          "tech": "React Native, Swift, Kotlin, Google Maps SDK, Mapbox",
+          "kind": "client"
+        },
+        {
+          "name": "Location Ingestion Gateway",
+          "icon": "📡",
+          "plain": "The always-on receiver that listens to every driver's phone reporting where it is, every few seconds — like keeping a live map of thousands of moving dots up to date in real time.",
+          "responsibility": "High-throughput edge service terminating millions of concurrent WebSocket/gRPC streams to ingest driver GPS pings. It validates and smooths noisy coordinates (dead-reckoning / map-snapping), publishes updates onto the event backbone, refreshes the hot geospatial index, and fans out live positions to riders tracking active trips. Manages connection backpressure, batching, and heartbeat/reconnect logic.",
+          "tech": "Go, Envoy, WebSocket, gRPC",
+          "kind": "edge"
+        },
+        {
+          "name": "Dispatch & Matching Engine",
+          "icon": "🎯",
+          "plain": "The matchmaker. When someone requests a ride or delivery, this decides which nearby driver should get the job and sends them the offer, aiming for the shortest wait and a fair spread of work.",
+          "responsibility": "Core supply-demand optimizer. It queries the geospatial index for candidate drivers, then runs a batched matching algorithm (often a short time-window bipartite / Hungarian-style assignment) that minimizes total pickup ETA across all pending requests rather than greedily per-request. Handles offer timeouts, decline re-dispatch, driver reservation locks, and stacking/batching of orders for couriers.",
+          "tech": "Go, gRPC, Redis, OR-Tools",
+          "kind": "service"
+        },
+        {
+          "name": "Surge / Dynamic Pricing Engine",
+          "icon": "💲",
+          "plain": "The part that sets the price. When lots of people want rides but few drivers are free, it raises prices to pull more drivers out and keep wait times sane; when it's quiet, prices drop.",
+          "responsibility": "Computes fare quotes per geospatial cell using real-time supply/demand ratios, predicted wait times, base rates, distance/time components, and promotions. Publishes surge multipliers per zone on a rolling cadence, guarantees quote immutability for a quoted window, and feeds pricing signals back to drivers as heatmaps to reposition supply.",
+          "tech": "Python, Kafka Streams, Redis, XGBoost",
+          "kind": "service"
+        },
+        {
+          "name": "Trip / Order Lifecycle Service",
+          "icon": "🔄",
+          "plain": "The referee that tracks each trip's status — requested, accepted, driver arriving, in progress, completed, or cancelled — and makes sure it moves through those stages cleanly even if an app crashes.",
+          "responsibility": "Authoritative state machine for every trip/order. Enforces valid state transitions, handles cancellations and refunds, coordinates saga-style workflows across matching, pricing, and payments, and emits domain events at each transition. Idempotent and reconnection-safe so a dropped phone doesn't lose an in-flight ride; persists events for audit and replay.",
+          "tech": "Java, Spring, PostgreSQL, Temporal",
+          "kind": "service"
+        },
+        {
+          "name": "Geospatial Index",
+          "icon": "🗺️",
+          "plain": "A smart map grid that lets the system answer 'who is near this spot right now?' instantly, by chopping the world into small cells instead of checking every driver one by one.",
+          "responsibility": "In-memory spatial index bucketing driver locations into hierarchical grid cells (Uber H3 hexagons, Google S2, or geohash) plus Redis GEO commands for radius queries. Supports sub-millisecond k-nearest and radius lookups, ring expansion when a cell is sparse, and per-cell aggregates that feed surge and supply analytics.",
+          "tech": "Uber H3, Redis GEO, S2, PostGIS",
+          "kind": "data"
+        },
+        {
+          "name": "Event Streaming Backbone",
+          "icon": "🌊",
+          "plain": "The central conveyor belt that carries every location update, trip event, and price change between all the moving parts so nothing falls out of sync.",
+          "responsibility": "Distributed log (Kafka) that decouples producers from consumers and buffers the location firehose. Topics for GPS pings, trip events, pricing, and payments feed stream processors for real-time surge, ETA features, fraud detection, and ops dashboards, and land data in the warehouse. Partitioned by city/geo-cell for locality and horizontal scale.",
+          "tech": "Apache Kafka, Flink, ksqlDB",
+          "kind": "data"
+        },
+        {
+          "name": "Routing & ETA Engine",
+          "icon": "🧭",
+          "plain": "The GPS brain that works out the best road path from A to B and predicts a realistic arrival time using live traffic — not just the straight-line distance.",
+          "responsibility": "Road-network routing over OSM data (OSRM / Valhalla contraction-hierarchy engines) producing optimal paths and turn-by-turn geometry. A layered ML model refines raw route duration into a calibrated ETA using live traffic, historical segment speeds, time-of-day, and weather, and powers batching decisions for multi-stop courier routes.",
+          "tech": "OSRM, Valhalla, OpenStreetMap, TensorFlow",
+          "kind": "ai"
+        },
+        {
+          "name": "Payments & Driver Payouts",
+          "icon": "💳",
+          "plain": "The cashier. It charges the customer's card at the end of a trip, keeps the platform's cut, and sends the driver their earnings.",
+          "responsibility": "Integrates payment gateways and marketplace/split-payment rails to authorize fares (often pre-auth at request, capture at completion), apply promos and tips, deduct commission, and disburse driver payouts (instant or scheduled). Handles multi-party settlement, tax/1099 reporting, chargebacks, refunds, and PCI-scoped tokenization.",
+          "tech": "Stripe Connect, Braintree, PCI DSS",
+          "kind": "external"
+        }
+      ],
+      "pros": [
+        "Scales matching, tracking, pricing, and routing independently, so a location-ping spike doesn't degrade the checkout path",
+        "The event backbone gives near-real-time analytics, surge, and fraud detection essentially for free off the same stream",
+        "A dedicated geospatial index keeps 'find nearby drivers' at sub-millisecond latency even with millions of moving points",
+        "State-machine-driven trips survive app crashes, reconnects, and partial outages without losing money or stranding riders"
+      ],
+      "cons": [
+        "High operational complexity — many services, a streaming cluster, and geo infrastructure to run, observe, and debug",
+        "Eventual consistency between location, matching, and pricing can cause edge cases (double-dispatch, stale surge) that need careful reconciliation",
+        "Real-time SLAs make load testing and rollout risky; a slow matching deploy is immediately visible to every rider in a city",
+        "Cold-start liquidity problem: the architecture only shines once both driver and rider density are high in each market"
+      ]
+    },
+    "dataFlow": {
+      "analogy": "It's like calling for a taxi in a city where an invisible dispatcher instantly knows every free cab's location, quotes you a price, taps the closest driver on the shoulder, then lets you watch their car crawl toward you on a live map until they arrive and you pay through the window.",
+      "steps": [
+        {
+          "title": "Rider requests a ride or order",
+          "plain": "The customer opens the app, drops a pickup or delivery pin, and hits request. The app figures out the exact map coordinates of that address.",
+          "detail": "The rider app geocodes the pickup/dropoff (Places autocomplete + reverse geocoding), attaches product type and payment method, and sends the request over gRPC/REST to the trip lifecycle service, which creates a trip in the REQUESTED state and emits a request event.",
+          "time": "~300 ms"
+        },
+        {
+          "title": "Price and surge are quoted",
+          "plain": "The system instantly works out the fare, bumping it up if the area is busy, and shows the customer the price to confirm.",
+          "detail": "The pricing engine looks up the current surge multiplier for the pickup geo-cell (precomputed from supply/demand on Kafka Streams), combines base + distance + time + promos, and returns an immutable quote locked for a short window so the price can't jump mid-confirmation.",
+          "time": "~80 ms"
+        },
+        {
+          "title": "Nearby drivers are found",
+          "plain": "The system asks its live map 'which drivers are within a few minutes of here?' and gets back a short list of candidates.",
+          "detail": "The matching engine queries the geospatial index (H3 ring expansion / Redis GEORADIUS) for available drivers in the surrounding cells, filters by vehicle type, rating, and heading, and produces a candidate set — expanding the search ring if the cell is sparse.",
+          "time": "~120 ms"
+        },
+        {
+          "title": "The trip is offered and accepted",
+          "plain": "The best-matched driver gets a ping with the trip details and taps accept. If they decline or ignore it, the next driver is offered.",
+          "detail": "A batched assignment minimizes total pickup ETA across pending requests, reserves the chosen driver with a lock, and pushes an offer over their WebSocket. On timeout/decline it re-dispatches to the next candidate; on accept the trip transitions to ACCEPTED and both apps are notified.",
+          "time": "2-15 s"
+        },
+        {
+          "title": "Route, ETA, and live tracking begin",
+          "plain": "The driver gets turn-by-turn directions and the customer watches the car's dot move toward them in real time.",
+          "detail": "The routing engine (OSRM/Valhalla) returns the road path; an ML model calibrates the ETA with live traffic. The driver's phone streams GPS every 3-5s through the ingestion gateway, which fans positions out to the rider and updates the index continuously.",
+          "time": "trip duration; pings every ~4 s"
+        },
+        {
+          "title": "Trip completes and money settles",
+          "plain": "At drop-off the fare is charged, the platform keeps its cut, a tip can be added, and the driver's earnings are queued to pay out.",
+          "detail": "The lifecycle service moves the trip to COMPLETED, triggering the payment service to capture the pre-authorized fare via Stripe Connect, split commission, apply tips, and schedule the driver payout. Completion and payment events hit Kafka.",
+          "time": "2-5 s"
+        },
+        {
+          "title": "Events feed analytics and ML",
+          "plain": "Everything that just happened is recorded so the system can learn — improving future ETAs, pricing, and where to nudge drivers next.",
+          "detail": "Trip, location, and pricing events stream through Flink into the warehouse and feature store, retraining ETA and demand-forecast models, powering ops dashboards and driver heatmaps, and running real-time fraud/anomaly detection.",
+          "time": "seconds to minutes (async)"
+        }
+      ],
+      "failureHandling": [
+        "Driver declines or times out: the matching engine automatically re-dispatches to the next-best candidate and widens the geo-search ring so the rider isn't left waiting",
+        "Driver app loses connection mid-trip: GPS pings buffer locally and replay on reconnect, and the trip state machine is idempotent so the ride resumes without duplication or double-charging",
+        "Payment authorization fails at completion: the trip settles into a pending-payment state with retry and dunning, while the driver still receives their earnings from the platform's float",
+        "Geospatial index or a region goes down: requests fail over to a replica / adjacent shard, and pricing falls back to last-known surge values rather than blocking new requests"
+      ]
+    },
+    "stack": {
+      "frontend": [
+        {
+          "name": "React Native",
+          "why": "Ships a single codebase to iOS and Android for both rider and driver apps, letting fast-moving teams push UI changes across platforms without native duplication."
+        },
+        {
+          "name": "Swift / Kotlin",
+          "why": "Native modules for the driver app where background GPS, battery efficiency, and smooth map rendering demand platform-level control."
+        },
+        {
+          "name": "Google Maps SDK / Mapbox",
+          "why": "Industry-standard map rendering, geocoding, and Places autocomplete with turn-by-turn navigation baked in for both apps."
+        },
+        {
+          "name": "Flutter",
+          "why": "Alternative cross-platform toolkit used by some players (e.g. courier/merchant apps) for pixel-consistent, high-frame-rate map and tracking screens."
+        }
+      ],
+      "backend": [
+        {
+          "name": "Go",
+          "why": "Cheap goroutines make it ideal for the massively concurrent location gateway and low-latency matching engine handling millions of connections."
+        },
+        {
+          "name": "Java / Spring",
+          "why": "Mature, transactional backbone for trip lifecycle, payments, and other stateful services where correctness beats raw throughput."
+        },
+        {
+          "name": "gRPC",
+          "why": "Compact binary, streaming-capable RPC that keeps inter-service latency low across the hot matching and location paths."
+        },
+        {
+          "name": "Node.js",
+          "why": "Powers real-time gateway and BFF layers pushing live tracking updates to apps over WebSockets."
+        }
+      ],
+      "database": [
+        {
+          "name": "PostgreSQL + PostGIS",
+          "why": "System-of-record for trips, users, and payments, with PostGIS handling zones, service-area polygons, and durable spatial queries."
+        },
+        {
+          "name": "Redis (GEO)",
+          "why": "In-memory geospatial index (GEOADD/GEORADIUS) for sub-millisecond 'nearest driver' lookups and driver-reservation locks in the match path."
+        },
+        {
+          "name": "Apache Cassandra / ScyllaDB",
+          "why": "Handles the enormous write volume of raw location-ping and trip-event history with linear horizontal scale."
+        },
+        {
+          "name": "Amazon DynamoDB",
+          "why": "Predictable single-digit-millisecond reads for hot per-trip and per-driver state at any scale."
+        }
+      ],
+      "infra": [
+        {
+          "name": "Apache Kafka",
+          "why": "The event backbone buffering the location firehose and decoupling matching, pricing, tracking, and analytics."
+        },
+        {
+          "name": "Kubernetes",
+          "why": "Orchestrates and autoscales the many stateless services per city/region to match daily and surge demand curves."
+        },
+        {
+          "name": "Apache Flink",
+          "why": "Stateful stream processing for real-time surge computation, ETA features, and fraud detection off the Kafka streams."
+        },
+        {
+          "name": "Envoy",
+          "why": "Edge and service-mesh proxy terminating millions of long-lived connections with load balancing and observability."
+        }
+      ],
+      "ai": [
+        {
+          "name": "Uber H3",
+          "why": "Hexagonal hierarchical geospatial grid that powers efficient nearest-neighbor search, surge zoning, and supply heatmaps."
+        },
+        {
+          "name": "OSRM / Valhalla",
+          "why": "Open-source road routing over OpenStreetMap producing optimal paths and turn-by-turn geometry at high query rates."
+        },
+        {
+          "name": "XGBoost / TensorFlow",
+          "why": "Gradient-boosted and deep models predicting calibrated ETAs and forecasting demand to pre-position supply and set surge."
+        },
+        {
+          "name": "Google OR-Tools",
+          "why": "Constraint/assignment solvers for batched driver-order matching and multi-stop courier route optimization."
+        }
+      ]
+    },
+    "tables": [
+      "drivers (driver_id, status, vehicle_id, current_h3_cell, rating, is_online, last_ping_at)",
+      "riders (rider_id, name, saved_places, default_payment_method, rating)",
+      "trips (trip_id, rider_id, driver_id, state, pickup_geo, dropoff_geo, product_type, fare, surge_multiplier, requested_at, completed_at)",
+      "driver_locations (driver_id, lat, lng, heading, speed, accuracy, recorded_at)",
+      "vehicles (vehicle_id, driver_id, type, make, model, plate, capacity)",
+      "surge_zones (zone_id, h3_cell, city, multiplier, supply_count, demand_count, effective_at)",
+      "dispatch_offers (offer_id, trip_id, driver_id, status, offered_at, responded_at, pickup_eta)",
+      "payments (payment_id, trip_id, amount, tip, commission, driver_payout, gateway_ref, status, captured_at)"
+    ],
+    "companies": [
+      "Uber",
+      "DoorDash",
+      "Grab",
+      "Lyft",
+      "Instacart",
+      "Bolt"
+    ]
+  },
+  {
+    "key": "travel-booking",
+    "label": "Travel & Booking",
+    "keywords": [
+      "airbnb clone",
+      "hotel booking app",
+      "flight booking system",
+      "ota platform",
+      "gds integration",
+      "vacation rental marketplace",
+      "booking.com clone",
+      "expedia clone",
+      "reservation system",
+      "travel itinerary app",
+      "availability search",
+      "channel manager",
+      "dynamic pricing engine",
+      "metasearch",
+      "travel app",
+      "travel booking",
+      "hotel booking",
+      "flight booking",
+      "booking app",
+      "reservation",
+      "reservations",
+      "ota",
+      "vacation rental",
+      "booking system",
+      "itinerary"
+    ],
+    "category": "Travel & Hospitality",
+    "icon": "✈️",
+    "complexity": "Advanced",
+    "overview": {
+      "analogy": "Think of it as a tireless travel agent that, in the blink of an eye, phones every hotel and airline in the world to find who has space for your dates, quotes you the best prices, and books it on the spot — for millions of travelers at once, around the clock.",
+      "whoUsesIt": "Online travel agencies (OTAs) like Booking.com and Expedia, metasearch sites like Kayak and Skyscanner, vacation-rental marketplaces like Airbnb, and any hotel, airline or tour operator selling reservations online.",
+      "businessValue": "Turns fragmented, constantly-changing supplier inventory into a single searchable marketplace, driving billions in bookings by matching travelers to the right room or flight at the right price — while protecting margins with dynamic pricing and preventing costly oversells and double charges.",
+      "howItWorks": [
+        {
+          "title": "Aggregate supply",
+          "text": "Connect to hotels, airlines and suppliers via GDS, channel managers and direct APIs to gather live availability, rates and booking rules."
+        },
+        {
+          "title": "Index for instant search",
+          "text": "Denormalize that inventory into a fast search index so travelers get geo, date and price results back in milliseconds, not seconds."
+        },
+        {
+          "title": "Price and rank dynamically",
+          "text": "Apply demand-based pricing and personalized ranking so the best, most profitable options surface at the top of the list."
+        },
+        {
+          "title": "Orchestrate the booking",
+          "text": "Hold the inventory, take payment, and confirm with the supplier as one all-or-nothing transaction to avoid oversells and double charges."
+        },
+        {
+          "title": "Manage the trip lifecycle",
+          "text": "Send confirmations and itineraries, sync loyalty points, and handle changes, cancellations and refunds within policy."
+        }
+      ],
+      "features": [
+        "Real-time availability search across dates, locations and filters",
+        "Dynamic pricing and demand-based rate optimization",
+        "GDS and channel-manager supplier integrations",
+        "Secure multi-currency payments with fraud checks and 3-D Secure",
+        "Inventory holds and saga-based booking to prevent oversell",
+        "Flexible cancellation, refund and modification handling"
+      ]
+    },
+    "architecture": {
+      "pattern": "Event-driven microservices with a search/aggregation layer and saga-based booking orchestration",
+      "whyPattern": "Travel workloads split cleanly into read-heavy search (which needs a denormalized, cached index and parallel supplier fan-out) and write-critical booking (which needs a distributed transaction across inventory, payment and suppliers). Event streaming keeps availability, prices and the search index continuously in sync, while sagas make multi-party bookings reliable without holding a single database lock.",
+      "components": [
+        {
+          "name": "Traveler Web & Mobile App",
+          "icon": "📱",
+          "plain": "The website and phone app where travelers type in where and when they want to go, browse hotels or flights, compare options and tap 'Book'.",
+          "responsibility": "Renders search forms, result lists, maps and checkout; manages debounced autocomplete, currency/price display, client-side filtering, and secure card collection via tokenized payment fields.",
+          "tech": "Next.js / React, React Native, Mapbox GL, Stripe Elements",
+          "kind": "client"
+        },
+        {
+          "name": "Search & Fan-out Gateway",
+          "icon": "🔀",
+          "plain": "The traffic controller that takes each search and quickly asks many hotels, airlines or suppliers at once, then gathers all their answers back together.",
+          "responsibility": "Terminates TLS, authenticates, rate-limits and routes; fans a single search out to dozens of supplier/metasearch connectors in parallel, aggregating and de-duplicating responses under strict per-supplier timeouts.",
+          "tech": "Kong / Envoy, GraphQL/REST, gRPC fan-out, Cloudflare CDN",
+          "kind": "edge"
+        },
+        {
+          "name": "Availability & Search Service",
+          "icon": "🔎",
+          "plain": "The part that figures out which hotels or flights actually have space for your dates and matches your filters like price, star rating or location.",
+          "responsibility": "Executes geo + date-range + faceted queries over a denormalized index, applies restrictions (min-stay, closed-to-arrival) and returns ranked candidate sets within tight latency budgets.",
+          "tech": "Elasticsearch / OpenSearch, Redis geo, Java Spring Boot / Go",
+          "kind": "service"
+        },
+        {
+          "name": "Rate, Availability & Inventory (ARI) Store",
+          "icon": "🗄️",
+          "plain": "The constantly-updated ledger of what rooms or seats are open, how much they cost each night, and the rules around them.",
+          "responsibility": "Stores per-property/date availability counts, rate plans and restrictions; ingests high-volume ARI updates from channel managers and GDS, keeping the search index and cache in sync via change-data-capture.",
+          "tech": "PostgreSQL / Cassandra, Kafka, Redis, Debezium CDC",
+          "kind": "data"
+        },
+        {
+          "name": "Dynamic Pricing & Ranking Engine",
+          "icon": "💹",
+          "plain": "The smart pricing brain that nudges prices up or down based on demand and sorts results to show you the options you're most likely to book.",
+          "responsibility": "Computes demand-based price adjustments, margins and taxes, plus personalized learning-to-rank scores from features like lead time, occupancy, conversion history and competitor rates.",
+          "tech": "XGBoost / LightGBM, LambdaMART, Feast feature store, Spark",
+          "kind": "ai"
+        },
+        {
+          "name": "Reservation & Booking Orchestrator",
+          "icon": "📅",
+          "plain": "The step-by-step coordinator that holds your room or seat, takes payment, and locks in the booking so no one else grabs it.",
+          "responsibility": "Runs the booking saga: places a short-lived inventory hold, confirms price, invokes payment, commits the reservation and rolls back with compensations on any failure to prevent overselling or double charges.",
+          "tech": "Temporal / saga orchestration, Java/Go, Kafka, idempotency keys",
+          "kind": "service"
+        },
+        {
+          "name": "Payments & Fraud Engine",
+          "icon": "💳",
+          "plain": "The checkout counter that securely charges your card, handles different currencies, and blocks suspicious or stolen-card bookings.",
+          "responsibility": "Tokenizes cards, performs multi-currency auth/capture, 3-D Secure (SCA) and real-time fraud scoring; supports split payouts to suppliers and refunds on cancellation.",
+          "tech": "Stripe / Adyen, 3DS2, Sift / Riskified, PCI-DSS vault",
+          "kind": "service"
+        },
+        {
+          "name": "GDS & Supplier Connectivity",
+          "icon": "🌍",
+          "plain": "The pipes connecting the platform to the world's airlines, hotel chains and booking systems so real reservations actually go through.",
+          "responsibility": "Integrates GDS and supplier APIs for shopping, booking (PNR creation) and cancellation; normalizes disparate schemas and manages credentials, retries and reconciliation of confirmations.",
+          "tech": "Amadeus / Sabre / Travelport APIs, IATA NDC, channel managers, SOAP/REST",
+          "kind": "external"
+        }
+      ],
+      "pros": [
+        "Search scales independently and stays fast under spiky, seasonal load via caching and read replicas.",
+        "Saga orchestration prevents oversells and double charges across suppliers and payment providers.",
+        "Event streaming keeps availability, rates and the search index near-real-time consistent.",
+        "New suppliers or GDS can be added as isolated connectors without touching core booking logic."
+      ],
+      "cons": [
+        "Eventual consistency means cached prices/availability can be briefly stale, forcing re-validation at booking.",
+        "Distributed booking sagas and their compensation logic are complex to build and test correctly.",
+        "Deep dependence on third-party GDS/supplier APIs adds latency, rate limits and failure modes outside your control."
+      ]
+    },
+    "dataFlow": {
+      "analogy": "It's like sending a runner to knock on 50 hotel doors at once asking 'any rooms free for these dates, and how much?', pinning up all the replies sorted best-first, and then, the moment you pick one, sprinting back to that hotel to grab the key and pay before anyone else does.",
+      "steps": [
+        {
+          "title": "Traveler submits search",
+          "plain": "You type a destination and dates and hit search.",
+          "detail": "The app sends a search request (geo, date range, guests, filters) through the gateway; autocomplete and recent searches are served from edge cache.",
+          "time": "~50 ms"
+        },
+        {
+          "title": "Fan-out & availability lookup",
+          "plain": "The system asks many hotels or airlines at once who has space.",
+          "detail": "The gateway fans out to supplier connectors and queries the availability/search index in parallel, applying restrictions and per-supplier timeouts; cached ARI serves the common cases.",
+          "time": "200-800 ms"
+        },
+        {
+          "title": "Price, rank & merge",
+          "plain": "All the options are priced, sorted best-first, and shown to you.",
+          "detail": "The pricing engine applies dynamic rates, margins and taxes; learning-to-rank orders results by predicted relevance and conversion; duplicates are collapsed and results paginated.",
+          "time": "100-300 ms"
+        },
+        {
+          "title": "Select & re-validate",
+          "plain": "You pick a room or flight and the price is double-checked.",
+          "detail": "On selection the service re-checks live availability and re-prices against the supplier to catch stale cache, returning the exact bookable rate and cancellation terms.",
+          "time": "300 ms-1 s"
+        },
+        {
+          "title": "Hold & payment",
+          "plain": "Your spot is held while your card is charged.",
+          "detail": "The booking orchestrator places a short-lived inventory hold, then runs the payment saga with 3-D Secure and idempotency keys, proceeding only on a successful authorization.",
+          "time": "1-3 s"
+        },
+        {
+          "title": "Confirm with supplier",
+          "plain": "The booking is locked in with the actual hotel or airline.",
+          "detail": "The orchestrator commits the reservation to the GDS/supplier, receives a confirmation/PNR, decrements inventory, and compensates (voids payment, releases the hold) if the supplier rejects.",
+          "time": "2-6 s"
+        },
+        {
+          "title": "Confirmation & post-booking",
+          "plain": "You get your confirmation, itinerary and reminders.",
+          "detail": "Async workers send the confirmation email/push, build the itinerary, sync loyalty points, and schedule pre-trip and cancellation-window notifications via the event bus.",
+          "time": "async, seconds"
+        }
+      ],
+      "failureHandling": [
+        "Supplier timeout or partial failure: return the results that did arrive within the deadline and mark slow suppliers as degraded, rather than failing the whole search.",
+        "Stale availability at booking: if the held rate has vanished, re-price and offer the nearest alternative instead of silently charging a different amount.",
+        "Payment succeeds but supplier booking fails: the saga triggers compensation — void/refund the charge, release the hold, and surface a clear retry-or-refund path.",
+        "Oversell protection: idempotency keys plus short-lived inventory holds prevent double-booking the last room during concurrent checkouts."
+      ]
+    },
+    "stack": {
+      "frontend": [
+        {
+          "name": "Next.js / React",
+          "why": "SEO-friendly server rendering for search-landing pages plus fast, interactive result filtering."
+        },
+        {
+          "name": "React Native",
+          "why": "One codebase for iOS/Android travel apps with native maps and mobile payments."
+        },
+        {
+          "name": "Mapbox GL / Google Maps",
+          "why": "Interactive maps for 'search this area', property pins and neighborhood context."
+        }
+      ],
+      "backend": [
+        {
+          "name": "Java + Spring Boot / Go",
+          "why": "High-throughput, low-latency services for search fan-out and booking orchestration."
+        },
+        {
+          "name": "Apache Kafka",
+          "why": "Streams ARI updates, booking events and price changes between services at scale."
+        },
+        {
+          "name": "Temporal",
+          "why": "Durable saga workflows for multi-step bookings with holds, payments and compensation."
+        },
+        {
+          "name": "gRPC",
+          "why": "Fast internal service-to-service calls for parallel supplier fan-out."
+        }
+      ],
+      "database": [
+        {
+          "name": "Elasticsearch / OpenSearch",
+          "why": "Geo, date-range and faceted search across millions of properties and flights."
+        },
+        {
+          "name": "PostgreSQL",
+          "why": "Transactional store for reservations, users and payments with strong consistency."
+        },
+        {
+          "name": "Redis",
+          "why": "Caches availability and carts, rate-limits, and holds short-lived inventory locks."
+        },
+        {
+          "name": "Cassandra / ScyllaDB",
+          "why": "Write-heavy availability calendar and pricing history at massive scale."
+        }
+      ],
+      "infra": [
+        {
+          "name": "Kubernetes",
+          "why": "Autoscales search and booking services to absorb spiky, seasonal traffic."
+        },
+        {
+          "name": "AWS",
+          "why": "Global regions, managed data services and CDN close to travelers."
+        },
+        {
+          "name": "Cloudflare / Akamai CDN",
+          "why": "Caches static assets and search-landing pages near users worldwide."
+        },
+        {
+          "name": "Terraform",
+          "why": "Reproducible multi-region infrastructure for highly-available travel platforms."
+        }
+      ],
+      "ai": [
+        {
+          "name": "XGBoost / LightGBM",
+          "why": "Demand forecasting and dynamic pricing from occupancy, lead time and seasonality."
+        },
+        {
+          "name": "Learning-to-rank (LambdaMART)",
+          "why": "Personalized ordering of search results to maximize relevance and conversion."
+        },
+        {
+          "name": "Feast feature store",
+          "why": "Serves consistent real-time features (occupancy, conversion) to pricing and ranking models."
+        },
+        {
+          "name": "LLM + RAG",
+          "why": "Powers natural-language trip search and AI customer-support/cancellation assistants."
+        }
+      ]
+    },
+    "tables": [
+      "properties (listings/hotels)",
+      "rate_plans",
+      "availability_calendar (ARI)",
+      "bookings / reservations",
+      "guests",
+      "payments",
+      "cancellation_policies",
+      "reviews"
+    ],
+    "companies": [
+      "Booking.com",
+      "Airbnb",
+      "Expedia",
+      "Skyscanner",
+      "Kayak",
+      "Amadeus"
+    ]
+  },
+  {
+    "key": "gaming",
+    "label": "Online / Multiplayer Gaming",
+    "keywords": [
+      "multiplayer game backend",
+      "game server",
+      "matchmaking",
+      "netcode",
+      "authoritative server",
+      "battle royale backend",
+      "mmo backend",
+      "leaderboard system",
+      "anti-cheat",
+      "game server hosting",
+      "real-time state sync",
+      "fps multiplayer",
+      "dedicated game server",
+      "roblox clone",
+      "game",
+      "gaming",
+      "multiplayer game",
+      "game backend",
+      "mmo",
+      "online game",
+      "leaderboard",
+      "game development"
+    ],
+    "category": "Gaming & Real-Time Backends",
+    "icon": "🎮",
+    "complexity": "Advanced",
+    "overview": {
+      "analogy": "Imagine a fast-paced pickup basketball game where the players are scattered across different cities but all need to see the exact same ball, in the exact same place, at the exact same moment. A neutral referee watches everyone's moves, decides what really happened, and instantly tells all players the official version — so nobody can cheat by claiming they scored when they didn't. Behind the scenes, a host also groups players of similar skill onto the same court, keeps the scoreboard, hands out trophies, and records the highlights. An online multiplayer game backend is that referee, host, scorekeeper, and security guard — running thousands of matches at once, all over the world.",
+      "whoUsesIt": "Game studios and their backend/netcode engineers, live-ops and player-support teams, competitive-integrity/anti-cheat teams, and platform providers who sell game hosting and matchmaking as a service. Ranges from indie studios shipping an io-game to AAA shooters and MMOs with millions of concurrent players.",
+      "businessValue": "Multiplayer is the retention and monetization engine of modern games: fair matches keep players coming back, low latency keeps them from rage-quitting, seasonal live-ops events and battle passes drive recurring revenue, and anti-cheat protects the fairness that competitive communities pay for. A single popular title can run millions of concurrent sessions, so the backend directly determines both player experience and cloud cost.",
+      "howItWorks": [
+        {
+          "title": "Group players fairly",
+          "text": "When a player hits 'Play', a matchmaking service drops them into a queue and finds a balanced set of opponents based on skill rating, ping, and party size."
+        },
+        {
+          "title": "Spin up a referee",
+          "text": "A fleet orchestrator pulls a ready dedicated game server from a warm pool in the closest region and assigns it to the match, handing every player its address."
+        },
+        {
+          "title": "Simulate the match authoritatively",
+          "text": "The dedicated server runs the one true copy of the game at a fixed tick rate — reading inputs, advancing physics, and deciding hits — so the server, not the client, is the source of truth."
+        },
+        {
+          "title": "Sync everyone in real time",
+          "text": "Compact state updates fly over UDP many times a second; each player's game predicts and smooths the action so it feels instant despite internet lag."
+        },
+        {
+          "title": "Save progress and rank",
+          "text": "When the match ends, results update player XP, rank, inventory rewards, and global leaderboards, while every event is logged for balancing and cheat detection."
+        }
+      ],
+      "features": [
+        "Skill-based matchmaking with MMR, party support, and latency-aware queues",
+        "Authoritative server-side simulation that resists client-side cheating",
+        "Low-latency UDP netcode with client prediction, interpolation, and lag compensation",
+        "Auto-scaling dedicated game-server fleets across multiple regions",
+        "Real-time leaderboards, seasons, battle passes, and remote-config live-ops",
+        "Anti-cheat enforcement plus high-volume gameplay telemetry and analytics"
+      ]
+    },
+    "architecture": {
+      "pattern": "Authoritative dedicated game servers with stateful, session-based fleet orchestration, fronted by stateless matchmaking and account services",
+      "whyPattern": "Real-time competitive games can't trust the client — a hacked client would let players teleport, shoot through walls, or duplicate items. So the authoritative simulation runs server-side, one stateful process per live match. Unlike a typical web backend, these game servers are long-lived and sticky (a match can't be load-balanced mid-flight), so an orchestrator manages warm pools, allocation, and recycling. The stateless parts — matchmaking, accounts, leaderboards — scale horizontally the normal way, while the stateful game servers scale via fleet management. This split is what lets a title run millions of concurrent, low-latency, cheat-resistant matches worldwide.",
+      "components": [
+        {
+          "name": "Game Client",
+          "icon": "🎮",
+          "plain": "The game itself running on the player's PC, console, or phone — it draws the world, reads the controller, and shows what everyone is doing.",
+          "responsibility": "Renders the game and captures inputs; runs client-side prediction and entity interpolation to mask latency, and reconciles (rolls back) local state against authoritative server snapshots. Built on a game engine's replication/networking layer.",
+          "tech": "Unreal Engine 5, Unity, Photon Fusion, WebGL",
+          "kind": "client"
+        },
+        {
+          "name": "Realtime Netcode Gateway",
+          "icon": "🛰️",
+          "plain": "The delivery system that shuttles tiny messages between each player and the game server many times a second — fast enough that the action feels instant.",
+          "responsibility": "Owns the UDP-based transport: connection handshakes, reliable-UDP channels, packet fragmentation, encryption (DTLS), NAT traversal, and DDoS-scrubbed edge ingress. Maps player connections to their allocated game-server sessions.",
+          "tech": "UDP, QUIC, DTLS, GameLift/Agones ingress, AWS Shield/Cloudflare",
+          "kind": "edge"
+        },
+        {
+          "name": "Matchmaking Service",
+          "icon": "🎯",
+          "plain": "The host that gathers waiting players and sorts them into fair, balanced games — pairing similar skill and low ping together.",
+          "responsibility": "Maintains queues and tickets; optimizes match quality across skill rating (MMR/TrueSkill/Glicko), latency, team balance, and party/role constraints, then emits a match proposal to fleet allocation. Stateless and horizontally scalable, backed by Redis.",
+          "tech": "Open Match, GameLift FlexMatch, Redis, gRPC",
+          "kind": "service"
+        },
+        {
+          "name": "Dedicated Game Server Fleet",
+          "icon": "🖥️",
+          "plain": "The neutral referees — one program per live match that runs the official copy of the game, decides what really happened, and tells every player.",
+          "responsibility": "Runs the authoritative simulation at a fixed tick rate (15–60Hz): ingests input commands, advances physics/game logic, performs lag-compensated hit detection, and broadcasts delta-compressed state snapshots. Stateful — one process/container per match.",
+          "tech": "Unreal Dedicated Server (C++), Unity headless, Nakama, Colyseus",
+          "kind": "service"
+        },
+        {
+          "name": "Fleet Orchestrator & Session Allocation",
+          "icon": "🚀",
+          "plain": "The manager that keeps a bench of referees ready, hands a fresh one to each new match, and hires or fires them as player numbers rise and fall.",
+          "responsibility": "Allocates game-server sessions from regional warm pools, autoscales fleets by demand, tracks server health/readiness, and drains/recycles processes after each match. Bridges stateless matchmaking to stateful servers.",
+          "tech": "Agones on Kubernetes, Amazon GameLift, Kubernetes",
+          "kind": "service"
+        },
+        {
+          "name": "Player Accounts, Profile & Inventory",
+          "icon": "🎒",
+          "plain": "The player's permanent record — login, level, unlocked characters, skins, virtual currency, and purchases — kept safe between sessions.",
+          "responsibility": "Manages identity/auth, progression (XP, level, rank), entitlements and inventory (cosmetics, items), and virtual currency with purchase reconciliation. Transactional store with idempotent grants to prevent item-duplication exploits.",
+          "tech": "PostgreSQL/CockroachDB, DynamoDB, Epic Online Services, gRPC",
+          "kind": "service"
+        },
+        {
+          "name": "Leaderboards & Live-Ops",
+          "icon": "🏆",
+          "plain": "The scoreboard and the events calendar — global and seasonal rankings, plus limited-time modes, battle passes, and challenges that keep the game fresh.",
+          "responsibility": "Maintains real-time ranked leaderboards (Redis sorted sets), seasonal resets, battle-pass/quest progression, and remote-config feature flags so live events ship without a client patch.",
+          "tech": "Redis sorted sets, Nakama, LaunchDarkly, Firebase Remote Config",
+          "kind": "data"
+        },
+        {
+          "name": "Anti-Cheat System",
+          "icon": "🛡️",
+          "plain": "The security guard that watches for cheaters — aimbots, wallhacks, speed hacks — and boots or bans them to keep matches fair.",
+          "responsibility": "Combines kernel/client-side integrity checks with server-side input validation and ML anomaly detection over telemetry to flag impossible inputs, memory tampering, and statistical outliers; issues kicks and coordinated ban waves.",
+          "tech": "Easy Anti-Cheat, BattlEye, Riot Vanguard, ML anomaly detection",
+          "kind": "external"
+        },
+        {
+          "name": "Telemetry & Analytics Pipeline",
+          "icon": "📊",
+          "plain": "The flight recorder — it logs everything across all matches so the team can fix bugs, balance the game, catch cheaters, and see what players love.",
+          "responsibility": "Streams high-volume gameplay, economy, and session events through a message bus into a warehouse and real-time dashboards; feeds live-ops decisions, anti-cheat models, and A/B experiments.",
+          "tech": "Apache Kafka, Snowflake/BigQuery, ClickHouse, Grafana",
+          "kind": "data"
+        }
+      ],
+      "pros": [
+        "Authoritative servers make the client untrusted, eliminating most movement, aim, and item-duplication cheats by design",
+        "Clean split between stateless services (matchmaking, accounts) that autoscale normally and orchestrated stateful game servers gives predictable scale to millions of concurrent matches",
+        "UDP netcode plus regional edge placement and warm pools deliver the sub-100ms latency competitive play demands"
+      ],
+      "cons": [
+        "Stateful, sticky game servers are expensive and awkward to scale — you can't just add a load balancer, and idle warm pools burn money",
+        "Netcode (client prediction, reconciliation/rollback, lag compensation) is notoriously hard to get right and to debug across bad networks",
+        "True global low-latency requires multi-region fleets, DDoS protection, and heavy operational tooling, driving high infrastructure and staffing cost"
+      ]
+    },
+    "dataFlow": {
+      "analogy": "It's like a refereed sport streamed live: players line up in the lobby, the league assigns them to a court with a ref, everyone connects, the ref calls the play-by-play many times a second while each player's screen smooths out the motion, and when the whistle blows the final score goes onto the record books.",
+      "steps": [
+        {
+          "title": "Login and enter the queue",
+          "plain": "The player signs in and presses 'Play', and the system drops them into the waiting line.",
+          "detail": "Client authenticates against the accounts service (token/session), then submits a matchmaking ticket carrying skill rating, region/ping estimates, and party info into the matchmaker's queue (Redis).",
+          "time": "50–300ms auth, then seconds in queue"
+        },
+        {
+          "title": "A balanced match is formed",
+          "plain": "The host finds enough similar players and forms a fair game.",
+          "detail": "Matchmaker evaluates ticket pools, optimizing for MMR closeness, acceptable latency, team balance, and party/role constraints; once match quality passes a threshold it emits a match proposal.",
+          "time": "1–30s (depends on population)"
+        },
+        {
+          "title": "A game server is allocated",
+          "plain": "A fresh referee is pulled off the ready bench and assigned to this match.",
+          "detail": "The fleet orchestrator (Agones/GameLift) allocates a Ready GameServer in the best region, marks it Allocated, and returns its connection endpoint (IP:port) to every matched client.",
+          "time": "<500ms from warm pool, 1–5s cold"
+        },
+        {
+          "title": "Players connect and load in",
+          "plain": "Everyone's game connects to that referee and loads the map.",
+          "detail": "Clients open UDP/DTLS connections through the netcode gateway, complete the handshake, confirm match config, and signal ready; the server waits for all players or a timeout, then starts the match.",
+          "time": "1–10s"
+        },
+        {
+          "title": "Real-time authoritative tick loop",
+          "plain": "Many times a second, each player sends what they're doing, the referee decides the official outcome, and sends it back to everyone.",
+          "detail": "Server ingests input commands, advances the authoritative simulation one tick, performs lag-compensated hit detection, then broadcasts delta-compressed, priority-ordered state snapshots to each client.",
+          "time": "every 16–66ms (15–60Hz), whole match"
+        },
+        {
+          "title": "Client prediction and interpolation",
+          "plain": "Each player's screen predicts and smooths the action so it feels instant even though data crosses the internet.",
+          "detail": "Clients predict local movement immediately, interpolate remote entities between snapshots, and reconcile/rollback when the authoritative state disagrees with the local prediction.",
+          "time": "per frame ~16ms (60fps)"
+        },
+        {
+          "title": "Match ends and results persist",
+          "plain": "When the game ends, results are saved: ranks update, the scoreboard changes, rewards drop, and everything is logged.",
+          "detail": "Server reports authoritative results to backend services: profile/XP and MMR updates, idempotent inventory/reward grants, leaderboard writes (Redis sorted sets), and telemetry events to Kafka; the server is then drained and recycled.",
+          "time": "100ms–2s"
+        }
+      ],
+      "failureHandling": [
+        "Packet loss and jitter: netcode uses redundant input sends, delta snapshots with acknowledgements, and interpolation buffers so a few dropped UDP packets don't stall the match.",
+        "Game-server crash: the session is lost, but a reconnect grace window lets clients rejoin; if unrecoverable, players are returned to matchmaking and the match is voided so ranks aren't unfairly affected.",
+        "Region or fleet outage: the orchestrator marks the fleet unhealthy and matchmaking reroutes new matches to the nearest healthy region, with warm pools absorbing allocation spikes.",
+        "Cheating detected: anti-cheat kicks the offender mid-match, flags the account, and folds the incident into a coordinated ban wave; badly affected matches can be invalidated."
+      ]
+    },
+    "stack": {
+      "frontend": [
+        {
+          "name": "Unreal Engine 5",
+          "why": "Built-in actor replication and rollback-capable netcode; the standard engine for AAA shooters and battle royales."
+        },
+        {
+          "name": "Unity (Netcode for GameObjects)",
+          "why": "Dominant mobile and indie engine with first-party multiplayer networking and DOTS for scale."
+        },
+        {
+          "name": "Photon Fusion / Quantum",
+          "why": "Battle-tested networking SDK offering client prediction and deterministic lockstep simulation."
+        },
+        {
+          "name": "WebGL / Colyseus.js",
+          "why": "Ships browser and instant games with no install for io-games and Roblox-style experiences."
+        }
+      ],
+      "backend": [
+        {
+          "name": "Unreal/Unity Dedicated Server",
+          "why": "Runs the authoritative match simulation as a headless build — the source of truth per match."
+        },
+        {
+          "name": "Nakama (Go)",
+          "why": "Open-source game server bundling matchmaking, leaderboards, accounts, and real-time rooms."
+        },
+        {
+          "name": "Colyseus (TypeScript)",
+          "why": "Authoritative room-based server framework for real-time state sync in JS games."
+        },
+        {
+          "name": "Open Match (Go)",
+          "why": "Google/Unity's scalable, fully customizable matchmaking framework."
+        },
+        {
+          "name": "gRPC + Protobuf",
+          "why": "Compact, low-latency contracts for service-to-service and client communication."
+        }
+      ],
+      "database": [
+        {
+          "name": "Redis",
+          "why": "Sorted sets power real-time leaderboards; also backs matchmaking queues and session cache."
+        },
+        {
+          "name": "PostgreSQL / CockroachDB",
+          "why": "Transactional accounts, inventory, and currency with strong consistency and idempotent grants."
+        },
+        {
+          "name": "Amazon DynamoDB",
+          "why": "Single-digit-millisecond player profiles and state at massive concurrent scale."
+        },
+        {
+          "name": "ScyllaDB / Cassandra",
+          "why": "High-write-throughput store for player stats, MMR, and telemetry (Discord-scale)."
+        }
+      ],
+      "infra": [
+        {
+          "name": "Agones",
+          "why": "Kubernetes-native dedicated game-server fleet management, health, and allocation."
+        },
+        {
+          "name": "Amazon GameLift",
+          "why": "Managed server hosting with FlexMatch matchmaking and global multi-region fleets."
+        },
+        {
+          "name": "Kubernetes",
+          "why": "Orchestrates stateless services and, via Agones, the stateful game-server fleets."
+        },
+        {
+          "name": "Apache Kafka",
+          "why": "High-throughput event backbone for gameplay, economy, and telemetry streams."
+        },
+        {
+          "name": "Terraform + Prometheus/Grafana",
+          "why": "Multi-region provisioning plus real-time fleet and match observability."
+        }
+      ],
+      "ai": [
+        {
+          "name": "ML anomaly detection (anti-cheat)",
+          "why": "Flags aimbot patterns and statistical outliers from server telemetry the client can't hide."
+        },
+        {
+          "name": "Modulate ToxMod",
+          "why": "Real-time voice-chat moderation to detect toxicity and harassment during matches."
+        },
+        {
+          "name": "TrueSkill / OpenSkill / Glicko-2",
+          "why": "Probabilistic skill-rating models that drive fair, balanced matchmaking."
+        },
+        {
+          "name": "Unity ML-Agents / RL bots",
+          "why": "Reinforcement-learning bots for backfill, PvE opponents, and automated playtesting."
+        }
+      ]
+    },
+    "tables": [
+      "players",
+      "player_stats",
+      "inventory_items",
+      "matches",
+      "match_participants",
+      "leaderboard_entries",
+      "game_sessions",
+      "ban_records"
+    ],
+    "companies": [
+      "Riot Games (League of Legends, VALORANT, Vanguard anti-cheat)",
+      "Epic Games (Unreal Engine, Fortnite, Epic Online Services)",
+      "Roblox",
+      "Supercell (Clash of Clans, Clash Royale)",
+      "Unity (Netcode, Multiplay hosting, Vivox)",
+      "Heroic Labs (Nakama)"
+    ]
+  },
+  {
+    "key": "search-recommendation",
+    "label": "Search & Recommendation",
+    "keywords": [
+      "search engine",
+      "recommendation system",
+      "recsys",
+      "semantic search",
+      "vector search",
+      "elasticsearch clone",
+      "algolia alternative",
+      "netflix recommendations",
+      "discovery feed",
+      "learning to rank",
+      "product search autocomplete",
+      "personalization engine",
+      "similar items recommendation",
+      "recommender",
+      "ranking",
+      "full-text search",
+      "autocomplete"
+    ],
+    "category": "Search & Discovery",
+    "icon": "🔍",
+    "complexity": "Advanced",
+    "overview": {
+      "analogy": "A search and recommendation system is like a brilliant librarian who has secretly memorized every book in the world. When you walk up and mumble half a title, they instantly guess what you really meant, sprint through millions of shelves in the blink of an eye to grab a shortlist, and then hand them to you arranged by what YOU personally are most likely to enjoy — not just the most popular ones. And every time you pick a book or put one back, they quietly remember, so tomorrow's suggestions are even better.",
+      "whoUsesIt": "E-commerce stores, streaming and media platforms, marketplaces, app stores, news and social feeds, and virtually any product with a search box. It is built and tuned by relevance/search engineers, machine-learning and recsys engineers, data scientists, and platform teams who own discovery.",
+      "businessValue": "Search and discovery quietly drive a huge slice of revenue and engagement — Amazon and Netflix credit a large share of purchases and watch-time to recommendations. Small relevance gains translate directly into higher conversion, click-through, average order value, retention, and reduced 'no results' abandonment, making the search/recsys stack one of the highest-ROI systems a company can invest in.",
+      "howItWorks": [
+        {
+          "title": "Ingest & Index",
+          "text": "Content (products, videos, articles) is crawled or streamed in, cleaned, tokenized, and embedded, then filed into a keyword (inverted) index and a semantic (vector) index so it can be found instantly."
+        },
+        {
+          "title": "Understand the Query",
+          "text": "When someone searches, the system normalizes and spell-corrects the text, expands synonyms, and turns it into both keywords and a numeric embedding that captures intent."
+        },
+        {
+          "title": "Retrieve Candidates",
+          "text": "A cheap, fast recall stage pulls a few hundred plausible matches from billions of items using BM25 keyword search plus approximate nearest-neighbor vector search (hybrid retrieval)."
+        },
+        {
+          "title": "Rank & Personalize",
+          "text": "An expensive precision stage re-scores that shortlist with a learning-to-rank or neural model, mixing relevance, freshness, popularity, and personal signals to decide the final order."
+        },
+        {
+          "title": "Learn from Feedback",
+          "text": "Clicks, dwell time, and conversions are logged, A/B tests measure which changes help, and models are periodically retrained on this implicit feedback to keep improving."
+        }
+      ],
+      "features": [
+        "Full-text search with BM25 scoring, facets, filters, and typo tolerance",
+        "Semantic (vector) search and hybrid lexical + embedding retrieval",
+        "Autocomplete, typeahead, and query suggestions",
+        "Learning-to-rank and neural reranking for relevance",
+        "Personalized recommendations and a discovery/for-you feed",
+        "A/B testing, interleaving, and relevance experimentation"
+      ]
+    },
+    "architecture": {
+      "pattern": "Multi-stage retrieve-and-rank funnel with hybrid lexical + vector indexing, decoupled ingestion and serving, and a learning-to-rank layer feeding an experimentation loop.",
+      "whyPattern": "You cannot afford to run an expensive ranking model over billions of documents per query, so the system is built as a funnel: a cheap, high-recall retrieval stage (BM25 over an inverted index plus approximate nearest-neighbor over a vector index) narrows the corpus to a few hundred candidates in milliseconds, and only then does a heavier precision stage (LTR or neural reranker) score that shortlist. Splitting cheap recall from expensive precision, and combining exact-keyword lexical matching with semantic vector matching, is what lets these systems be both fast and relevant. Ingestion is decoupled from serving so indexes can be updated and models retrained without taking search down, and every result is logged so A/B tests can safely gate changes.",
+      "components": [
+        {
+          "name": "Search & Discovery UI",
+          "icon": "🔎",
+          "plain": "The search box, autocomplete dropdown, filters, and results or 'for you' feed you actually see and click on.",
+          "responsibility": "Renders instant results, faceted filters, typeahead suggestions, and recommendation carousels; debounces keystrokes, manages query and pagination state, and fires impression/click telemetry back to the platform.",
+          "tech": "React InstantSearch, Algolia Autocomplete, Next.js",
+          "kind": "client"
+        },
+        {
+          "name": "Query Gateway / Search API",
+          "icon": "🚪",
+          "plain": "The front desk that receives every search, tidies it up, and figures out what you really meant.",
+          "responsibility": "Handles auth and rate limiting, then normalizes, spell-corrects, and expands the query with synonyms/stopwords, generates the query embedding, and fans out to retrieval backends under strict per-stage latency budgets.",
+          "tech": "FastAPI / gRPC, Envoy, Redis",
+          "kind": "edge"
+        },
+        {
+          "name": "Ingestion & Crawling Pipeline",
+          "icon": "🕸️",
+          "plain": "The tireless collector that pulls in new content and prepares each item to be searchable.",
+          "responsibility": "Crawls or streams source data, deduplicates and enriches it, runs text analysis/tokenization, generates document embeddings, and emits normalized documents to the indexers via a streaming bus for near-real-time and batch updates.",
+          "tech": "Apache Kafka, Apache Flink, Scrapy",
+          "kind": "service"
+        },
+        {
+          "name": "Indexer",
+          "icon": "🏗️",
+          "plain": "The organizer that files every piece of content so it can be found instantly later.",
+          "responsibility": "Builds and maintains inverted indexes (postings lists, term stats, doc values) and pushes vectors to the ANN store; manages shards, segments, refresh intervals, and index aliases for zero-downtime reindexing.",
+          "tech": "Apache Lucene, Elasticsearch / OpenSearch",
+          "kind": "service"
+        },
+        {
+          "name": "Inverted Index Store",
+          "icon": "📚",
+          "plain": "A giant instant lookup table — like the index at the back of a book — that maps every word to the items containing it.",
+          "responsibility": "Stores postings lists and term frequencies; serves BM25/TF-IDF scoring, boolean filters, facet aggregations, and result highlighting at low latency across sharded and replicated nodes.",
+          "tech": "Elasticsearch, OpenSearch, Apache Solr",
+          "kind": "data"
+        },
+        {
+          "name": "Vector Index (ANN)",
+          "icon": "🧭",
+          "plain": "A 'meaning map' that finds items similar in idea to your query, even when they share no exact words.",
+          "responsibility": "Stores dense embeddings and serves approximate nearest-neighbor search (HNSW / IVF-PQ) for semantic retrieval, with metadata pre-filtering, hybrid scoring, and tunable recall-vs-latency tradeoffs.",
+          "tech": "Pinecone, Milvus, FAISS, pgvector",
+          "kind": "data"
+        },
+        {
+          "name": "Ranking & LTR Models",
+          "icon": "🧠",
+          "plain": "The expert judge that scores the shortlist and decides the exact order you see.",
+          "responsibility": "Reranks retrieved candidates with learning-to-rank (LambdaMART) or neural cross-encoders using relevance, freshness, popularity, and query-document features, optimizing NDCG/MRR against implicit-feedback labels.",
+          "tech": "LightGBM / XGBoost, TensorFlow Ranking, Sentence Transformers",
+          "kind": "ai"
+        },
+        {
+          "name": "Feature Store & Personalization",
+          "icon": "🎯",
+          "plain": "The memory of who you are and what you like, used to tailor results to you specifically.",
+          "responsibility": "Serves low-latency online features (user history, session context, item stats) and consistent offline features for training; powers candidate generation (two-tower / collaborative filtering) and personalized re-ranking signals.",
+          "tech": "Feast, Redis, two-tower / DLRM models",
+          "kind": "ai"
+        },
+        {
+          "name": "Experimentation & Analytics",
+          "icon": "🧪",
+          "plain": "The lab that runs side-by-side tests to prove a new search tweak actually helps before everyone gets it.",
+          "responsibility": "Assigns A/B and interleaving buckets, logs impressions/clicks/conversions, computes relevance and engagement metrics (CTR, NDCG, conversion), and feeds labeled feedback back into model training.",
+          "tech": "Apache Kafka, Snowflake / BigQuery, GrowthBook / Statsig",
+          "kind": "external"
+        }
+      ],
+      "pros": [
+        "Scales to billions of documents: the cheap recall stage narrows candidates before the expensive ranking model ever runs, keeping tail latency low.",
+        "Hybrid lexical + vector retrieval captures both exact keyword matches and fuzzy semantic intent, reducing zero-result and irrelevant-result rates.",
+        "Decoupled ingestion and serving let you reindex content and retrain/swap ranking models independently, without downtime.",
+        "Pluggable LTR and personalization layers plus built-in A/B testing enable safe, measurable, continuous relevance iteration."
+      ],
+      "cons": [
+        "Operationally complex: multiple indexes, streaming pipelines, feature stores, and models must be kept consistent and observable.",
+        "Index freshness versus cost is a constant tradeoff — true near-real-time indexing of large corpora is expensive and hard.",
+        "Ranking and recsys models are data-hungry and suffer cold-start problems for new users and new items until enough feedback accrues.",
+        "Vector/ANN search is memory-heavy and costly at scale, and tuning the recall-versus-latency and hybrid-blend knobs requires constant relevance evaluation."
+      ]
+    },
+    "dataFlow": {
+      "analogy": "Picture ordering at an enormous food court. A greeter figures out what you're actually craving even if you describe it vaguely (query understanding), runners dash to hundreds of stalls and grab every dish that might fit (retrieval), a head chef ranks that pile by what you personally tend to love (ranking), the staff plate it up nicely with a couple of house specials pinned on top (blending), and afterwards they quietly note what you actually ate so tomorrow's suggestions are sharper (feedback).",
+      "steps": [
+        {
+          "title": "Query capture & typeahead",
+          "plain": "As you type, the search box instantly suggests completions and popular matches.",
+          "detail": "The client debounces keystrokes and hits a low-latency typeahead/suggestion index (often a prefix or completion suggester), while capturing session context. Impression telemetry for suggestions is buffered client-side.",
+          "time": "~20ms"
+        },
+        {
+          "title": "Query understanding",
+          "plain": "The system cleans up your words, fixes typos, and figures out what you really mean.",
+          "detail": "The gateway normalizes casing/diacritics, runs spell correction and synonym/stopword expansion, detects intent/filters (e.g. brand, price), and generates a query embedding via an embedding model for the semantic leg of retrieval.",
+          "time": "~15ms"
+        },
+        {
+          "title": "Hybrid candidate retrieval",
+          "plain": "It pulls a shortlist of a few hundred likely matches from millions of items in a blink.",
+          "detail": "The query fans out in parallel to the inverted index (BM25 over sharded postings with filters/facets) and the vector index (HNSW/IVF ANN over embeddings). Results are merged/deduped into a candidate set of a few hundred, keeping high recall.",
+          "time": "~30ms"
+        },
+        {
+          "title": "Feature hydration & ranking",
+          "plain": "An expert model scores the shortlist and orders it by what fits you best.",
+          "detail": "For each candidate, online features are fetched from the feature store (user history, item popularity, freshness, query-doc match signals) and a learning-to-rank or neural cross-encoder reranks them, optimizing for NDCG/engagement with personalization signals.",
+          "time": "~45ms"
+        },
+        {
+          "title": "Blending & business rules",
+          "plain": "Sponsored, pinned, and diverse picks are woven into the final list.",
+          "detail": "The ranked list is blended with recommendation candidates, ads/promotions, editorial pins and boosts, then diversity/dedup rules (e.g. per-brand caps, MMR) are applied to avoid a monotonous result set.",
+          "time": "~10ms"
+        },
+        {
+          "title": "Render & impression logging",
+          "plain": "The results and recommendations appear, and the system records what it showed you.",
+          "detail": "The API returns the assembled results (with highlights, facets, and pagination cursors) to the UI, and structured impression events are streamed to the experimentation/analytics platform tagged with the A/B or interleaving bucket.",
+          "time": "~10ms"
+        },
+        {
+          "title": "Feedback & retraining loop",
+          "plain": "Your clicks and views quietly teach the system to do better next time.",
+          "detail": "Clicks, dwell, add-to-cart, and conversions flow through Kafka into the warehouse and feature store, becoming implicit labels. Metrics update dashboards, experiments reach significance, and models/indexes are retrained and rolled out on a schedule.",
+          "time": "async (minutes–hours)"
+        }
+      ],
+      "failureHandling": [
+        "Graceful degradation: if the vector/ANN service is slow or down, the gateway falls back to lexical BM25-only results (or vice versa) so search still returns useful matches instead of erroring.",
+        "Per-stage latency budgets and timeouts: the reranker runs against a deadline; if it exceeds SLA the system returns the retrieval-ordered results or a cached response rather than blocking the page.",
+        "Index resilience: replicas and last-known-good snapshots serve reads while a shard recovers, and a circuit breaker halts serving from an index that has fallen too far behind on ingestion lag.",
+        "Caching layers: a query-result cache and popular-query/typeahead cache absorb traffic spikes and shield backends, with short TTLs to bound staleness."
+      ]
+    },
+    "stack": {
+      "frontend": [
+        {
+          "name": "React InstantSearch (Algolia)",
+          "why": "Drop-in widgets for search box, faceting, infinite results, and typeahead so teams build a full search UI without wiring state by hand."
+        },
+        {
+          "name": "Next.js",
+          "why": "Server-side rendering and ISR make search result and category pages fast and crawlable/indexable, important for SEO-driven discovery."
+        },
+        {
+          "name": "Algolia Autocomplete",
+          "why": "Framework-agnostic library for keystroke-level query suggestions, recent searches, and federated multi-source typeahead."
+        }
+      ],
+      "backend": [
+        {
+          "name": "Elasticsearch / OpenSearch",
+          "why": "Industry-standard distributed inverted index providing BM25 scoring, filters, facet aggregations, and (recent versions) native kNN vector search."
+        },
+        {
+          "name": "Apache Lucene",
+          "why": "The core indexing/search library under Elasticsearch and Solr — postings, analyzers, and scoring that define full-text search semantics."
+        },
+        {
+          "name": "FastAPI / gRPC",
+          "why": "Low-latency retrieval and ranking microservices; gRPC for internal service-to-service calls, FastAPI for the query gateway."
+        },
+        {
+          "name": "Apache Solr",
+          "why": "Mature open-source search platform, a common alternative to Elasticsearch for enterprise faceted full-text search."
+        }
+      ],
+      "database": [
+        {
+          "name": "Pinecone / Milvus",
+          "why": "Managed and self-hosted vector databases serving high-scale approximate nearest-neighbor (HNSW/IVF) queries for semantic search and recsys."
+        },
+        {
+          "name": "PostgreSQL + pgvector",
+          "why": "Stores item metadata and, with pgvector, small-to-mid-scale embeddings so lexical filters and vector similarity live in one queryable store."
+        },
+        {
+          "name": "Redis",
+          "why": "Sub-millisecond cache for query results, online features, and typeahead, plus counters for popularity and rate limiting."
+        },
+        {
+          "name": "Cassandra / ScyllaDB",
+          "why": "Write-heavy store for clickstream events, user interaction history, and per-user recommendation candidates at massive scale."
+        }
+      ],
+      "infra": [
+        {
+          "name": "Apache Kafka",
+          "why": "Backbone event stream carrying document ingestion, impressions, and clicks between crawlers, indexers, feature store, and the warehouse."
+        },
+        {
+          "name": "Apache Flink",
+          "why": "Stream processing for near-real-time indexing and online feature computation (rolling popularity, CTR) from the event stream."
+        },
+        {
+          "name": "Feast",
+          "why": "Feature store that guarantees the same features are served online for ranking and offline for training, avoiding train/serve skew."
+        },
+        {
+          "name": "Kubernetes",
+          "why": "Orchestrates and autoscales the many stateless retrieval, ranking, and gateway services under bursty query load."
+        },
+        {
+          "name": "Apache Airflow",
+          "why": "Schedules batch reindexing, embedding backfills, and periodic model-retraining DAGs."
+        }
+      ],
+      "ai": [
+        {
+          "name": "Sentence Transformers (SBERT)",
+          "why": "Produces dense text embeddings for queries and documents that power semantic and hybrid retrieval."
+        },
+        {
+          "name": "OpenAI / Cohere Embeddings",
+          "why": "Hosted, high-quality embedding APIs (e.g. text-embedding-3, Cohere Embed) for teams that prefer managed models over self-hosting."
+        },
+        {
+          "name": "LightGBM / XGBoost",
+          "why": "Gradient-boosted trees implementing LambdaMART, the workhorse for learning-to-rank reranking on tabular relevance features."
+        },
+        {
+          "name": "TensorFlow Ranking",
+          "why": "Framework for neural learning-to-rank and listwise losses when tree models are outgrown."
+        },
+        {
+          "name": "FAISS / ScaNN",
+          "why": "Battle-tested ANN libraries for building and querying vector indexes efficiently, often embedded inside custom retrieval services."
+        },
+        {
+          "name": "Two-tower / DLRM models",
+          "why": "Deep candidate-generation and ranking architectures for personalized recommendations and the discovery feed."
+        }
+      ]
+    },
+    "tables": [
+      "documents (indexed corpus: id, title, body, attributes, source, analyzer/index metadata, freshness timestamp)",
+      "embeddings (vector representations: doc_id/query_id, model version, dimension, vector, index reference)",
+      "queries (query log: query_id, raw + normalized text, embedding ref, user/session, timestamp, intent/filters)",
+      "impressions (served results log: impression_id, query_id, result_ids + positions, experiment bucket, timestamp)",
+      "interactions (implicit feedback: click, dwell, add-to-cart, conversion events tied to impression_id and user_id)",
+      "user_profiles (personalization: user_id, preferences, interaction history, computed affinity segments)",
+      "ranking_features (feature store entities: query-doc, user, and item features with values and freshness for train/serve)",
+      "experiments (A/B config: experiment_id, variants, traffic allocation, metrics, start/stop, status)"
+    ],
+    "companies": [
+      "Elastic (Elasticsearch)",
+      "Algolia",
+      "Pinecone",
+      "Google Search",
+      "Netflix",
+      "Weaviate"
+    ]
+  },
+  {
+    "key": "productivity-collab",
+    "label": "Productivity & Collaboration",
+    "keywords": [
+      "notion clone",
+      "figma clone",
+      "google docs clone",
+      "collaborative editor",
+      "real-time collaboration",
+      "crdt",
+      "yjs",
+      "live cursors",
+      "trello clone",
+      "project management app",
+      "collaborative whiteboard",
+      "operational transform",
+      "multiplayer editing",
+      "jira alternative",
+      "productivity app",
+      "collaboration tool",
+      "project management",
+      "task management",
+      "notes app",
+      "docs app",
+      "whiteboard",
+      "kanban",
+      "team collaboration"
+    ],
+    "category": "Productivity & Collaboration",
+    "icon": "🤝",
+    "complexity": "Advanced",
+    "overview": {
+      "analogy": "It's like a Google Doc for everything: instead of emailing files back and forth, everyone opens the same living page, board, or task list at once. You see each other's colored cursors moving, edits appear the instant they're typed, and nobody ever ends up with 'final_v3_REALLY_final.docx' again.",
+      "whoUsesIt": "Remote and hybrid teams — product managers, designers, engineers, writers, and founders — plus anyone who plans, documents, or brainstorms together, from two-person startups to large enterprises.",
+      "businessValue": "Replaces slow email and file back-and-forth with a single live source of truth, cutting meetings and version confusion. Real-time collaboration keeps distributed teams in sync, speeds up decisions, and turns everything the team builds into a searchable shared knowledge base.",
+      "howItWorks": [
+        {
+          "title": "Everything is a shared data structure",
+          "text": "Instead of saving whole files, a document is broken into tiny tracked pieces — blocks, characters, shapes, tasks — that many people can change at the same time."
+        },
+        {
+          "title": "Edit locally first, sync in the background",
+          "text": "Your change is applied on your own device instantly, then quietly sent to everyone else, so the app never feels slow and even works with no internet."
+        },
+        {
+          "title": "A merge engine resolves conflicts automatically",
+          "text": "CRDT or Operational Transformation math guarantees that even simultaneous edits to the same sentence combine into one consistent version without overwriting each other."
+        },
+        {
+          "title": "Presence makes it feel live",
+          "text": "Cursors, text selections, and avatars are streamed continuously so you can literally watch collaborators moving and typing in real time."
+        },
+        {
+          "title": "History and permissions wrap around it",
+          "text": "Every change is logged for version history and undo, while sharing rules control exactly who can view, comment on, or edit each page."
+        }
+      ],
+      "features": [
+        "Real-time multiplayer editing with conflict-free merging (CRDT/OT)",
+        "Live cursors, selections, and presence avatars",
+        "Offline editing with automatic sync on reconnect",
+        "Threaded comments, @-mentions, and notifications",
+        "Version history with restore and granular undo",
+        "Fine-grained sharing (workspace, page, guest, and public share links)"
+      ]
+    },
+    "architecture": {
+      "pattern": "Local-First, Event-Sourced Realtime Sync (CRDT/OT over WebSockets)",
+      "whyPattern": "Collaborative tools must feel instant, work offline, and let many people edit the same content at once without conflicts. That rules out a simple request/response CRUD app. Instead the document becomes a shared, mergeable data structure: each client keeps a local replica, applies edits optimistically, and streams tiny operations over a persistent connection. A merge engine (CRDT or OT) guarantees every replica converges to the same state, an append-only update log provides version history and undo, and a stateful sync layer fans changes out to everyone in the room in real time.",
+      "components": [
+        {
+          "name": "Rich Text / Canvas Editor",
+          "icon": "📝",
+          "plain": "The document, board, or canvas you actually type and draw in. As you make changes they show up on your screen instantly, before anyone else even sees them.",
+          "responsibility": "Client-side editor framework that renders the shared document and captures every edit as a granular operation. Holds a local copy of the CRDT/OT document, applies edits optimistically, and reconciles incoming remote updates into the view without disturbing the user's cursor, selection, or scroll position.",
+          "tech": "ProseMirror / TipTap, Lexical, Slate, CodeMirror, Excalidraw canvas, WebGL (Figma-style rendering)",
+          "kind": "client"
+        },
+        {
+          "name": "Local-First Store & Offline Sync",
+          "icon": "💾",
+          "plain": "A private copy of your work kept on your own device so the app stays fast and keeps working with no internet. When you reconnect, everything catches up on its own.",
+          "responsibility": "Persists the document plus a queue of unsynced changes on-device (IndexedDB/SQLite) for instant reads and writes. Buffers edits while offline and replays them on reconnect, using a local state vector (the sync-engine pattern popularized by Linear) to request only the updates it is missing.",
+          "tech": "IndexedDB, SQLite/WASM, Yjs y-indexeddb, Linear Sync Engine pattern, RxDB, TinyBase",
+          "kind": "client"
+        },
+        {
+          "name": "Realtime Sync Gateway (WebSocket)",
+          "icon": "🔌",
+          "plain": "The always-open phone line between each person's app and the server. It carries every keystroke and cursor move back and forth the moment they happen.",
+          "responsibility": "Terminates persistent WebSocket (or WebRTC) connections, authenticates sessions, and routes document updates and awareness messages to the right document room. Handles reconnection, backpressure, and room membership, typically running stateful per-document rooms for low latency.",
+          "tech": "Hocuspocus, Liveblocks, PartyKit, Cloudflare Durable Objects, Phoenix Channels (Elixir), Socket.IO, Ably/Pusher",
+          "kind": "edge"
+        },
+        {
+          "name": "CRDT / OT Merge Engine",
+          "icon": "🔀",
+          "plain": "The referee that takes everyone's simultaneous edits and merges them into one version with no conflicts, so two people typing in the same sentence never clobber each other.",
+          "responsibility": "Integrates concurrent updates deterministically using CRDTs or Operational Transformation so all replicas converge to identical state. Computes update diffs from client state vectors, preserves causal ordering, and appends each operation to the document's update log.",
+          "tech": "Yjs, Automerge, ShareDB (OT), Microsoft Fluid Framework, Loro, Diamond Types",
+          "kind": "service"
+        },
+        {
+          "name": "Presence & Awareness Service",
+          "icon": "👥",
+          "plain": "Shows the little colored cursors, name tags, and 'currently viewing' avatars so you can see who else is in the document and where they're working.",
+          "responsibility": "Tracks ephemeral, non-persisted state — cursor positions, text selections, active viewers, typing indicators — via the awareness protocol. Broadcasts high-frequency presence deltas with short TTLs and cleans up automatically when a connection drops.",
+          "tech": "Yjs Awareness protocol, Redis (ephemeral state), Liveblocks Presence, Phoenix Presence",
+          "kind": "service"
+        },
+        {
+          "name": "Permissions & Sharing (ACL) Service",
+          "icon": "🔐",
+          "plain": "Decides who can view, comment on, or edit each doc, and powers share links, workspace invites, and guest access.",
+          "responsibility": "Authorization layer enforcing role- or relationship-based access at the workspace, page, and block level. Resolves inherited permissions, public/share-link tokens, and guest scopes, and is checked on every connection and every mutation.",
+          "tech": "OAuth/OIDC, JWT, Zanzibar-style ReBAC (OpenFGA/SpiceDB), Postgres row-level security, Casbin",
+          "kind": "service"
+        },
+        {
+          "name": "Document Store & Version History",
+          "icon": "🗄️",
+          "plain": "The permanent home for every document plus a timeline of past versions, so nothing is ever lost and you can roll back to how it looked yesterday.",
+          "responsibility": "Durably stores the append-only update log and periodic compacted snapshots. Serves the initial document load, powers version history and restore, fans updates out via pub/sub, and runs background compaction and garbage collection of CRDT tombstones.",
+          "tech": "PostgreSQL, S3/object storage for snapshots, Redis pub/sub for fan-out, block-based schema (Notion-style)",
+          "kind": "data"
+        },
+        {
+          "name": "Comments, Mentions & Notifications",
+          "icon": "💬",
+          "plain": "The margin comments, @-mentions, and the little bell that tells you when someone replied to you or assigned you a task.",
+          "responsibility": "Manages threaded comments anchored to document ranges or blocks, resolves @-mentions, and drives notification fan-out across email, push, and in-app inbox. Anchors use CRDT relative positions so they survive concurrent edits to the surrounding text.",
+          "tech": "PostgreSQL, Yjs relative positions, Redis queues, WebPush, Knock/Novu, email (Resend/SES)",
+          "kind": "service"
+        },
+        {
+          "name": "Search & AI Assistant",
+          "icon": "🔎",
+          "plain": "The search box that instantly finds any page, plus the AI helper that can summarize, rewrite, or answer questions about your docs.",
+          "responsibility": "Indexes documents for full-text and semantic search and powers AI features — summarize, autocomplete, Q&A — via embeddings and retrieval-augmented generation over workspace content. Handles incremental re-indexing as documents change.",
+          "tech": "Elasticsearch/Typesense/Meilisearch, pgvector, Anthropic Claude, OpenAI embeddings, RAG (Notion AI-style)",
+          "kind": "ai"
+        }
+      ],
+      "pros": [
+        "Instant, conflict-free multi-user editing thanks to optimistic local updates and deterministic merging.",
+        "Works offline and resyncs automatically on reconnect, making the app resilient and always fast.",
+        "Live presence, cursors, and comments make remote collaboration feel social and immediate.",
+        "An append-only update log gives version history, granular undo, and full audit trails almost for free."
+      ],
+      "cons": [
+        "CRDT metadata and tombstones grow over time, requiring snapshot compaction and garbage collection.",
+        "Very hard to build correctly — merge semantics, undo/redo, and schema migration of shared state are subtle.",
+        "Stateful WebSocket infrastructure is expensive and tricky to scale (sticky routing, room fan-out, reconnection storms).",
+        "Access control must be enforced live on every op, not just at page load, or stale sessions leak edits."
+      ]
+    },
+    "dataFlow": {
+      "analogy": "Imagine a group of people all writing on the same whiteboard at once — except each person also has an instant photocopy on their own desk. You scribble on your copy immediately, a runner carries the change to a central board, a referee slots it in cleanly next to everyone else's, and copies of that update are rushed back to every desk so all the whiteboards stay identical.",
+      "steps": [
+        {
+          "title": "You make an edit",
+          "plain": "You type a word, drag a shape, or check off a task in the app.",
+          "detail": "The editor captures the change as a granular CRDT/OT operation (insert, delete, format, move) rather than re-saving the whole document, tagged with the client's ID and a logical clock for causal ordering.",
+          "time": "0 ms"
+        },
+        {
+          "title": "Applied locally & queued offline",
+          "plain": "The change appears on your screen immediately and is saved on your own device, even if you're offline.",
+          "detail": "The op is optimistically integrated into the local replica and persisted to IndexedDB/SQLite. If disconnected, it is added to an outbound queue alongside the client's state vector for later reconciliation.",
+          "time": "~1-5 ms"
+        },
+        {
+          "title": "Sent over the WebSocket",
+          "plain": "Your app pushes the change through its always-on connection to the server.",
+          "detail": "The update, plus any awareness/cursor deltas, is serialized and sent over the persistent WebSocket to the sync gateway, which authenticates the session and identifies the target document room.",
+          "time": "~10-50 ms"
+        },
+        {
+          "title": "Merged on the server",
+          "plain": "The server blends your change with everyone else's into one clean version.",
+          "detail": "The merge engine integrates the op into the authoritative document, resolving concurrency deterministically via CRDT/OT, and appends it to the document's append-only update log.",
+          "time": "~5-20 ms"
+        },
+        {
+          "title": "Broadcast to collaborators",
+          "plain": "The change is instantly relayed to everyone else in the document.",
+          "detail": "The gateway fans the update out through Redis pub/sub to all room servers, which push it to every connected peer; presence and cursor deltas ride the same channel with short TTLs.",
+          "time": "~20-80 ms"
+        },
+        {
+          "title": "Peers apply the update",
+          "plain": "Your teammates see your edit and moving cursor appear on their screens.",
+          "detail": "Each client integrates the remote op into its local replica, preserving its own cursor position and undo stack, then renders the new state and updated presence markers.",
+          "time": "~5-20 ms"
+        },
+        {
+          "title": "Persisted & versioned",
+          "plain": "In the background, the system saves a checkpoint so history, search, and rollback work.",
+          "detail": "Periodically the update log is compacted into a snapshot written to Postgres/S3; version-history entries and search indexes update asynchronously, and old CRDT tombstones are garbage-collected.",
+          "time": "background, ~100 ms-seconds"
+        }
+      ],
+      "failureHandling": [
+        "Offline or dropped edits are queued in on-device storage and replayed on reconnect; CRDT convergence guarantees every replica ends in the same state regardless of the order updates arrive.",
+        "WebSocket drops trigger exponential-backoff reconnects; the client sends its state vector so the server streams back only the updates it missed, avoiding a full document reload.",
+        "An append-only update log plus periodic snapshots let a crashed client or server rebuild the exact document, and permission checks re-run on every reconnect to revoke stale or downgraded access."
+      ]
+    },
+    "stack": {
+      "frontend": [
+        {
+          "name": "React",
+          "why": "Component model and huge ecosystem fit complex collaborative document and board UIs."
+        },
+        {
+          "name": "TipTap / ProseMirror",
+          "why": "Battle-tested rich-text editor with first-class collaborative editing support."
+        },
+        {
+          "name": "Lexical",
+          "why": "Meta's extensible, high-performance editor framework with built-in collaboration."
+        },
+        {
+          "name": "Yjs (client)",
+          "why": "De-facto CRDT library with ready-made editor bindings and offline providers."
+        },
+        {
+          "name": "Excalidraw / Canvas + WebGL",
+          "why": "Powers whiteboard and design surfaces that render smoothly with many live cursors."
+        }
+      ],
+      "backend": [
+        {
+          "name": "Node.js / TypeScript",
+          "why": "Shares types and CRDT logic with the client and has a rich real-time ecosystem."
+        },
+        {
+          "name": "Hocuspocus",
+          "why": "Production-grade Yjs WebSocket backend with auth, persistence, and scaling hooks."
+        },
+        {
+          "name": "ShareDB",
+          "why": "Mature Operational Transformation backend for JSON documents used by many editors."
+        },
+        {
+          "name": "Elixir / Phoenix Channels",
+          "why": "Handles millions of concurrent WebSocket connections with built-in Presence."
+        },
+        {
+          "name": "Liveblocks / PartyKit",
+          "why": "Managed real-time collaboration infrastructure that removes stateful server ops."
+        }
+      ],
+      "database": [
+        {
+          "name": "PostgreSQL",
+          "why": "Durable store for documents, update logs, comments, and permissions with strong consistency."
+        },
+        {
+          "name": "Redis",
+          "why": "Pub/sub fan-out across sync servers plus fast ephemeral presence state."
+        },
+        {
+          "name": "SQLite / IndexedDB",
+          "why": "On-device local-first storage that makes the app instant and offline-capable."
+        },
+        {
+          "name": "S3 / object storage",
+          "why": "Cheap durable home for document snapshots, attachments, and images."
+        },
+        {
+          "name": "Elasticsearch / Typesense",
+          "why": "Full-text and faceted search across all pages in a workspace."
+        }
+      ],
+      "infra": [
+        {
+          "name": "Cloudflare Durable Objects",
+          "why": "Single-location stateful rooms per document, ideal for low-latency collaboration."
+        },
+        {
+          "name": "Kubernetes",
+          "why": "Orchestrates stateful WebSocket services with sticky routing and autoscaling."
+        },
+        {
+          "name": "Ably / Pusher",
+          "why": "Managed realtime transport that handles global WebSocket delivery at scale."
+        },
+        {
+          "name": "Consistent hashing / sticky sessions",
+          "why": "Routes all clients of one document to the same room server for correct merging."
+        }
+      ],
+      "ai": [
+        {
+          "name": "Anthropic Claude",
+          "why": "Summarizes, rewrites, and answers questions over documents as a writing assistant."
+        },
+        {
+          "name": "OpenAI GPT",
+          "why": "Powers inline autocomplete and generative writing features."
+        },
+        {
+          "name": "pgvector",
+          "why": "Stores embeddings in Postgres for semantic search and RAG over workspace content."
+        },
+        {
+          "name": "Embeddings (OpenAI/Cohere)",
+          "why": "Turn pages into vectors so AI can retrieve the right context for answers."
+        }
+      ]
+    },
+    "tables": [
+      "workspaces — top-level tenant/organization grouping members, billing, and settings",
+      "users_members — accounts and their roles/membership within each workspace",
+      "pages_blocks — documents modeled as a tree of blocks (text, tables, shapes, tasks)",
+      "doc_updates — append-only log of CRDT/OT operations per document",
+      "snapshots_versions — periodic compacted document states powering version history and restore",
+      "comments_threads — threaded discussions anchored to blocks/ranges with @-mentions",
+      "permissions_shares — ACL entries, share-link tokens, and guest/public access scopes",
+      "presence_sessions — ephemeral cursor, selection, and awareness state per active connection"
+    ],
+    "companies": [
+      "Notion",
+      "Figma",
+      "Atlassian (Jira / Confluence)",
+      "Asana",
+      "Linear",
+      "Miro"
     ]
   }
 ]

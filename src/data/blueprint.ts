@@ -948,8 +948,11 @@ export function generateBlueprint(query: string): Blueprint {
   return bp
 }
 
+// Normalize punctuation to spaces so "ci/cd", "e-commerce" etc. match cleanly.
+const normalizeTerms = (s: string) => ` ${s.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim()} `
+
 function pickDomain(query: string): DomainEntry | null {
-  const s = ` ${query.toLowerCase()} `
+  const padded = normalizeTerms(query)
   let best: DomainEntry | null = null
   let bestScore = 0
   for (const d of domainKnowledge) {
@@ -957,9 +960,10 @@ function pickDomain(query: string): DomainEntry | null {
     for (const kw of d.keywords) {
       const k = kw.toLowerCase().trim()
       if (!k) continue
-      // whole-word-ish match scores higher than a loose substring
-      if (s.includes(` ${k} `)) score += k.length + 3
-      else if (s.includes(k)) score += k.length
+      // Word-boundary match only — avoids false positives like "soc" ⊂ "social"
+      // or "ai" ⊂ "email". Multi-word phrases are normalized the same way.
+      const kp = k.replace(/[^a-z0-9]+/g, ' ').trim()
+      if (kp && padded.includes(` ${kp} `)) score += kp.length + 3
     }
     if (score > bestScore) {
       bestScore = score
@@ -1167,8 +1171,8 @@ function applySpec(bp: Blueprint, spec: AISpec, tagline?: string): void {
   const df = s.dataFlow || {}
   if (asStr(df.analogy)) bp.dataFlow.analogy = asStr(df.analogy)!
   const steps = asArr(df.steps)
-  if (steps)
-    bp.dataFlow.steps = steps
+  if (steps) {
+    const mapped = steps
       .map((x) => ({
         title: asStr(x.title) || 'Step',
         plain: asStr(x.plain) || '',
@@ -1176,6 +1180,30 @@ function applySpec(bp: Blueprint, spec: AISpec, tagline?: string): void {
         time: asStr(x.time) || '—',
       }))
       .filter((x) => x.plain || x.detail)
+    if (mapped.length) {
+      bp.dataFlow.steps = mapped
+      // Rebuild the flow diagram from THIS domain's steps so the data-flow
+      // visual is tailored too (not the generic request lifecycle).
+      const flowNodes: GraphNode[] = mapped.map((st, i) => ({
+        id: `f${i}`,
+        label: st.title,
+        sub: st.time && st.time !== '—' ? st.time : undefined,
+        x: i * 200,
+        y: (i % 2) * 96,
+        kind: i === 0 ? 'client' : normKind(st.title),
+      }))
+      const flowEdges: GraphEdge[] = flowNodes.slice(1).map((n, i) => ({
+        id: `fe${i}`,
+        source: flowNodes[i].id,
+        target: n.id,
+        animated: true,
+      }))
+      if (flowNodes.length >= 3) {
+        bp.dataFlow.nodes = flowNodes
+        bp.dataFlow.edges = flowEdges
+      }
+    }
+  }
   if (asStrArr(df.failureHandling)?.length) bp.dataFlow.failureHandling = asStrArr(df.failureHandling)!
 
   const stk = s.stack || {}

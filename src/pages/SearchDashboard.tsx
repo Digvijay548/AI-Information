@@ -576,7 +576,12 @@ export default function SearchDashboard() {
                 <p className="mb-4 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
                   {bp.architecture.description}
                 </p>
-                <FlowDiagram nodes={bp.architecture.nodes} edges={bp.architecture.edges} height={500} />
+                <FlowDiagram
+                  key={`arch-${bp.architecture.nodes.map((n) => n.label).join('|')}`}
+                  nodes={bp.architecture.nodes}
+                  edges={bp.architecture.edges}
+                  height={500}
+                />
                 <p className="mt-3 text-xs text-slate-400">Drag nodes to explore · scroll to zoom</p>
               </Card>
 
@@ -681,7 +686,13 @@ export default function SearchDashboard() {
           {tab === 'Data Flow' && (
             <>
               <Card title="What happens when you use it" icon={<Workflow className="h-4 w-4" />}>
-                <FlowDiagram nodes={bp.dataFlow.nodes} edges={bp.dataFlow.edges} height={360} />
+                <FlowDiagram
+                  key={`flow-${query}-${source}`}
+                  nodes={bp.dataFlow.nodes}
+                  edges={bp.dataFlow.edges}
+                  height={360}
+                />
+                <p className="mb-3 mt-2 text-xs text-slate-400">Drag nodes to explore · scroll to zoom</p>
                 <div className="mt-4 flex items-start gap-3 rounded-xl border border-black/5 bg-black/[0.02] p-4 dark:border-white/5 dark:bg-white/[0.03]">
                   <span className="text-xl">💡</span>
                   <div>

@@ -1,5 +1,22 @@
 import type { AISpec } from '../data/blueprint'
 
+class AIError extends Error {
+  status?: number
+  retryAfterMs?: number
+  constructor(message: string, status?: number, retryAfterMs?: number) {
+    super(message)
+    this.status = status
+    this.retryAfterMs = retryAfterMs
+  }
+}
+
+function retryAfterFrom(res: Response): number | undefined {
+  const h = res.headers.get('retry-after')
+  if (!h) return undefined
+  const secs = Number(h)
+  return Number.isFinite(secs) ? secs * 1000 : undefined
+}
+
 // ---------------------------------------------------------------------------
 // Provider config (stored locally in the browser only)
 // ---------------------------------------------------------------------------
@@ -104,7 +121,7 @@ function extractJSON(text: string): AISpec {
 // Provider calls
 // ---------------------------------------------------------------------------
 async function callGemini(prompt: string, cfg: AIConfig, signal?: AbortSignal): Promise<string> {
-  const model = cfg.geminiModel || 'gemini-2.0-flash'
+  const model = cfg.geminiModel || 'gemini-2.5-flash'
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${encodeURIComponent(
     cfg.geminiKey || '',
   )}`
@@ -113,11 +130,14 @@ async function callGemini(prompt: string, cfg: AIConfig, signal?: AbortSignal): 
     signal,
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      contents: [{ parts: [{ text: prompt }] }],
-      generationConfig: { responseMimeType: 'application/json', temperature: 0.7, maxOutputTokens: 8192 },
+      contents: [{ role: 'user', parts: [{ text: prompt }] }],
+      generationConfig: { responseMimeType: 'application/json', temperature: 0.4, maxOutputTokens: 8192 },
     }),
   })
-  if (!res.ok) throw new Error(`Gemini error ${res.status}. Check your API key.`)
+  if (!res.ok) {
+    const detail = res.status === 400 || res.status === 403 ? ' — check your API key' : ''
+    throw new AIError(`Gemini error ${res.status}${detail}`, res.status, retryAfterFrom(res))
+  }
   const data = await res.json()
   const parts = data?.candidates?.[0]?.content?.parts
   return Array.isArray(parts) ? parts.map((p: { text?: string }) => p.text || '').join('') : ''
@@ -155,7 +175,7 @@ async function callOpenAICompatible(
       response_format: { type: 'json_object' },
     }),
   })
-  if (!res.ok) throw new Error(`AI error ${res.status}`)
+  if (!res.ok) throw new AIError(`AI error ${res.status}`, res.status, retryAfterFrom(res))
   const data = await res.json()
   return data?.choices?.[0]?.message?.content || ''
 }
@@ -178,6 +198,15 @@ function withTimeout(outer: AbortSignal | undefined, ms: number): { signal: Abor
   }
 }
 
+const sleep = (ms: number, signal?: AbortSignal) =>
+  new Promise<void>((resolve, reject) => {
+    const t = setTimeout(resolve, ms)
+    signal?.addEventListener('abort', () => {
+      clearTimeout(t)
+      reject(new Error('aborted'))
+    })
+  })
+
 export async function generateSpec(
   query: string,
   cfg: AIConfig = getAIConfig(),
@@ -199,8 +228,14 @@ export async function generateSpec(
       return spec
     } catch (e) {
       lastErr = e
-      // stop early if the outer request was cancelled (new search / unmount)
       if (signal?.aborted) throw new Error('aborted')
+      // Don't waste retries on bad key / bad request — they'll just fail again.
+      if (e instanceof AIError && e.status && [400, 401, 403, 404].includes(e.status)) throw e
+      // Back off before the next attempt (honor Retry-After; else exp backoff + jitter).
+      if (i < attempts - 1) {
+        const base = e instanceof AIError && e.retryAfterMs ? e.retryAfterMs : 600 * 2 ** i
+        await sleep(Math.min(base + Math.random() * 400, 8000), signal)
+      }
     } finally {
       t.clear()
     }

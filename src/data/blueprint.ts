@@ -1,6 +1,8 @@
 // Blueprint generator: turns any search query into a full software blueprint
 // used by the interactive Search Dashboard.
 
+import { domainKnowledge, type DomainEntry } from './domains'
+
 export interface StackItem {
   name: string
   why: string
@@ -644,7 +646,7 @@ function buildPlainOverview(
   return { ...p, howItWorks, glossary }
 }
 
-export function generateBlueprint(query: string): Blueprint {
+function generateFromArchetype(query: string): Blueprint {
   const a = pickArchetype(query)
   const title = titleCase(query || 'Software Idea')
   const arch = buildArchitecture(a)
@@ -937,6 +939,67 @@ export function generateBlueprint(query: string): Blueprint {
   }
 }
 
+// Public generator: start from the archetype base, then overlay the best-matching
+// domain knowledge so the offline result is genuinely tailored to the query.
+export function generateBlueprint(query: string): Blueprint {
+  const bp = generateFromArchetype(query)
+  const d = pickDomain(query)
+  if (d) applySpec(bp, domainToSpec(d, bp.title))
+  return bp
+}
+
+function pickDomain(query: string): DomainEntry | null {
+  const s = ` ${query.toLowerCase()} `
+  let best: DomainEntry | null = null
+  let bestScore = 0
+  for (const d of domainKnowledge) {
+    let score = 0
+    for (const kw of d.keywords) {
+      const k = kw.toLowerCase().trim()
+      if (!k) continue
+      // whole-word-ish match scores higher than a loose substring
+      if (s.includes(` ${k} `)) score += k.length + 3
+      else if (s.includes(k)) score += k.length
+    }
+    if (score > bestScore) {
+      bestScore = score
+      best = d
+    }
+  }
+  return bestScore > 0 ? best : null
+}
+
+function domainToSpec(d: DomainEntry, title: string): AISpec {
+  return {
+    category: d.category,
+    icon: d.icon,
+    complexity: d.complexity,
+    overview: {
+      simple: `${title} is a ${d.label.toLowerCase()} system. ${d.overview.whoUsesIt} ${d.overview.businessValue}`,
+      analogy: d.overview.analogy,
+      whoUsesIt: d.overview.whoUsesIt,
+      businessValue: d.overview.businessValue,
+      howItWorks: d.overview.howItWorks,
+      features: d.overview.features,
+    },
+    architecture: {
+      pattern: d.architecture.pattern,
+      whyPattern: d.architecture.whyPattern,
+      components: d.architecture.components,
+      pros: d.architecture.pros,
+      cons: d.architecture.cons,
+    },
+    dataFlow: {
+      analogy: d.dataFlow.analogy,
+      steps: d.dataFlow.steps,
+      failureHandling: d.dataFlow.failureHandling,
+    },
+    stack: d.stack,
+    database: { tables: d.tables },
+    companies: d.companies,
+  }
+}
+
 // ============================================================================
 // AI-powered blueprint: merge a loosely-typed spec from an LLM over the
 // template so results are always complete, even if the model omits fields.
@@ -1041,7 +1104,14 @@ function layoutComponents(comps: Record<string, unknown>[]): { nodes: GraphNode[
 }
 
 export function buildBlueprintFromSpec(query: string, spec: AISpec): Blueprint {
-  const bp = generateBlueprint(query) // full template as the safety net
+  const bp = generateBlueprint(query) // full, domain-aware template as the safety net
+  applySpec(bp, spec, `AI-generated blueprint for "${bp.title}".`)
+  return bp
+}
+
+// Overlay a (partial, loosely-typed) spec onto an existing blueprint in place.
+// Used by both the AI path and the offline domain knowledge base.
+function applySpec(bp: Blueprint, spec: AISpec, tagline?: string): void {
   const s = spec || {}
 
   if (asStr(s.title)) bp.title = asStr(s.title)!
@@ -1049,7 +1119,7 @@ export function buildBlueprintFromSpec(query: string, spec: AISpec): Blueprint {
   if (asStr(s.icon)) bp.icon = asStr(s.icon)!.slice(0, 2)
   if (s.complexity && ['Beginner', 'Intermediate', 'Advanced'].includes(s.complexity))
     bp.complexity = s.complexity as Blueprint['complexity']
-  bp.tagline = `AI-generated blueprint for "${bp.title}".`
+  if (tagline) bp.tagline = tagline
 
   const ov = s.overview || {}
   if (asStr(ov.simple)) bp.overview.simple = asStr(ov.simple)!
@@ -1166,8 +1236,6 @@ export function buildBlueprintFromSpec(query: string, spec: AISpec): Blueprint {
     bp.timeline = tl
       .map((t) => ({ phase: asStr(t.phase) || 'Phase', weeks: Number(t.weeks) || 2, work: asStr(t.work) || '' }))
       .filter((t) => t.phase)
-
-  return bp
 }
 
 export const dashboardTabs = [

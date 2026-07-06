@@ -127,13 +127,17 @@ export default function AISettings({
                   />
                 </label>
                 <a
-                  href="https://aistudio.google.com/app/apikey"
+                  href="https://aistudio.google.com/apikey"
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center gap-1 text-xs font-semibold text-brand-500 hover:underline"
                 >
                   Get a free key from Google AI Studio <ExternalLink className="h-3 w-3" />
                 </a>
+                <p className="text-[11px] text-slate-400">
+                  Free tier · model <code className="rounded bg-black/5 px-1 dark:bg-white/10">gemini-2.5-flash</code>.
+                  Tip: restrict the key to your site in AI Studio before sharing.
+                </p>
               </div>
             )}
 

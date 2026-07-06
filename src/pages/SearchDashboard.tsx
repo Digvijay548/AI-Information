@@ -44,6 +44,10 @@ import {
   Sliders,
   RefreshCw,
   AlertTriangle,
+  Globe,
+  ExternalLink,
+  Star,
+  Github,
 } from 'lucide-react'
 import {
   generateBlueprint,
@@ -53,6 +57,7 @@ import {
   type Blueprint,
 } from '../data/blueprint'
 import { generateSpec, getAIConfig, providerLabels } from '../lib/ai'
+import { fetchLiveInfo, type LiveInfo } from '../lib/liveData'
 import AISettings from '../components/AISettings'
 import FlowDiagram from '../components/FlowDiagram'
 import { useTheme } from '../context/ThemeContext'
@@ -147,6 +152,12 @@ export default function SearchDashboard() {
   const [error, setError] = useState<string | null>(null)
   const [settingsOpen, setSettingsOpen] = useState(false)
   const [regen, setRegen] = useState(0)
+  const [live, setLive] = useState<LiveInfo | null>(null)
+  const [liveLoading, setLiveLoading] = useState(true)
+  const [bannerDismissed, setBannerDismissed] = useState(
+    () => localStorage.getItem('techpulse-gemini-dismissed') === '1',
+  )
+  const usingFreeAI = getAIConfig().provider === 'pollinations'
 
   useEffect(() => {
     let cancelled = false
@@ -157,6 +168,19 @@ export default function SearchDashboard() {
     setBp(generateBlueprint(query))
     setSource('template')
     setEnhancing(true)
+    setLive(null)
+    setLiveLoading(true)
+
+    // 1) Real, keyless facts for the exact term (Wikipedia) — never static.
+    fetchLiveInfo(query, ctrl.signal)
+      .then((info) => {
+        if (!cancelled) setLive(info)
+      })
+      .finally(() => {
+        if (!cancelled) setLiveLoading(false)
+      })
+
+    // 2) Structured AI blueprint (upgrades the template when it arrives).
     ;(async () => {
       try {
         const spec = await generateSpec(query, getAIConfig(), ctrl.signal)
@@ -234,6 +258,15 @@ export default function SearchDashboard() {
             <AlertTriangle className="h-3.5 w-3.5" /> Built-in template
           </span>
         )}
+        {liveLoading ? (
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-500/10 px-3 py-1 text-xs font-semibold text-slate-400">
+            <RefreshCw className="h-3.5 w-3.5 animate-spin" /> Fetching live facts…
+          </span>
+        ) : live ? (
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-cyan-500/10 px-3 py-1 text-xs font-semibold text-cyan-500">
+            <Globe className="h-3.5 w-3.5" /> Live · {live.source}
+          </span>
+        ) : null}
         {!enhancing && error && (
           <span className="text-xs text-slate-400">
             Free AI was busy — for instant, reliable results add a free{' '}
@@ -250,6 +283,39 @@ export default function SearchDashboard() {
       </div>
 
       <AISettings open={settingsOpen} onClose={() => setSettingsOpen(false)} onSaved={() => setRegen((n) => n + 1)} />
+
+      {/* Connect Google AI banner (shown while on the flaky keyless default) */}
+      {usingFreeAI && !bannerDismissed && (
+        <motion.div
+          initial={{ opacity: 0, y: -8 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="mb-6 flex flex-wrap items-center gap-3 rounded-2xl border border-brand-400/30 bg-gradient-to-r from-brand-500/10 via-accent-violet/10 to-accent-cyan/10 p-4"
+        >
+          <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-brand-600 to-accent-violet text-white">
+            <Sparkles className="h-5 w-5" />
+          </span>
+          <div className="min-w-0 flex-1">
+            <p className="text-sm font-bold">Want faster, always-tailored results?</p>
+            <p className="text-xs text-slate-500 dark:text-slate-400">
+              You're on the free no-key engine (can be slow/busy). Connect <strong>Google AI (Gemini)</strong> — it's
+              free and takes ~30 seconds.
+            </p>
+          </div>
+          <button onClick={() => setSettingsOpen(true)} className="btn-primary shrink-0 !py-2 text-xs">
+            Connect Google AI
+          </button>
+          <button
+            onClick={() => {
+              localStorage.setItem('techpulse-gemini-dismissed', '1')
+              setBannerDismissed(true)
+            }}
+            className="grid h-8 w-8 shrink-0 place-items-center rounded-lg text-slate-400 hover:bg-black/5 dark:hover:bg-white/10"
+            aria-label="Dismiss"
+          >
+            <X className="h-4 w-4" />
+          </button>
+        </motion.div>
+      )}
 
       {/* Header */}
       <motion.div
@@ -335,6 +401,81 @@ export default function SearchDashboard() {
         >
           {tab === 'Overview' && (
             <>
+              {/* Live, real facts pulled for the exact term */}
+              {liveLoading && !live && (
+                <div className="glass p-5">
+                  <div className="skeleton mb-3 h-4 w-40 rounded" />
+                  <div className="skeleton mb-2 h-3 w-full rounded" />
+                  <div className="skeleton h-3 w-3/4 rounded" />
+                </div>
+              )}
+              {live && (
+                <div className="glass overflow-hidden p-5 sm:p-6">
+                  <div className="mb-3 flex items-center justify-between gap-2">
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-cyan-500/10 px-3 py-1 text-xs font-semibold text-cyan-500">
+                      <Globe className="h-3.5 w-3.5" /> Live facts · {live.source}
+                    </span>
+                    {live.url && (
+                      <a
+                        href={live.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1 text-xs font-semibold text-brand-500 hover:underline"
+                      >
+                        Source <ExternalLink className="h-3 w-3" />
+                      </a>
+                    )}
+                  </div>
+                  <div className="flex flex-col gap-4 sm:flex-row">
+                    {live.thumbnail && (
+                      <img
+                        src={live.thumbnail}
+                        alt={live.title}
+                        className="h-28 w-full rounded-xl object-cover sm:h-28 sm:w-40 sm:shrink-0"
+                        loading="lazy"
+                      />
+                    )}
+                    <div className="min-w-0">
+                      <h3 className="text-lg font-bold">{live.title}</h3>
+                      {live.description && (
+                        <p className="text-xs font-medium uppercase tracking-wide text-cyan-500">{live.description}</p>
+                      )}
+                      <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">{live.extract}</p>
+                      {live.repo && (
+                        <a
+                          href={live.repo.url}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="glass-hover mt-3 inline-flex items-center gap-2 rounded-lg border border-black/10 px-3 py-1.5 text-xs dark:border-white/10"
+                        >
+                          <Github className="h-3.5 w-3.5" />
+                          <span className="font-semibold">{live.repo.fullName}</span>
+                          <span className="inline-flex items-center gap-1 text-amber-500">
+                            <Star className="h-3 w-3 fill-amber-400 text-amber-400" />
+                            {live.repo.stars.toLocaleString()}
+                          </span>
+                          {live.repo.language && <span className="text-slate-400">· {live.repo.language}</span>}
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                  {live.related.length > 0 && (
+                    <div className="mt-4 flex flex-wrap items-center gap-1.5 border-t border-black/5 pt-3 dark:border-white/5">
+                      <span className="text-[11px] font-semibold text-slate-400">Related:</span>
+                      {live.related.map((r) => (
+                        <button
+                          key={r}
+                          onClick={() => navigate(`/search?q=${encodeURIComponent(r)}`)}
+                          className="chip glass-hover !px-2 !py-0.5 !text-[11px] hover:text-brand-500"
+                        >
+                          {r}
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              )}
+
               {/* Plain-English explainer */}
               <div className="glass relative overflow-hidden p-5 sm:p-6">
                 <div
